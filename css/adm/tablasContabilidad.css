@@ -1,0 +1,30 @@
+/*PARA LAS TABLAS DE LOS MENUS*/
+
+div.menuCatalogo
+{
+	text-align:center;
+	width:121px;
+	font-size:12px;
+	float:left;
+	margin-top:5px;
+	background-color:#108137;
+	color:#FFF;
+	height:50px;
+	margin-left:5px;
+	cursor:pointer;
+	padding-top:13px;
+	border: solid 1px #108137;
+}
+
+div.menuCatalogo:hover
+{
+	background-color:#FFF;
+	color:#108137;
+}
+
+div.menuCatalogo.activado
+{
+	background-color:#FFF;
+	color:#108137;
+	cursor:default;
+}

@@ -1,0 +1,58 @@
+[10-Oct-2025 07:12:23 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 07:12:24 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 07:12:24 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 07:12:25 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 07:12:25 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 07:12:26 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 08:54:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 08:54:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 11:55:25 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:55:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php:129
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php(70): AdSenseAuth->getToken(Object(PDO))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/index.php(52): AdSenseAuth->authenticate('sample_user')
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 13:02:14 America/Mexico_City] PHP Fatal error:  Call to a member function execute() on boolean in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129
+[10-Oct-2025 13:04:08 America/Mexico_City] PHP Fatal error:  Call to a member function execute() on boolean in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/adsense/AdSenseAuth.php on line 129

@@ -1,0 +1,41 @@
+[10-Oct-2025 10:34:37 UTC] PHP Fatal error:  Uncaught Error: Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 11:10:46 UTC] PHP Fatal error:  Uncaught Error: Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 11:14:18 UTC] PHP Fatal error:  Uncaught Error: Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26
+[10-Oct-2025 13:49:14 UTC] PHP Fatal error:  Uncaught Error: Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 14:25:31 UTC] PHP Fatal error:  Uncaught Error: Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 14:32:56 UTC] PHP Fatal error:  Uncaught Error: Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26
+[10-Oct-2025 15:31:28 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 15:33:20 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26
+[10-Oct-2025 15:37:53 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 15:38:33 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 15:39:36 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 15:43:28 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26
+[10-Oct-2025 15:45:13 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 15:47:14 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 15:49:12 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26
+[10-Oct-2025 15:51:21 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 15:52:19 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 15:54:27 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26
+[10-Oct-2025 15:58:14 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 16:02:08 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiFileCache.php on line 27
+[10-Oct-2025 16:02:56 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 16:05:03 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiApcCache.php on line 26
+[10-Oct-2025 16:13:09 America/Mexico_City] PHP Fatal error:  Class 'apiCache' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/cache/apiMemcacheCache.php on line 26

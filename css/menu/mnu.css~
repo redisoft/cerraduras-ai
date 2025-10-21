@@ -1,0 +1,100 @@
+table.menu { 
+     background:#b3b3b3; 
+border-collapse:collapse;
+      font-size:14px;
+    font-family:"Trebuchet MS";
+    font-weight:bold;
+     text-align:left;
+vertical-align:middle;
+}
+
+table.menu td.Titulo{
+    background:#009900;
+         color:#FFFFFF;
+}/*Titulo*/
+
+table.menu td.Titulo a.menu{
+    color:#FFFFFF;
+   text-decoration: none;
+}
+
+table.menu td, table.menu th { 
+         color:#5F5F5F;
+      /* padding:.6em;*/
+     padding-left:1em;
+       padding-top:0.3em;
+   padding-bottom:0.3em;
+           height:24px;
+   vertical-align:middle;
+}
+
+table.menu tr { 
+border:1px dotted #FFF;
+vertical-align:middle;
+}
+
+table.menu td a.menu { 
+ text-decoration:none;
+           color:#343434;
+}
+
+table.menu td a.menu:visited { 
+ text-decoration:none;
+}
+
+table.menu td a.menu:hover { 
+color:#FFF; 
+text-decoration:none;
+}
+table.menu th a.menu { 
+ font-weight:normal;
+ text-decoration:none;
+}
+table.menu th a.menu:hover { 
+color:#FFF;
+}
+
+table.menu  th, table.menu td { 
+ text-align:left;
+vertical-align:middle;
+}
+
+table.menu th:hover { 
+ text-decoration:none;
+           color:#FFF;
+}
+table.menu td:hover { 
+ text-decoration:none;
+           color:#FFF;
+}
+table.menu tr:hover { 
+    background:#009900;
+  	border:#FFF solid 1px;
+         color:#FFF;
+}
+
+.principal{
+    width: 204px;
+    height: 34px;
+    text-align: center;
+    font-size: 18px;
+    background: url('../../img/boton_verde.png') no-repeat;
+    color: #FFF;
+    padding-top:6px;
+}
+
+.principal a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.submennu{
+    border: 1px solid #FFF;
+    margin: 5px 0px;
+
+}
+
+.submennu .red{
+    color: #922e45;
+}
+

@@ -1,0 +1,49 @@
+a.escalaGrisesConfiguracion
+{
+	color:#CACACA !important;
+}
+
+a.escalaGrisesConfiguracion > span > img
+{
+	filter:  grayscale(1) !important;
+}
+
+img.escalaGrises
+{
+	filter:  grayscale(1) !important;
+	
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%); /* Para cuando es estándar funcione en todos */
+	filter: Gray(); /* IE4-8 and 9 */
+}
+
+label.escalaGrises
+{
+	color:#C9C9C9 !important;
+}
+
+a.escalaGrises
+{
+	color:#C9C9C9 !important;
+}
+
+li.escalaGrises
+{
+	color:#C9C9C9 !important;
+	background-color: #999 !important;
+	border-bottom: solid 1px #999 !important;
+}
+
+
+.contenidoLoader 
+{
+	height: 100% !important;
+	background: #858585;
+	z-index: 8888888 !important;
+	position: fixed !important;
+	width: 100% !important;
+	opacity: 0.4;
+}

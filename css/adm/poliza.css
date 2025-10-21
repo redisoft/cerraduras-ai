@@ -1,0 +1,175 @@
+*{ 
+	padding:0; margin:0;
+ }
+
+body
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:10px;
+	color:#050200;
+	background-color:#FFF;
+}
+
+
+.admintable tbody
+{
+	background:#fff;
+}
+
+table.admintable
+{
+	border-collapse:collapse; 
+}
+
+.admintable td
+{
+	
+}
+
+
+.admintable th
+{
+	border-bottom:1px solid #d5d5d5;
+	font-size:10px;
+	vertical-align:middle;
+	color:#000;
+	height:25px;
+	background-color:#95E76D;
+}
+
+
+/**ESTILOS PARA TABLAS INFORMACION*/
+table.admintable td
+{
+ 	vertical-align:middle;
+	font-size:7px;
+	color:#000;
+	height:20px;
+	border-left:2px solid #000;
+}
+
+table.admintable tr.sombreado
+{
+	background-color: #95E76D;
+}
+
+
+.trColor
+{
+	background-color:#356AA0;
+	color:#33C;
+}
+
+.tdColor
+{
+	 background-color:#356AA0;
+	 color:#FFF;
+}
+
+.tdTextos
+{
+	font-size:14px;
+}
+
+.leyendas
+{
+	font-size:10px;
+}
+.margenFactura
+{
+	-moz-border-radius: 10px;
+	border:solid 0.1px;
+	border-color:#000;
+	-webkit-border-radius: 7px;
+	/*background-image:url(../../img/contornoFactura.png);
+	background:center;*/
+}
+
+.thFactura
+{
+	background-color:#800000; 
+	color:#FFF;
+	height:18px;
+	font-size:10px;
+}
+
+.tdFactura
+{
+	color:#000; 
+	border-bottom:1px solid #999; 
+	font-size:11px
+}
+
+.trDatos
+{
+	font-size:11px
+}
+
+.divDatos
+{
+	border:solid 1px;
+	-webkit-border-radius: 7px;
+	width:500px;
+	
+}
+
+.divEncabezados
+{
+	/*border:solid 1px;*/
+	width:460px;
+	height:140px;
+	margin-top:5px;
+	font-size:9px;
+	position:absolute;
+	
+}
+
+.divCliente
+{
+	/*border:solid 1px;*/
+	-webkit-border-radius: 7px;
+	width:320px;
+	min-height:25px;
+	margin-top:5.5px;
+	font-size:12px;
+	padding-left:20px;
+	color:#696969;
+	font-size:9px; 
+}
+
+.divEmpresa
+{
+	font-size:9px; 
+	padding-left:60px; 
+	padding-top:17px;
+	/*background-image:url(../../img/logo.png);
+	//background-repeat:no-repeat;
+	//background-position:center;*/
+	width:460px;
+	color:#696969;
+}
+
+.divTitulos
+{
+	background-color:#95E76D; 
+	height:20px; 
+	border-top-left-radius:15px; 
+	border-top-right-radius:15px; 
+	padding-left:20px;
+}
+
+.divTitulosGrandes
+{
+	border-radius: 10px; 
+	border: solid 1px #000; 
+	width:200px; 
+	height:30px; 
+	background-color:#95E76D;
+	font-size:14px;
+	font-weight:bold;
+	line-height:30px;
+	text-align:center;
+}
+
+
+

@@ -1,0 +1,989 @@
+
+/* CSS Document */
+
+*{ 
+	padding:0; margin:0;
+ }
+
+body
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:10px;
+	color:#000;
+	background-color:#FFF;
+}
+
+i
+{
+	color: #CF1919;
+	font-weight:600;
+}
+
+label
+{
+	color: #CF1919;
+}
+
+a
+{
+	color:#CF1919;
+	font-size:13px;
+	//text-decoration: underline;
+}
+
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error 
+{
+	border: 1px solid #CF1919; 
+	width:100%; 
+}
+
+form
+{
+	width:100%
+}
+
+a:link
+{
+    text-decoration: none;
+}
+
+img
+{
+	border:none;
+}
+
+.main
+{
+	width:1200px;
+	background-color:#FFF;
+	margin:0px auto;
+	min-height:700px;
+}
+
+	
+h3.principal
+{
+	font-size: 14px;
+	color:#9a9b9a;
+}
+
+.header
+{
+	width:100%;
+	background: color:#000;
+	height: 20px;
+	border:none;
+}
+
+.arriba
+{
+	width:100%;
+}
+
+
+table.header
+{
+	background-color:#C4B699;
+	font-family:"Trebuchet MS";
+	font-weight:bold;
+	color:#FFF;
+}
+
+table.header label
+{
+	color:#CF1919;
+	font-weight:bold;
+}
+
+h1
+{
+	color:#000;
+	font-size:21px;
+}
+
+
+table label
+{
+  	vertical-align:middle;
+     font-size:13px;
+}
+
+/*Stilo tablas*/
+.admintable tbody
+{
+	background:#fff;
+	cursor:pointer;
+}
+
+.admintable
+{
+	background:#fff;
+	cursor:pointer;
+	border-collapse:collapse;
+	margin-top:2px;
+}
+
+
+.admintable td
+{
+	padding:3px;
+	border:1px solid #000;
+	vertical-align:middle;
+}
+
+.admintable img
+{
+    border:none;
+}
+
+
+.admintable th
+{
+	padding:3px;
+	background-color:#f6f6f6;
+	font-weight:normal;
+	font-size:13px;
+	vertical-align:middle;
+	color:#000;
+	border:1px solid #000;
+	font-weight:bold;
+}
+
+.admintable th.encabezadoPrincipal
+{
+	height:40px;
+	background-image: linear-gradient(bottom, #C5D5D6 66%, #C5D5D6 68%, #E4ECED 92%);
+	background-image: -o-linear-gradient(bottom, #C5D5D6 66%, #C5D5D6 68%, #E4ECED 92%);
+	background-image: -moz-linear-gradient(bottom, #C5D5D6 66%, #C5D5D6 68%, #E4ECED 92%);
+	background-image: -webkit-linear-gradient(bottom, #C5D5D6 66%, #C5D5D6 68%, #E4ECED 92%);
+	background-image: -ms-linear-gradient(bottom, #C5D5D6 66%, #C5D5D6 68%, #E4ECED 92%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.66, #C5D5D6),
+		color-stop(0.68, #C5D5D6),
+		color-stop(0.92, #E4ECED)
+	);
+}
+
+.admintable th.encabezadoTablero
+{
+	color:#CF1919;
+	border:none;
+	background-color:#FFF;
+	text-align:left;
+}
+
+.admintable th.encabezadoTablero a
+{
+	color:#CF1919;
+}
+
+.admintable caption
+{
+	color:#586e83;
+	font-weight:normal;
+	text-align:center;
+	padding-right:8px;
+}
+
+.admintable thead
+{
+	height:25px;
+	color:#265f7a;
+	/*vertical-align:top;*/
+}
+/**ESTILOS PARA TABLAS INFORMACION*/
+table.admintable td
+{
+	padding-top: 3px;
+	padding-right: 4px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+	font-size:11px;
+	color:#000;
+}
+
+table.admintable td.totales
+{
+	font-weight:bold;
+}
+
+table.admintable td label
+{
+	font-weight:100;
+	font-size:11px;
+}
+
+table.admintable tr.sombreado
+{
+	background-color: #EEE;
+}
+
+
+table.admintable tr.sinSombra:hover
+{
+	background-color:#D2D6D3;
+}
+
+table.admintable tr.sombreado:hover
+{
+	background-color:#D2D6D3;
+}
+
+
+table.admintable td img
+{
+    border:none;
+}
+
+table.admintable td a
+{
+	text-decoration:none;
+	color:#CF1919;
+	font-size:11px;
+	//font-weight:bold;
+}
+
+table.admintable th a
+{
+	text-decoration:none;
+	color:#696969;
+	//font-weight:bold;
+}
+
+
+table.admintable tr.devolucion td a, tr.devolucion td
+{
+	color:red;
+}
+
+table.admintable td.key, table.admintable td.paramlist_key
+{
+	background-color: #f6f6f6;
+	text-align: right;
+	width: 230px;
+	color: #666666;
+	font-weight: bold;
+	border: 1px solid #e9e9e9;
+}
+
+table.admintable td.SubKey
+{
+	background-color: #f6f6f6;
+	color: #666666;
+	font-weight: bold;
+	border: 1px solid #e9e9e9;
+}
+table.admintable td:hover{
+ /*cursor:pointer;*/
+}
+
+
+/**ESTILOS PARA TABLAS INFORMACION*/
+table.factura td{
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+	font-size:11px;
+	color:#696969;
+	font-size:12px;
+	font-family:"Arial";
+}
+
+table.factura td.No{
+ font-size:17px;
+text-align:center;
+     color:#D8000C;
+}
+
+table.factura input.cajas{
+    background-color:#FFF;
+               color:#535353;
+           font-size:12px;
+              border:1px solid #d5d5d5;
+    width:60%;
+    text-align:center;
+}
+
+table.factura input.cajass{
+    background-color:#f6f6f6;
+               color:#535353;
+           font-size:13px;
+              border:none;
+          text-align:left;
+          width:300px;
+}
+
+
+table.factura td.titulos
+{
+	text-align:center;
+	vertical-align:middle;
+}
+
+table.factura td.cabe
+{
+	background-color:#000000;
+	color:#FFFFFF;
+	text-align:center;
+	font-weight:bold;
+}
+
+table.factura td.pie
+{
+	text-align:justify;
+	font-size:10px;
+	color:#000000;
+	font-weight:bold;
+}
+
+
+table.factura td.key, table.admintable td.paramlist_key{
+	background-color: #f6f6f6;
+	text-align: right;
+	width: 230px;
+	color: #666666;
+	font-weight: bold;
+	border: 1px solid #e9e9e9;
+}
+
+table.factura td:hover{
+ /*cursor:pointer;*/
+}
+
+.errors_system{
+	color:#D8000C;
+}
+
+.formulario .error{
+	color:#a52a2a;
+}
+
+
+/*  Complemento del Error */
+
+.error_cpt{
+  font-size:12px;
+       width:91%;
+ margin-left:4%;
+}
+
+/* Stilo de Tabs*/
+
+.Error_validar
+{
+	width:95%;
+	float:left;
+	color: #FFF;
+	background-color: #CF1919;
+	font-family:Verdana;
+	font-size:12px;	
+	border: 1px solid;
+	margin: 10px 0px;
+	padding:5px 3px 7px 10px;
+	background-repeat: no-repeat;
+	background-position:10px center;
+}
+
+.ExitoRespuesta
+{
+	width:95%;
+	float:left;
+	color: #4F8A10;
+	background-color:#DFF2BF;
+	font-family:Verdana;
+	font-size:12px;	
+	border: 1px solid;
+	margin: 10px 0px;
+	padding:5px 3px 7px 10px;
+	background-repeat: no-repeat;
+	background-position:10px center;
+}
+
+
+.letras
+{
+	text-align:center;
+	margin-top:10px;
+}
+
+div.izquierda
+{
+	width: 1200px;
+	height:30px; 
+	//background-color:#CF1919;
+}
+
+
+.sinbordes
+{
+	-moz-border-radius: 0px
+}
+
+.bordesAbajo
+{
+	-moz-border-radius-bottomleft: 0px;
+	-moz-border-radius-topleft: 0px;
+}
+
+.bordesArriba
+{
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-topright: 0px;
+}
+
+/*TABLA RUTA 17 */
+
+
+.tablaNota17
+{
+	background:#fff;
+	border-collapse:collapse;
+	margin-top:2px;
+	width: 100%;
+}
+
+
+.tablaNota17 td
+{
+	padding:3px;
+	border:2px solid #000;
+	vertical-align:middle;
+	border-collapse:collapse;
+	text-align: center;
+	font-size: 14px;
+	color: #000;
+	
+}
+
+.tablaNota17 td.fecha
+{
+	height: 40px;
+}
+
+
+.tablaEncabezado17
+{
+	background:#fff;
+	border-collapse:collapse;
+	margin-top:2px;
+	width: 100%;
+}
+
+
+.tablaEncabezado17 td
+{
+	padding:3px;
+	vertical-align:middle;
+	border-collapse:collapse;
+	text-align: center;
+	font-size: 14px;
+	color: #000;
+}
+
+.tablaEncabezado17 td.lasMejores
+{
+	font-size: 28px;
+}
+
+.tablaCliente17
+{
+	background:#fff;
+	border-collapse:collapse;
+	margin-top:2px;
+	width: 100%;
+}
+
+
+.tablaCliente17 td
+{
+	padding:3px;
+	vertical-align:middle;
+	border-collapse:collapse;
+	font-size: 14px;
+	color: #000;
+	
+}
+
+.tablaCliente17 td.bordeAbajo
+{
+	padding:3px;
+	border-bottom:1px solid #000;
+	vertical-align:middle;
+	border-collapse:collapse;
+	font-size: 14px;
+	color: #000;
+	
+}
+
+
+.tablaProductos17
+{
+	background:#fff;
+	border-collapse:collapse;
+	margin-top:10px;
+	width: 100%;
+	z-index: -1;
+}
+
+.tablaProductos17 td
+{
+	padding:3px;
+	border:1px solid #000;
+	vertical-align:middle;
+	border-collapse:collapse;
+	font-size: 14px;
+	color: #000;
+	
+}
+
+.tablaProductos17 th
+{
+	padding:3px;
+	border:1px solid #000;
+	border-bottom:2px solid #000;
+	vertical-align:middle;
+	border-collapse:collapse;
+	font-size: 14px;
+	color: #000;
+	
+}
+
+.tablaProductos17 td.sinBordes
+{
+	padding:3px;
+	border: none;
+	vertical-align:middle;
+	border-collapse:collapse;
+	font-size: 14px;
+	color: #000;
+	text-align: right;
+	
+}
+
+/*COTIZACIÓN*/
+
+.filaNegra 
+{
+	width: 65%;
+	height: 35px;
+	color: #FFF;
+	background-color: #000;
+	font-size: 20px;
+	line-height: 35px;
+	padding-left: 10px;
+	float: left;
+}
+
+.filaFolio 
+{
+	width: 12%;
+	height: 35px;
+	color: #000;
+	background-color: #F4DC2C;
+	font-size: 20px;
+	line-height: 35px;
+	margin-left: 10px;
+	float: left;
+	text-align: center;
+}
+
+.vendedor 
+{
+	width: 19%;
+	float: left;
+	color: #000;
+	background-color: #F4DC2C;
+	text-align: center;
+	height: 35px;
+	font-size: 20px;
+	line-height: 35px;
+}
+
+.vendedorCaja 
+{
+	width: 25%;
+	height: 35px;
+	color: #000;
+	font-size: 16px;
+	float: left;
+	border: solid 1px #000;
+	text-align: center;
+	line-height: 35px;
+}
+
+.ordenServicio 
+{
+	width: 14%;
+	float: left;
+	color: #000;
+	background-color: #F4DC2C;
+	text-align: center;
+	height: 35px;
+	font-size: 16px;
+	line-height: 35px;
+}
+
+.ordenServicioCaja
+{
+	width: 17%;
+	height: 35px;
+	color: #000;
+	font-size: 14px;
+	float: left;
+	border: solid 1px #000;
+	text-align: center;
+	line-height: 35px;
+}
+
+.filaFolioCaja 
+{
+	width: 18%;
+	height: 35px;
+	color: #000;
+	font-size: 20px;
+	line-height: 30px;
+	margin-left: 10px;
+	float: left;
+	border: solid 1px #000;
+	text-align: center;
+}
+
+.filaLogotipo 
+{
+	width: 24%;
+	float: left;
+	text-align: center;
+}
+
+.filaPlazos
+{
+	width: 59%;
+	float: left;
+	font-size: 14px;
+}
+
+.filaTotales
+{
+	width: 35%;
+	float: left;
+}
+
+.filaComentariosTotales
+{
+	background-color: #F4F4F4;
+	height: 70px;
+	
+}
+
+.tablaCotizaciones
+{
+	background:#fff;
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 4px;
+}
+
+
+.tablaCotizaciones th 
+{
+	padding: 3px;
+	background-color: #F4F4F4;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #000;
+	height: 35px;
+	border-collapse: collapse;
+	border-top: solid 3px #C9C9C9;
+	border-bottom: solid 3px #C9C9C9;
+}
+
+
+.tablaCotizaciones th.textoIzquierda
+{
+	text-align: left;
+}
+
+.tablaCotizaciones td
+{
+	padding:3px;
+	font-size: 13px;
+	color: #000;
+	border-collapse: collapse;
+	vertical-align: top;
+}
+
+.tablaCotizaciones td.normal
+{
+	padding:3px;
+	font-size: 13px;
+	color: #000;
+	border-collapse: collapse;
+	border-bottom: dashed 1px #446C84;
+	vertical-align: central;
+	min-height: 30px;
+	height: 30px;
+}
+
+.tablaCotizaciones td.pleca
+{
+	border-bottom: solid 3px #446C84;
+}
+
+.tablaCotizaciones td.plecaIzquierda
+{
+	border-left: solid  6px #F4AC04;
+}
+
+.tablaCotizaciones td.numeral
+{
+	color: #C5D5D6;
+	text-align: center;
+	width: 5%;
+}
+
+.tablaCotizaciones td.cincuenta
+{
+	width: 50%;
+}
+
+.tablaCotizaciones td.veinticinco
+{
+	width: 25%;
+}
+
+.tablaCotizaciones td.bordes
+{
+	border: solid 1px #000;
+	
+}
+
+.filaTituloCotizacion {
+	margin-top: 7px;
+	width: 100%;
+	height: 42px;
+	color: #000;
+	background-color: #F4DC2C;
+	font-size: 24px;
+	text-align: center;
+	line-height: 42px;
+}
+
+
+.tablaProductos
+{
+	background:#fff;
+	width: 100%;
+	border-spacing: 3px 3px;
+}
+
+
+.tablaProductos th 
+{
+	padding: 3px;
+	background-color: #F4DC2C;
+	vertical-align: middle;
+	font-size: 16px;
+	color: #000;
+	height: 20px;
+	border-spacing: 3px 3px;
+	border: solid 1px #B3A2DE;
+}
+
+.tablaProductos th.productos
+{
+	height: 60px;
+}
+
+
+.tablaProductos th.textoIzquierda
+{
+	text-align: left;
+}
+
+.tablaProductos td
+{
+	padding:3px;
+	font-size: 11px;
+	color: #000;
+	border-spacing: 3px 3px;
+	height: 18px !important;
+	background-color: #DCDCD4;
+	border: solid 1px #B3A2DE;
+}
+
+.tablaProductos td.sinBordes
+{
+	padding:3px;
+	border: none;
+	vertical-align:middle;
+	background-color: #FFF;
+	
+}
+
+.firmaCliente 
+{
+	width: 100%;
+	text-align: center;
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.filaEmpresa
+{
+	width: 50%;
+	float: left;
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.tablaEncabezados
+{
+	background:#fff;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tablaEncabezados th 
+{
+	padding: 3px;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #000;
+	height: 32px;
+	border-collapse: collapse;
+	border-bottom: dashed 1px #446C84;
+}
+
+.tablaEncabezados th.plecaNaranja 
+{
+	border-left: solid 8px #F4AC04;
+	font-size: 16px;
+}
+
+
+.tablaEncabezados th.textoIzquierda
+{
+	text-align: left;
+}
+
+.tablaEncabezados td
+{
+	padding:3px;
+	font-size: 13px;
+	color: #000;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.tablaEncabezados td.pleca
+{
+	border-bottom: dashed 1px #446C84;
+}
+
+.tablaSucursales
+{
+	background: #fff;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tablaSucursales td
+{
+	padding: 3px;
+	vertical-align: middle;
+	font-size: 16px;
+	border-collapse: collapse;
+}
+
+.tablaSucursales td.empresa
+{
+	padding: none;
+	vertical-align: middle;
+	font-size: 16px;
+	border-collapse: collapse;
+}
+
+.tablaSucursales td.resaltado
+{
+	background-color: #F4F4F4;
+	vertical-align: middle;
+	font-size: 18px;
+	border-collapse: collapse;
+	font-weight: bold;
+	text-align: right;
+}
+
+.tablaSucursales td.informacion
+{
+	vertical-align: middle;
+	font-size: 18px;
+	border-collapse: collapse;
+	font-weight: bold;
+	text-align: right;
+}
+
+.tablaSucursales td.clienteEtiquetas
+{
+	vertical-align: middle;
+	font-size: 10px;
+	border-collapse: collapse;
+	text-align: right;
+	width: 15%;
+}
+
+.tablaSucursales td.cliente
+{
+	vertical-align: middle;
+	font-size: 12px;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+
+
+
+
+.tablaVarios
+{
+	background: #fff;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tablaVarios th 
+{
+	padding: 3px;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #666666;
+	border-collapse: collapse;
+}
+
+.tablaVarios td.etiqueta
+{
+	color: #000;
+	font-weight: bold;
+}
+
+.tablaVarios td.etiqueta
+{
+	padding: 3px;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #666666;
+	border-collapse: collapse;
+}
+
+.division 
+{
+	width: 100%;
+	height: 3px;
+	background-color: #C9C9C9;
+}

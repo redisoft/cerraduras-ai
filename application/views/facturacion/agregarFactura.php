@@ -1,0 +1,107 @@
+<script type="text/javascript" src="<?php echo base_url()?>js/facturacion.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/ocultar.js"></script>
+<div style="width:1000px; height:600px">
+<div class="barraherramientas">
+<div align="center">
+<img title="Guardar factura" src="<?php echo base_url()?>img/guardar.png" class="botonesBarra" id="agregarFactura" />
+</div>
+<div align="center" id="agregandoInformacion"></div>
+</div>
+<form id="frmFactura" name="frmFactura" >
+<table class="admintabla" width="99%">
+
+<tr>
+	<th colspan="4">DATOS DE LA EMPRESA</th>
+</tr>
+<tr class="arriba">
+	<td  class="etiquetas">Nombre:</td>
+    <td>
+    	<textarea class="textos" name="txtNombre" id="txtNombre" style="height:35px"></textarea>
+    </td>
+	<td  class="etiquetas">RFC:</td>
+    <td>
+    	<input type="text" class="textos" name="txtRfc" id="txtRfc"  />
+    </td>
+</tr>
+<tr class="abajo">
+	<td  class="etiquetas">Dirección:</td>
+    <td>
+    	<textarea class="textos" name="txtDireccion" id="txtDireccion" style="height:35px"></textarea>
+    </td>
+	<td  class="etiquetas">Número:</td>
+    <td>
+    	<input type="text" class="textos" name="txtNumero" id="txtNumero"  />
+    </td>
+</tr>
+<tr class="arriba">
+	<td  class="etiquetas">Colonia:</td>
+    <td>
+        <textarea class="textos" name="txtColonia" id="txtColonia" style="height:35px"></textarea>
+    </td>
+	<td  class="etiquetas">Código postal:</td>
+    <td>
+    	<input type="text" class="textos" name="txtCodigo" id="txtCodigo"  />
+    </td>
+</tr>
+<tr class="abajo">
+	<td  class="etiquetas">Ciudad:</td>
+    <td>
+    	<input type="text" class="textos" name="txtCiudad" id="txtCiudad"  />
+    </td>
+	<td  class="etiquetas">Estado:</td>
+    <td>
+    	<input type="text" class="textos" name="txtEstado" id="txtEstado"  />
+    </td>
+</tr>
+<tr class="arriba">
+	<td  class="etiquetas">Pais:</td>
+    <td>
+    	<input type="text" class="textos" name="txtPais" id="txtPais"  />
+    </td>
+	<td  class="etiquetas">Teléfono:</td>
+    <td>
+    	<input type="text" class="textos" name="txtTelefono" id="txtTelefono"   />
+    </td>
+</tr>
+<tr class="abajo">
+	<td  class="etiquetas">Email:</td>
+    <td>
+    	<input type="text" class="textos" name="txtEmail" id="txtEmail"  />
+    </td>
+    <td colspan="2"></td>
+</tr>
+
+</table>
+
+<table class="admintabla" width="99%" id="tablaFactura">
+<tr>
+	<th colspan="5">
+    CONCEPTOS
+		<img onclick="agregarConcepto()" src="<?php echo base_url()?>img/agregar.png" 
+        	class="botonesGeneral" style="cursor:pointer" title="Agregar Concepto">
+            
+            <img onclick="actualizarPreciosFactura()" src="<?php echo base_url()?>img/actualizar.png" 
+        	class="botonesGeneral" style="cursor:pointer" title="Actualizar precios">
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            SUBTOTAL $
+            <input style="width:100px" value="0" type="text" class="textos" name="txtSubTotal" id="txtSubTotal" readonly="readonly"  />&nbsp;
+            DESCUENTO %
+            <input style="width:50px" value="0" type="text" class="textos" name="txtDescuento" id="txtDescuento"  />&nbsp;
+            IVA %
+            <input style="width:50px" value="0" type="text" class="textos" name="txtIva" id="txtIva"  />&nbsp;
+            TOTAL $
+            <input style="width:100px" value="0" type="text" class="textos" name="txtTotal" id="txtTotal" readonly="readonly"  />
+            <input type="hidden" class="textos" name="contadorConceptos" value="1" id="contadorConceptos"  />
+	    </th>
+</tr>
+<tr>
+	<th width="3%"></th>
+    <th width="30%">Descripción</th>
+    <th width="10%">Cantidad</th>
+    <th width="15%">Precio unitario</th>
+    <th width="15%">Importe</th>
+</tr>
+</table>
+</form>
+</div>

@@ -1,0 +1,360 @@
+/*MENU DE BARRA */
+
+.barraMenu
+{
+	background-color:#000; 
+	width:100%; 
+	height:4vh;
+	text-align:right;
+}
+
+.barraMenu > img
+{
+	width:2.3vh;
+	height:2.3vh;
+	position:relative;
+	z-index:10000;
+}
+
+ul.menuBarra
+{
+	list-style:none;
+	margin-left:0px;
+}
+
+ul.menuBarra li
+{
+	display:block;
+	position:relative;
+	width:6vh;
+	height:4vh;
+	color:#FFF;
+	font-size:1.1vh;
+	font-weight:100;
+	cursor:pointer;
+	float:right;
+	background-color:#000;
+	background-repeat:no-repeat;
+	background-size: 3vh 3vh;
+	background-position: 0.3vh 0.2vh;
+	padding-left:3vh;
+	font-size:1.7vh;
+	line-height:2.9vh;
+	z-index:92;
+	border: solid 0.1vh #000;
+}
+
+ul.menuBarra li:after
+{
+	content: "▼";
+	display:inline-block;
+    transform:scale(1.2,0.5); /* W3C */
+    -webkit-transform:scale(1.2,0.5); /* Safari and Chrome */
+    -moz-transform:scale(1.2,0.5); /* Firefox */
+    -ms-transform:scale(1.2,0.5); /* IE 9 */
+    -o-transform:scale(1.2,0.5); /* Opera */
+}
+
+ul.menuBarra li:hover
+{
+	background-color:#FFF !important;
+	color:#000 !important;
+}
+
+
+
+ul.menuBarra li ul
+{
+	top: 3.5vh;
+}
+
+ul.menuBarra li.recargar
+{
+	background-image:url(../../img/menuBarra/recargar-b.png);
+	width: 3.5vh;
+}
+
+ul.menuBarra li.recargar:after
+{
+	content: "";
+}
+
+ul.menuBarra li.recargar:hover
+{
+	background-image:url(../../img/menuBarra/recargar.png);
+}
+
+ul.menuBarra li.nube
+{
+	background-image:url(../../img/menuBarra/nube.png);
+	width: 3.5vh;
+}
+
+ul.menuBarra li.nube:after
+{
+	content: "";
+}
+
+ul.menuBarra li.nube:hover
+{
+	background-image:url(../../img/menuBarra/nube-b.png);
+}
+
+ul.menuBarra li.local
+{
+	background-image:url(../../img/menuBarra/local.png);
+	width: 3.5vh;
+}
+
+ul.menuBarra li.local:after
+{
+	content: "";
+}
+
+ul.menuBarra li.local:hover
+{
+	background-image:url(../../img/menuBarra/local-b.png);
+}
+
+
+
+
+ul.menuBarra li.conectado
+{
+	background-image:url(../../img/menuBarra/conectado-b.png);
+	width:3.5vh;
+}
+
+ul.menuBarra li.conectado:after
+{
+	content: "";
+}
+
+ul.menuBarra li.conectado:hover
+{
+	background-image:url(../../img/menuBarra/conectado.png);
+}
+
+ul.menuBarra li.desconectado
+{
+	background-image:url(../../img/menuBarra/desconectado-b.png);
+	width:1vh;
+}
+
+ul.menuBarra li.desconectado:after
+{
+	content: "";
+}
+
+ul.menuBarra li.desconectado:hover
+{
+	background-image:url(../../img/menuBarra/desconectado.png);
+}
+
+ul.menuBarra li.usuarioRegistrado
+{
+	display:block;
+	position:relative;
+	width:20vh;
+	height:4vh;
+	color:#FFF;
+	font-size:1.7vh;
+	font-weight:100;
+	cursor:pointer;
+	float:right;
+	background-image:url(../../img/menuBarra/usuario-b.png);
+	background-repeat:no-repeat;
+	background-size: 3vh 3vh;
+	background-position: 0.5vh 0.2vh;
+	text-align:left;
+	vertical-align:middle;
+	line-height:3vh;
+}
+
+ul.menuBarra li.usuarioRegistrado:hover
+{
+	background-image:url(../../img/menuBarra/usuario.png);
+}
+
+ul.menuBarra ul
+{
+	position:absolute;
+	top:2.6vh;
+	display:none;
+	right:0vh;
+	list-style:none;
+}
+
+ul.menuBarra li:hover > ul
+{
+	display:block;
+}
+
+ul.menuBarra li.usuarioRegistrado > ul > li
+{
+	width:16vh;
+	height:4vh;
+	left:0.1vh;
+}
+
+
+ul.menuBarra li.usuarioRegistrado > ul > li.configuracion
+{
+	background-image:url(../../img/menuBarra/configuracion-b.png);
+	
+}
+
+ul.menuBarra li.usuarioRegistrado > ul > li.configuracion:hover
+{
+	background-image:url(../../img/menuBarra/configuracion.png);
+	
+}
+
+ul.menuBarra li.usuarioRegistrado > ul > li.configuracion:after
+{
+	display: block;
+    content: "▲";
+    position:absolute;
+    top:-1.6vh;
+    right: 1.5vh;
+    width: 2vh;
+    height: 2vh;
+	
+}
+
+
+ul.menuBarra li.usuarioRegistrado > ul > li.salir
+{
+	background-image:url(../../img/menuBarra/salir-b.png);
+}
+
+ul.menuBarra li.usuarioRegistrado > ul > li.salir:hover
+{
+	background-image:url(../../img/menuBarra/salir.png);
+}
+
+ul.menuBarra li.usuarioRegistrado > ul > li.salir:after
+{
+	content: ""
+}
+
+/*MENU AYUDA*/
+ul.menuBarra li.ayuda
+{
+	background-image:url(../../img/menuBarra/ayuda-b.png);
+}
+
+ul.menuBarra li.ayuda:hover
+{
+	background-image:url(../../img/menuBarra/ayuda.png);
+}
+
+ul.menuBarra li.ayuda > ul > li
+{
+	width:16vh;
+	height:4vh;
+	left:0.1vh;
+	text-align:left;
+}
+
+ul.menuBarra li.ayuda > ul > li:after
+{
+	content: "";
+}
+
+ul.menuBarra li.ayuda > ul > li.email
+{
+	background-image:url(../../img/menuBarra/email-b.png);
+	background-size: 2.1vh 1.7vh;
+	background-position: 0.5vh 0.4vh;
+}
+
+ul.menuBarra li.ayuda > ul > li.email:hover
+{
+	background-image:url(../../img/menuBarra/email.png);
+}
+
+ul.menuBarra li.ayuda > ul > li.email:after
+{
+	display: block;
+    content: "▲";
+    position:absolute;
+    top:-1.6vh;
+    right: 0.5vh;
+    width: 2vh;
+    height: 2vh;
+}
+
+ul.menuBarra li.ayuda > ul > li.tutorial
+{
+	background-image:url(../../img/menuBarra/tutorial-b.png);
+}
+
+ul.menuBarra li.ayuda > ul > li.tutorial:hover
+{
+	background-image:url(../../img/menuBarra/tutorial.png);
+}
+
+ul.menuBarra li.ayuda > ul > li.manual
+{
+	background-image:url(../../img/menuBarra/manual-b.png);
+}
+
+ul.menuBarra li.ayuda > ul > li.manual:hover
+{
+	background-image:url(../../img/menuBarra/conectados.png);
+}
+
+/*MENU USUARIOS*/
+ul.menuBarra li.conectados
+{
+	background-image:url(../../img/menuBarra/conectados-b.png);
+}
+
+ul.menuBarra li.conectados:hover
+{
+	background-image:url(../../img/menuBarra/conectados.png);
+}
+
+ul.menuBarra li.conectados > ul > li
+{
+	min-width:16vh;
+	width:auto !important;
+	height:3vh;
+	left:0.1vh;
+	text-align:left;
+	padding-left:0.5vh;
+}
+
+ul.menuBarra li.conectados > ul > li:after
+{
+	content: "";
+}
+
+ul.menuBarra li.conectados > ul > li.primerUsuario:after
+{
+	display: block;
+    content: "▲";
+    position:absolute;
+    top:-1.6vh;
+    right: 0.5vh;
+    width: 2vh;
+    height: 2vh;
+}
+
+/**/
+/*EXTRAS EN CAJAS DE TEXTO*/
+
+.cajasSeleccionar
+{
+	color:#666 !important;
+	font-style:italic;
+}
+
+.letras
+{
+	text-align:center;
+	margin-top:1.5vh;
+	height:3.8vh;
+	z-index:500;
+}

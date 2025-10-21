@@ -1,0 +1,11 @@
+div.breadcumb
+{
+	font-size:13px !important;
+	font-style:italic;
+}
+
+div.breadcumb a
+{
+	font-size:13px !important;
+	text-decoration:underline !important;
+}

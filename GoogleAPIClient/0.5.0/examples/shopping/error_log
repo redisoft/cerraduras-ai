@@ -1,0 +1,83 @@
+[10-Oct-2025 11:19:26 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:19:26 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 143
+[10-Oct-2025 11:19:26 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-res in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:51:49 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:51:49 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 143
+[10-Oct-2025 11:51:49 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-res in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 16:50:08 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:50:08 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 143
+[10-Oct-2025 16:50:09 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-res in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 10:56:43 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:15:24 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:22:01 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:25:07 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:31:57 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:33:27 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:41:09 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:48:17 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/shopping/search/v1/public/products?country=US&q=%22mp3%20player%22%20%7C%20ipod&rankBy=relevancy&key=replaceme: (404) <!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86

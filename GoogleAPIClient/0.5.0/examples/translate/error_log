@@ -1,0 +1,74 @@
+[10-Oct-2025 09:57:37 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 09:57:37 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 12:54:03 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 12:54:03 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:03:47 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:08:51 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:14:53 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:18:24 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:36:24 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:37:12 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:43:00 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/language/translate/v2/languages?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiTranslateService.php(45): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/translate/simple.php(13): LanguagesServiceResource->listLanguages()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86

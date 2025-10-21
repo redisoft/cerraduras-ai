@@ -1,0 +1,77 @@
+[10-Oct-2025 08:58:38 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 08:58:38 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 08:58:42 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 08:58:42 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 11:59:12 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:59:12 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 11:59:13 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:59:13 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:07:38 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:07:38 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:07:39 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:07:39 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:07:43 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:07:43 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:15:11 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:15:11 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:21:05 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:21:05 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:21:55 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:21:55 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:24:53 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:24:53 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:27:46 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:27:46 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:34:04 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:34:04 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/AllTests.php(25): require_once()
+#1 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19
+[10-Oct-2025 15:35:36 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:35:36 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPUnit_Framework_TestCase' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/test/BaseTest.php on line 19

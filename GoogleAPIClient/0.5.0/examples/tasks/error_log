@@ -1,0 +1,56 @@
+[10-Oct-2025 07:12:24 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:24 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 07:12:25 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:25 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 07:12:26 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:26 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 07:12:26 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:26 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 07:12:26 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:26 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 07:12:27 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 07:12:27 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 08:53:21 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 08:53:21 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144
+[10-Oct-2025 11:53:52 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:53:52 UTC] PHP Fatal error:  Uncaught apiAuthException: Could not json decode the access token in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php:144
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/apiClient.php(186): apiOAuth2->setAccessToken(NULL)
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/tasks/index.php(37): apiClient->setAccessToken(NULL)
+#2 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/auth/apiOAuth2.php on line 144

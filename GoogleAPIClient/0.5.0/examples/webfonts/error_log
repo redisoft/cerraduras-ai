@@ -1,0 +1,98 @@
+[10-Oct-2025 11:04:36 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:04:36 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 14:21:55 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 14:21:55 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 14:43:58 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 14:43:58 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 15:55:34 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:55:34 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 15:59:11 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 15:59:11 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 16:19:18 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:19:18 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 16:22:09 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:22:09 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 16:31:11 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:31:11 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 16:39:36 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:39:36 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 16:44:05 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:44:05 UTC] PHP Fatal error:  Uncaught apiServiceException: Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key. in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86
+[10-Oct-2025 11:00:09 America/Mexico_City] PHP Fatal error:  Uncaught exception 'apiServiceException' with message 'Error calling GET https://www.googleapis.com/webfonts/v1/webfonts?key=replaceme: (400) API key not valid. Please pass a valid API key.' in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php:86
+Stack trace:
+#0 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php(56): apiREST::decodeHttpResponse(Object(apiHttpRequest))
+#1 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiServiceResource.php(187): apiREST::execute(Object(apiServiceRequest))
+#2 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiWebfontsService.php(46): apiServiceResource->__call('list', Array)
+#3 /home/cerraduras/public_html/GoogleAPIClient/0.5.0/examples/webfonts/simple.php(12): WebfontsServiceResource->listWebfonts()
+#4 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 86

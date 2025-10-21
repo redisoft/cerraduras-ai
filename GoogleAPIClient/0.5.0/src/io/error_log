@@ -1,0 +1,24 @@
+[10-Oct-2025 10:42:13 UTC] PHP Fatal error:  Uncaught Error: Interface 'apiIO' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiCurlIO.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiCurlIO.php on line 27
+[10-Oct-2025 10:42:46 UTC] PHP Warning:  require_once(external/URITemplateParser.php): failed to open stream: No such file or directory in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 18
+[10-Oct-2025 10:42:46 UTC] PHP Fatal error:  require_once(): Failed opening required 'external/URITemplateParser.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 18
+[10-Oct-2025 10:43:50 UTC] PHP Warning:  require_once(io/apiHttpRequest.php): failed to open stream: No such file or directory in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiIO.php on line 18
+[10-Oct-2025 10:43:50 UTC] PHP Fatal error:  require_once(): Failed opening required 'io/apiHttpRequest.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiIO.php on line 18
+[10-Oct-2025 13:44:25 UTC] PHP Fatal error:  Uncaught Error: Interface 'apiIO' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiCurlIO.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiCurlIO.php on line 27
+[10-Oct-2025 13:46:20 UTC] PHP Warning:  require_once(io/apiHttpRequest.php): failed to open stream: No such file or directory in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiIO.php on line 18
+[10-Oct-2025 13:46:20 UTC] PHP Fatal error:  require_once(): Failed opening required 'io/apiHttpRequest.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiIO.php on line 18
+[10-Oct-2025 13:50:04 UTC] PHP Warning:  require_once(external/URITemplateParser.php): failed to open stream: No such file or directory in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 18
+[10-Oct-2025 13:50:04 UTC] PHP Fatal error:  require_once(): Failed opening required 'external/URITemplateParser.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 18
+[10-Oct-2025 15:46:19 UTC] PHP Fatal error:  Uncaught Error: Interface 'apiIO' not found in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiCurlIO.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiCurlIO.php on line 27
+[10-Oct-2025 15:46:25 UTC] PHP Warning:  require_once(external/URITemplateParser.php): failed to open stream: No such file or directory in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 18
+[10-Oct-2025 15:46:25 UTC] PHP Fatal error:  require_once(): Failed opening required 'external/URITemplateParser.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiREST.php on line 18
+[10-Oct-2025 15:46:40 UTC] PHP Warning:  require_once(io/apiHttpRequest.php): failed to open stream: No such file or directory in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiIO.php on line 18
+[10-Oct-2025 15:46:40 UTC] PHP Fatal error:  require_once(): Failed opening required 'io/apiHttpRequest.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/io/apiIO.php on line 18

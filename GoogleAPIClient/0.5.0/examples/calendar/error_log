@@ -1,0 +1,18 @@
+[10-Oct-2025 11:04:09 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 11:04:09 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 14:19:45 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 14:19:45 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 14:43:48 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 14:43:48 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 16:05:56 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:05:56 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 16:20:20 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:20:20 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 16:23:46 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:23:46 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 16:29:15 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:29:15 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 16:37:00 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:37:00 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0
+[10-Oct-2025 16:50:47 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/service/apiUtils.php on line 58
+[10-Oct-2025 16:50:47 UTC] PHP Fatal error:  Cannot declare class Error, because the name is already in use in /home/cerraduras/public_html/GoogleAPIClient/0.5.0/src/contrib/apiCalendarService.php on line 0

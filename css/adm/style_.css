@@ -1,0 +1,756 @@
+/* CSS Document */
+
+*{ padding:0; margin:0;}
+
+body{
+     font-family:"Trebuchet MS";
+       font-size:12px;
+           color:#054990;
+background-color:#FFF;
+
+}
+
+a{
+color:#054990;
+font-size:13px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+img{
+border:none;
+}
+
+.main{
+   	  width:1200px;
+     border:solid #b3b3b3 1px;
+background-color:#FFFFFF;
+     margin:0px auto;
+}
+
+div.cuerpo{
+ width:100%;
+ float:left;
+ background-color:#FFFFFF;
+}
+
+h3.principal{
+ font-size: 14px;
+ color:#9a9b9a;
+}
+
+.header{
+width:100%;
+background: color:#000;
+height: 112px;
+}
+
+/* Estilo de Autocompletado */
+.ui-autocomplete-loading { background: white url('../../img/ui-anim_basic_16x16.gif') right center no-repeat; }
+.ui-autocomplete {
+		max-height:200px;
+		overflow-y:auto;
+		     width:175px;
+		text-align:justify;
+	}
+	
+.ui-autocomplete a div {
+		border-bottom:1px solid #BEBEBE;
+		  border-left:none;
+		 border-right:none;
+		   border-top:none;
+	}
+	
+.ui-autocomplete a label {
+		color:#464646;
+		font-weight:bold;			
+	}	
+	
+	/* IE 6 doesn't support max-height
+	 * we use height instead, but this forces the menu to always be this tall
+	 */
+* html .ui-autocomplete {
+		height:200px;
+		width:175px;
+	}
+
+.ui-dialog label{
+       color:#054990;
+   font-size:12px;
+}
+
+.ui-dialog .cajas{
+       color:#054990;
+   font-size:12px;
+}
+
+.header .theader{
+    width: 1200px;
+    margin: 0 auto;
+    color: #000;
+}
+.title_system{
+    width: 700px;
+    text-align: center;
+}
+.title_system h1{
+    text-align: center;
+}
+.theader a{
+    color: #000;
+}
+.top{
+    background: url(../../img/principal.png) repeat-x;
+    width: 100%;
+    height: 18px;
+}
+table.header{
+background-color:#C4B699;
+     font-family:"Trebuchet MS";
+     font-weight:bold;
+           color:#000;
+
+}
+
+table.header label{
+      color:#000;
+font-weight:bold;
+}
+
+h1{
+color:#000;
+font-size:21px;
+}
+
+div.izquierda{
+width:224px;
+background: #b3b3b3 url('../../img/panel_nackground.png') repeat-y;
+/*background-color:#F2EBE6;*/
+float:left;
+height:650px;
+min-height:650px;
+height:auto !important;
+
+
+}
+
+
+div.izquierda table.menu{
+width: 100%;
+}
+
+div.izquierda table.menu th{
+	font-size:12px;
+       text-align:left;
+     padding-left:2px;
+      font-weight:normal;
+}
+
+div.izquierda table.menu a{
+	       color:#FFFFFF;
+	 font-weight:bold;
+}
+
+#izquierda ul{
+    border: 1px solid #FFF;
+}
+
+
+div.derecha{
+           width:975px;
+background-color:#FFF;
+           float:right;
+      min-height:510px;
+          height:auto !important;
+
+
+}
+
+div.derecha div.barra{
+           width:97%;
+/*background-color:#E7E3DC;*/
+  background: url(../../img/principal.png) repeat-x;
+   
+       font-size:16px;
+      text-align:left;
+          height:25px;
+  		   color:#FFF;
+/*	 	   color:#054990;*/
+	 font-weight:bold;
+    padding-left:0.3em;
+	padding-top:0.3em;
+}
+
+div.derecha div.submenu{
+width:90%;
+margin-top:10px;
+text-align:left;
+margin-left:4%;
+border-bottom:1px solid #E7E3DC;
+   border-top:none;
+  border-left:none;
+ border-right:none;
+ font-size:13px;
+}
+div.derecha div.submenu a{
+text-decoration:none;
+}
+div.derecha div.submenu label{
+display:inline;
+}
+div.derecha div.submenu a{
+text-decoration:none;
+}
+
+div.derecha div.listproyectos{
+width:99%;
+float:left;
+margin-top:10px;
+
+}
+
+div.derecha div.listproyectos form{
+float:left;
+width:100%;
+}
+
+div.derecha div.listproyectos form fieldset{
+    border: 1px solid #000;
+    width: auto;
+    height: auto;
+}
+/*Tables*/
+
+table label{
+  vertical-align:middle;
+       font-size:13px;
+}
+
+/*Stilo tablas*/
+.admintable tbody{
+	background:#fff;
+}
+.admintable td{
+	padding:3px;
+  border-bottom:1px solid #d5d5d5;
+  vertical-align:middle;
+
+}
+
+.admintable img{
+    border:none;
+}
+
+
+.admintable th{
+	 padding:3px;
+   border-bottom:1px solid #d5d5d5;
+background-color:#f6f6f6;
+     font-weight:normal;
+       font-size:13px;
+     font-family:"Trebuchet MS";
+  vertical-align:middle;
+           color:#265f7a;/*  */
+}
+
+.admintable caption{
+	color:#586e83;
+	font-weight:normal;
+	text-align:center;
+	padding-right:8px;
+}
+
+.admintable thead{
+	height:25px;
+	color:#265f7a;
+	/*vertical-align:top;*/
+}
+
+/**ESTILOS PARA TABLAS INFORMACION*/
+table.admintable td{
+	  padding-top: 3px;
+	padding-right: 4px;
+       padding-bottom: 3px;
+	 padding-left: 3px;
+	    font-size:11px;
+	        color:#696969;
+}
+
+table.admintable td img{
+    border:none;
+}
+
+table.admintable td a{
+text-decoration:none;
+	  color:#054990;
+    font-weight:bold;
+}
+
+
+table.admintable tr.devolucion td a, tr.devolucion td{
+	color:red;
+}
+
+table.admintable td.key, table.admintable td.paramlist_key{
+  background-color: #f6f6f6;
+	text-align: right;
+	     width: 230px;
+	     color: #666666;
+       font-weight: bold;
+	    border: 1px solid #e9e9e9;
+}
+
+table.admintable td.SubKey{
+  background-color: #f6f6f6;
+	     color: #666666;
+       font-weight: bold;
+	    border: 1px solid #e9e9e9;
+}
+
+table.admintable td:hover{
+ /*cursor:pointer;*/
+}
+
+.btn{
+	border:1px solid #DFD6BE;
+     font-size:12px;
+    background:#F4F4F4;
+	 color:#054990;
+   margin-left:5px;
+    margin-top:5px;	
+         width:100px;
+        height:23px;	
+}
+
+.TextArea{
+border:1px solid #DFD6BE;
+font-size:12px;
+background:#F4F4F4;
+color:#054990;	
+}
+
+
+.cajas{
+	border:1px solid #DFD6BE;
+     font-size:12px;
+    background:#F4F4F4;
+	 color:#054990;
+   margin-left:5px;
+    margin-top:5px;	
+        height:18px;
+         width:41%;		
+}
+
+.cajasColores{
+	border:1px solid #DFD6BE;
+     font-size:12px;
+    background:#F4F4F4;
+	 color:#054990;
+   margin-left:5px;
+    margin-top:5px;	
+        height:18px;
+         width:5%;		
+}
+
+.box_articulos{
+	margin:0 5px 0 5px;
+	color:#ff0000;
+	background-color:transparent;
+	border-top:none;
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10pt;
+}
+
+
+
+div.footer{
+width: 100%;
+text-align: center;
+ background-color: #922e45 ;
+ height: 41px;
+color: #fff;
+padding-top: 9px;
+font-size: 28px;
+}
+div.footer a{
+	color:#999999;
+	text-decoration:none;
+}
+div.footer a:hover{
+	text-decoration:underline;
+}
+
+/* Facturas */
+
+/*Stilo tablas*/
+.factura tbody{
+	background:#fff;
+}
+.factura td{
+	padding:3px;
+        border:1px solid #d5d5d5;
+	/*border-bottom:1px solid #d5d5d5;*/
+}
+
+.factura td.sl{
+  	padding:3px;
+        border:none;
+}
+
+.factura td.slb{
+  	padding:3px;
+        border-top:none;
+	border-bottom:none;
+        border-left:1px solid #d5d5d5;
+        border-right:1px solid #d5d5d5;
+}
+
+
+.factura thead{
+	height:25px;
+	color:#265f7a;
+}
+
+/**ESTILOS PARA TABLAS INFORMACION*/
+table.factura td{
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+	font-size:11px;
+	color:#696969;
+	font-size:12px;
+	font-family:"Arial";
+}
+
+table.factura td.No{
+ font-size:17px;
+text-align:center;
+     color:#D8000C;
+}
+
+table.factura input.cajas{
+    background-color:#FFF;
+               color:#535353;
+           font-size:12px;
+              border:1px solid #d5d5d5;
+    width:60%;
+    text-align:center;
+}
+
+table.factura input.cajass{
+    background-color:#f6f6f6;
+               color:#535353;
+           font-size:13px;
+              border:none;
+          text-align:left;
+          width:300px;
+}
+
+
+table.factura td.titulos{
+text-align:center;
+vertical-align:middle;
+}
+
+table.factura td.cabe{
+background-color:#000000;
+color:#FFFFFF;
+text-align:center;
+font-weight:bold;
+
+}
+
+table.factura td.pie{
+text-align:justify;
+font-size:10px;
+color:#000000;
+font-weight:bold;
+}
+
+
+table.factura td.key, table.admintable td.paramlist_key{
+	background-color: #f6f6f6;
+	text-align: right;
+	width: 230px;
+	color: #666666;
+	font-weight: bold;
+	border: 1px solid #e9e9e9;
+}
+
+table.factura td:hover{
+ /*cursor:pointer;*/
+}
+
+/*
+ * Para mensages
+*/
+
+.info_system, .success_system, .warning_system, .error_system, .validation_system {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position:10px center;
+}
+.info_system {
+color: #00529B;
+background-color: #BDE5F8;
+background-image: url('../../images/info.png');
+font-family:Verdana;
+font-size:12px;
+}
+.success_system {
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url('../../img/success.png');
+font-family:Verdana;
+font-size:12px;
+}
+.warning_system {
+color: #9F6000;
+background-color: #FEEFB3;
+background-image: url('../../img/warning.png');
+font-family:Verdana;
+font-size:12px;
+}
+.error_system {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('../../img/error.png');
+font-family:Verdana;
+font-size:12px;
+}
+.validation_system{
+color: #D63301;
+background-color: #FFCCBA;
+background-image: url('../../img/validation.png');
+}
+.errors_system{
+	color:#D8000C;
+}
+
+.formulario .error{
+	color:#a52a2a;
+}
+
+
+/*  Complemento del Error */
+
+.error_cpt{
+  font-size:12px;
+       width:91%;
+ margin-left:4%;
+}
+
+/* Stilo de Tabs*/
+
+.Tabs{
+padding: 0;
+width: 90%;
+border-top: 1px solid #b3b3b3;
+
+voice-family: "\"}\"";
+voice-family: inherit;
+margin-top: 8px;
+margin-left:4%;
+}
+
+.Tabs ul{
+margin:0;
+margin-left:2px;
+padding: 0;
+list-style: none;
+}Documentos
+
+.Tabs li{
+display: inline;
+margin: 0 2px 0 0;
+padding: 0;
+text-transform:uppercase;
+}
+
+.Tabs a{
+  float: left;
+display: block;
+   font: bold 12px Arial;
+  color: #b3b3b3;
+text-decoration: underline;
+         margin: 0 4px 0 0; 
+        padding: 5px 10px 9px 10px; 
+
+ -moz-border-radius-bottomleft: 5px;
+     border-bottom-left-radius: 5px;
+-moz-border-radius-bottomright: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.Tabs a:hover{
+     padding-top: 9px; 
+  padding-bottom: 5px;
+           color: #000000;
+}
+
+.Tabs .current a{ 
+background-color: #f6f6f6; 
+     padding-top: 9px; 
+  padding-bottom: 5px; 
+           color: #000000;
+           
+}
+
+
+/* == Pagination === */
+ul{
+   border:0;
+   margin-left:2%;
+   /*margin:0; */
+  padding:0;
+}
+#pagination-digg li{
+	border:0; margin:0; padding:0;
+	font-size:11px;
+	list-style:none;
+	margin-right:2px;
+	display:inline;
+}
+#pagination-digg a{
+	border:solid 1px #265F7A;
+	margin-right:2px;
+}
+#pagination-digg .previous-off, #pagination-digg .next-off {
+	border:solid 1px #265F7A;
+	color:#265F7A;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-right:2px;
+	padding:3px 4px;
+}
+#pagination-digg .next a, #pagination-digg .previous a {
+	font-weight:bold;
+}
+#pagination-digg .active{
+/*	background:#265F7A;
+	color:#FFFFFF;
+*/
+	background-color:#EBEBEB;
+	color:#265F7A;
+	font-weight:bold;
+	display:block;
+	float:left;
+	padding:4px 6px;
+}
+#pagination-digg a:link, #pagination-digg a:visited {
+	color:#265F7A;
+	display:block;
+	float:left;
+	padding:3px 6px;
+	text-decoration:none;
+}
+#pagination-digg a:hover{
+	border:solid 1px #265F72;
+    background-color:#EBEBEB;
+	color:#265F7A;
+	/*
+	background-color:#265F7A;
+	color:#ffffff;
+	*/
+}
+
+
+.pagination_detail{
+	text-align:right;
+	color:#265F7A;
+	padding-right:20px;
+	padding-top:2px;
+}
+
+.Error_validar{
+width:95%;
+float:left;
+color: #D8000C;
+background-color: #FFBABA;
+font-family:Verdana;
+font-size:12px;	
+border: 1px solid;
+margin: 10px 0px;
+padding:5px 3px 7px 10px;
+background-repeat: no-repeat;
+background-position:10px center;
+}
+
+.ExitoRespuesta{
+width:95%;
+float:left;
+color: #4F8A10;
+background-color:#DFF2BF;
+font-family:Verdana;
+font-size:12px;	
+border: 1px solid;
+margin: 10px 0px;
+padding:5px 3px 7px 10px;
+background-repeat: no-repeat;
+background-position:10px center;
+}
+
+.DeudasPagos{
+	color:#ff0000;
+    font-size:10pt;
+}
+
+.OcultarCapa{
+display:none;
+}
+
+.MuestraCapa{
+display:block;
+}
+
+
+div.toolbar{padding: 0;}
+
+table.toolbar {border-collapse: collapse; padding: 0; margin: 0;	 }
+table.toolbar td { padding: 1px 1px 1px 4px; text-align: center; color: #666; height: 48px; }
+table.toolbar td.spacer  { width: 10px; }
+table.toolbar td.divider { border-right: 1px solid #eee; width: 5px; }
+
+table.toolbar span { float: none; width: 32px; height: 32px; margin: 0 auto; display: block; }
+
+table.toolbar a {
+    display: block; float: left;
+	white-space: nowrap;
+	border: 1px solid #fbfbfb;
+	padding: 1px 5px;
+	cursor: pointer;
+}
+
+table.toolbar a:hover {
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-decoration: none;
+	color: #0B55C4;
+}
+
+
+table.toolbar span{
+	float: none;
+	width: 32px;
+	height: 32px;
+	margin-top: 0pt;
+	margin-right: auto;
+	margin-bottom: 0pt;
+	margin-left: auto;
+	display: block;
+	background-repeat:no-repeat;
+}
+
+
+

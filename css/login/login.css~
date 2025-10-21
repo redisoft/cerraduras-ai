@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+*{margin:auto;}
+
+body{
+	background:#FFF;
+	font-family: "Trebuchet MS";
+	font-size:12px;
+	color:#545454;
+}
+
+h2 {
+            color:#343537;
+ background-color:transparent;
+        font-size:18px;
+      font-weight:bold;
+           margin:24px 0 2px 0;
+          padding:5px 0 6px 0;
+}
+
+#div_login{
+	margin-left:35%;
+	margin-top:5%;
+	text-align:center;
+	float:left;
+	width:65%;
+}
+
+#div_login label{
+	padding:5px 10px;
+	font-size:15pt;
+	text-align:left;
+}
+
+#div_login input{
+	margin:5px 0;
+	border:1px solid #999999;
+	font-weight:bolder;
+	background:#F4F4F4;
+	color:#054990;
+	
+}
+
+
+#div_login .t_login td label{
+	font-size:10pt;
+}
+
+table.t_login{
+width:40%;
+float:left;
+}
+
+div.header {
+           float:left;
+    background: url(../../img/principal.png) repeat-x;
+	      height:22px;
+   	       width:100%;  	       
+	   font-size:14px;
+     font-weight:bold;	
+
+}
+
+#footer{
+	min-width:100%;
+	min-height:120px;
+	float:left;
+    background: url(../../img/guinda.jpg) repeat;
+        font-size:23px;
+	color:#FFF;
+	text-align:center;
+        padding-top:3%;;
+	margin-top:4%;
+}
+#footer a{
+	color:#999999;
+	text-decoration:none;
+}
+#footer a:hover{
+	text-decoration:underline;
+}

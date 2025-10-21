@@ -1,0 +1,97 @@
+/*****************************************************************************
+ * File:		help/contents.css
+ * Function:	StyleSheet for Edit Pencil User Manual Contents Menu
+ * 
+ * History:		05/31/2005	sjw	Original Version
+ *****************************************************************************/
+
+.treeItemCollapsed {
+	background-image: url(../../images/tree_col.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	height: 14px;
+	white-space: nowrap;
+}
+.treeBeginItemCollapsed {
+	background-image: url(../../images/tree_col_bgn.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	height: 14px;
+	white-space: nowrap;
+}
+.treeEndItemCollapsed {
+	background-image: url(../../images/tree_col_end.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	height: 14px;
+	white-space: nowrap;
+	border-bottom: 1px solid #fff;
+}
+.treeItemExpanded {
+	background-image: url(../../images/tree_exp.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	height: 14px;
+	white-space: nowrap;
+}
+.treeBeginItemExpanded {
+	background-image: url(../../images/tree_exp_bgn.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	
+	white-space: nowrap;
+}
+.treeEndItemExpanded {
+	background-image: url(../../images/tree_exp_end.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	
+	white-space: nowrap;
+	border-bottom: 1px solid #C4B699;
+}
+.treeItemBranch {
+	background-image: url(../../images/tree_br.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	
+	white-space: nowrap;
+}
+.treeEndItem {
+	background-image: url(../../images/tree_end.png);
+	background-repeat: no-repeat;
+	background-color: #FFF;
+	padding: 1px 0 1px 4px;
+	margin: 0;
+	width: 135px;
+	
+	white-space: nowrap;
+	border-bottom: 1px solid #fff;
+}
+.treeNoGuide {
+	position: relative;
+	left: -17px;
+	padding: 1px 0 1px 22px;
+	margin: 0;
+	background-position: 17px 0px;
+}

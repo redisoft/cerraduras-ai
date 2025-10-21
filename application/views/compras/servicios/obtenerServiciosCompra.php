@@ -1,0 +1,66 @@
+<?php
+if($servicios==null)
+{
+	echo
+	'<div class="Error_validar" style="margin-top:2px; width:95%; float:left margin-bottom: 5px;">
+		No hay registros de servicios para este proveedor.
+	</div>';
+	
+	return;
+}
+
+echo'
+<div style="width:90%;">
+	<ul id="pagination-digg" class="ajax-pagServiciosCompra">'.$this->pagination->create_links().'</ul>
+</div>';
+
+echo'
+<table class="admintable" style="width:100%">
+	<tr>
+		<th width="3%" align="right">#</th>
+		<th>Servicio</th>
+		<th>Unidad</th>
+		<th align="left">Proveedor</th>
+		<th width="11%">Precio</th>
+		<th width="8%">Cantidad</th>
+	</tr>';
+ 
+ $i = $limite;
+
+ foreach($servicios as $row)
+ {
+	$estilo		=$i%2>0?'class="sinSombra"':'class="sombreado"';
+	$onclick	='onclick="agregarServicioCompra('.$i.',\'si\')"';
+	
+	echo'
+	<tr '.$estilo.'>
+		<td '.$onclick.' align="right">'.$i.'</td>
+		<td '.$onclick.'>'.$row->nombre.' </td>
+		<td '.$onclick.' align="center">'.$row->unidad.' </td>
+		<td>'
+			.$row->empresa.'
+			<div style="text-align:center; width: 100px">
+				<img title="Agregar proveedor" src="'.base_url().'img/proveedores.png" width="18" onclick="accesoAgregarProveedorCompraServicio('.$row->idServicio.')" style="cursor:pointer" />
+				<br />
+				<a>Asignar proveedor</a>
+			</div> 
+		</td>
+		<td align="right" valign="middle">
+			$ <input type="text" class="cajas" style="width:70px"  id="precio'.$i.'" value="'.round($row->costo,decimales).'" onkeypress="return soloDecimales(event)" onchange="editarCostoProveedorServicioCompra('.$row->idServicio.','.$row->idProveedor.','.$i.')"/> 
+			&nbsp;
+			<img title="Actualizar precio" src="'.base_url().'img/guardar.png" width="18" onclick="editarCostoProveedorServicioCompra('.$row->idServicio.','.$row->idProveedor.','.$i.')" style="cursor:pointer; display: none" />
+		</td>
+		<td align="center">
+			<input onchange="agregarServicioCompra('.$i.',\'no\')" type="text" value="0" style="width:50px" class="cajas" id="cantidad'.$i.'" onkeypress="return soloDecimales(event)" maxlength="15"/>
+			<input type="hidden" value="'.$row->idServicio.'" id="agregar'.$i.'" />
+			<input type="hidden"  id="txtNombreProveedor'.$i.'" value="'.$row->empresa.'"/>
+			<input type="hidden"  id="descripcion'.$i.'" value="'.$row->nombre.'"/>
+			<input type="hidden"  id="txtProveedor'.$i.'" value="'.$row->idProveedor.'"/>
+		</td>
+	</tr>';
+	 
+	 $i++;
+ }
+ 
+ echo'</table>';
+?>
