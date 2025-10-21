@@ -62,7 +62,7 @@ $(document).ready(function()
 });
 
 </script>
-<script src="<?php echo base_url()?>js/jsruta.js?v=<?php echo(rand());?>"></script>
+<script src="<?php echo base_url()?>js/jsruta.js?v=<?=ASSET_VERSION?>"></script>
 
 <?php $estilo=$this->session->userdata('estilo');?>
 
@@ -70,24 +70,24 @@ $(document).ready(function()
 <script src="<?php echo base_url()?>js/bibliotecas/jquery-ui-sliderAccess.js"></script>
 
 <script src="<?php echo base_url()?>js/bibliotecas/jquery.ui.monthpicker.js"></script>
-<script src="<?php echo base_url()?>js/bibliotecas/busquedas.js?v=<?php echo(rand());?>"></script>
+<script src="<?php echo base_url()?>js/bibliotecas/busquedas.js?v=<?=ASSET_VERSION?>"></script>
 <script src="<?php echo base_url()?>js/bibliotecas/notificaciones.js"></script>
 <script src="<?php echo base_url()?>js/bibliotecas/dialog_box.js"></script>
 <script src="<?php echo base_url()?>js/materiales/ficha_materiales.js"></script>
 
 <script src="<?php echo base_url()?>js/bibliotecas/eventos.js"></script>
 <script src="<?php echo base_url()?>js/bibliotecas/sha1.js"></script>
-<script src="<?php echo base_url()?>js/bibliotecas/confirmaciones.js?v=<?=rand()?>"></script>
+<script src="<?php echo base_url()?>js/bibliotecas/confirmaciones.js?v=<?=ASSET_VERSION?>"></script>
 <script src="<?php echo base_url()?>js/bibliotecas/jquery.ptTimeSelect.js"></script>
-<script src="<?php echo base_url()?>js/catalogos.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/compras/comprasPagos.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/ventas/ventasPagos.js?v=<?php echo(rand()); ?>"></script>	
+<script src="<?php echo base_url()?>js/catalogos.js?v=<?=ASSET_VERSION?>"></script>
+<script src="<?php echo base_url()?>js/compras/comprasPagos.js?v=<?=ASSET_VERSION?>"></script>
+<script src="<?php echo base_url()?>js/ventas/ventasPagos.js?v=<?=ASSET_VERSION?>"></script>	
 <script src="<?php echo base_url()?>js/bibliotecas/fechas.js"></script>	
 <script src="<?php echo base_url()?>js/conexion/offline.js"></script>	
 <script src="<?php echo base_url()?>js/correos/firma.js"></script>
 <script src="<?php echo base_url()?>js/configuracion/sincronizacion.js"></script>
 
-<script src="<?php echo base_url()?>js/administracion/comprobantesIngresos.js?v=<?php echo(rand()); ?>"></script>
+<script src="<?php echo base_url()?>js/administracion/comprobantesIngresos.js?v=<?=ASSET_VERSION?>"></script>
 
 <script src="<?php echo base_url()?>js/bibliotecas/jquery.PrintArea.js"></script>
 
@@ -102,18 +102,18 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 <!--End of Zopim Live Chat Script-->
 
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/bootstrap/bootstrap.css?v=<?php echo(rand()); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/bootstrap/bootstrap.css?v=<?=ASSET_VERSION?>" />
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/menuBarra.css?v=<?php echo(rand()); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/menuBarra.css?v=<?=ASSET_VERSION?>">
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/style<?php echo $estilo?>.css">-->
 
 <?php $this->load->view('configuracion/estilo/css'); $this->load->view('configuracion/estilo/ui')?>
 
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/temas/<?php echo $estilo?>/jquery-ui.css">-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/jquery-time.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/puntoVenta.css?v=<?php echo(rand()); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/detallesTablas.css?v=<?php echo(rand()); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/escalaGrises.css?v=<?php echo(rand()); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/puntoVenta.css?v=<?=ASSET_VERSION?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/detallesTablas.css?v=<?=ASSET_VERSION?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/escalaGrises.css?v=<?=ASSET_VERSION?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/paleta/colorPicker.css" ></link>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/breadcumb.css">
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adm/tablasContabilidad.css">-->
@@ -121,8 +121,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/conexion/offline-theme-chrome.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/conexion/offline-language-spanish.css">
 
-<link href="<?php echo base_url()?>js/select2/select2.min.css?v=<?=rand()?>" rel="stylesheet" />
-<script src="<?php echo base_url()?>js/select2/select2.min.js?v=<?=rand()?>"></script>
+<link href="<?php echo base_url()?>js/select2/select2.min.css?v=<?=ASSET_VERSION?>" rel="stylesheet" />
+<script src="<?php echo base_url()?>js/select2/select2.min.js?v=<?=ASSET_VERSION?>"></script>
 
 <?php
 

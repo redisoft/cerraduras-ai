@@ -153,6 +153,7 @@ define('sistemaActivo',							'cerraduras');
 #define('sistemaActivo',								'demo');
 #define('sistemaActivo',							'IEXE');
 
+define('ASSET_VERSION',						'20241021');
 
 define('baseRedisoft',							'http://redisofterp.com/');
 

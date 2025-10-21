@@ -1,38 +1,35 @@
-<script src="<?php echo base_url()?>js/ventas/catalogo/ventas.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/ventas/ventasFacturacion.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/informacion.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/facturacion/folios.js?v=<?php echo(rand());?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/catalogo/ventas.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/ventasFacturacion.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/informacion.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/facturacion/folios.js?v=<?=ASSET_VERSION?>"></script>
 
-<script src="<?php echo base_url()?>js/reportes/facturacion/administracion.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/ventas/devoluciones/devoluciones.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/ventas/devoluciones/notas.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/ventas/devoluciones/dinero.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/cotizaciones/descuentos.js?v=<?php echo(rand());?>" ></script>
-<script src="<?php echo base_url()?>js/configuracion/motivos/catalogo.js?v=<?php echo(rand());?>"></script>
+<script defer src="<?php echo base_url()?>js/reportes/facturacion/administracion.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/devoluciones/devoluciones.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/devoluciones/notas.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/devoluciones/dinero.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/cotizaciones/descuentos.js?v=<?=ASSET_VERSION?>" ></script>
+<script defer src="<?php echo base_url()?>js/configuracion/motivos/catalogo.js?v=<?=ASSET_VERSION?>"></script>
 
 <!--VENTAS-->
-<script src="<?php echo base_url()?>js/clientes/catalogo.js?v=<?php echo(rand());?>"></script>
+<script defer src="<?php echo base_url()?>js/clientes/catalogo.js?v=<?=ASSET_VERSION?>"></script>
 
-<script src="<?php echo base_url()?>js/ventas/ventas.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/ventas/ventasFacturas.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/ventas/sucursales.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/configuracion/zonas/catalogo.js?v=<?php echo(rand());?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/ventas.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/ventasFacturas.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/sucursales.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/configuracion/zonas/catalogo.js?v=<?=ASSET_VERSION?>"></script>
 
 <!--CRM DE SERVICIOS-->
-<script src="<?php echo base_url()?>js/clientes/seguimiento/detalles.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/clientes/seguimiento/archivos.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/crm/clientes/servicios/servicios.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/crm.js?v=<?php echo(rand());?>"></script>
+<script defer src="<?php echo base_url()?>js/clientes/seguimiento/detalles.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/clientes/seguimiento/archivos.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/crm/clientes/servicios/servicios.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/crm.js?v=<?=ASSET_VERSION?>"></script>
 
-<script src="<?php echo base_url()?>js/ventas/catalogo/acrilico.js"></script>
+<script defer src="<?php echo base_url()?>js/ventas/catalogo/acrilico.js"></script>
 
-<script src="<?php echo base_url()?>js/bibliotecas/chartjs/bundle.js"></script>
-<script src="<?php echo base_url()?>js/bibliotecas/chartjs/utils.js"></script> 
+<script defer src="<?php echo base_url()?>js/ventas/facturacion.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?php echo base_url()?>js/clientes/direcciones/direccionesFiscales.js?v=<?=ASSET_VERSION?>"></script>
 
-<script src="<?php echo base_url()?>js/ventas/facturacion.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/clientes/direcciones/direccionesFiscales.js?v=<?php echo(rand());?>"></script>
-
-<script src="<?php echo base_url()?>js/ventas/editar.js?v=<?php echo(rand());?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/editar.js?v=<?=ASSET_VERSION?>"></script>
 
 
 <script>

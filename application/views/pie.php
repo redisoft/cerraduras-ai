@@ -56,7 +56,7 @@
     </table>
     </div>
 
-	<script  src="<?=base_url()?>js/adeudos.js?v=<?=rand()?>"></script>
+	<script  src="<?=base_url()?>js/adeudos.js?v=<?=ASSET_VERSION?>"></script>
 
 	<div id="ventanaAdeudoPendiente" title="Adeudo pendiente">
 		<div style="font-size: 20px; text-align: center">

@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
   
-$config['jquery']		='<script type="text/javascript" src="'.base_url().'js/jquery/jquery.js?v='.rand().'"></script>';
+$config['jquery']		='<script type="text/javascript" src="'.base_url().'js/jquery/jquery.js?v='.ASSET_VERSION.'"></script>';
 $config['jvalidate']	='';/*'<script type="text/javascript" src="'.base_url().'js/jquery.validate.js"></script>';*/
-$config['jqueryui']		='<script type="text/javascript" src="'.base_url().'js/jquery/jquery-ui.js?v='.rand().'"></script>';
+$config['jqueryui']		='<script type="text/javascript" src="'.base_url().'js/jquery/jquery-ui.js?v='.ASSET_VERSION.'"></script>';
 
 $config['jquerycal']='
 <script type="text/javascript">
