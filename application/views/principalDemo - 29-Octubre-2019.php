@@ -248,17 +248,17 @@ echo'
 	
 	#SERVICIOS
 	#------------------------------------------------------------------------------------------------------------#
-	$permiso=' onclick="window.location.href=\''.base_url().'inventarioProductos/servicios\'"';
-	
-	if($permisos[15]->activo==0)
+	if(SERVICIOS_MENU_ENABLED)
 	{
-		$permiso=' class="desactivado" ';
+		$permiso=' onclick="window.location.href=\''.base_url().'inventarioProductos/servicios\'"';
+		
+		if($permisos[15]->activo==0)
+		{
+			$permiso=' class="desactivado" ';
+		}
+		
+		echo'<li '.$permiso.' id="menu-servicios"><div class="letras">Servicios</div></li>';
 	}
-	
-	echo'<li '.$permiso.' id="menu-servicios"><div class="letras">Servicios</div></li>';
-	
-	
-
 echo'
 	</ul>
 </li>
