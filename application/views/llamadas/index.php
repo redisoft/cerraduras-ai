@@ -16,8 +16,6 @@
 <script src="<?php echo base_url()?>js/configuracion/status/catalogo.js"></script>
 <script src="<?php echo base_url()?>js/configuracion/estatus/catalogo.js"></script>
 
-<script src="<?php echo base_url()?>js/clientes/iexe/pagos.js"></script>
-
 <script src="<?php echo base_url()?>js/informacion.js"></script>
 
 <script type="text/javascript">

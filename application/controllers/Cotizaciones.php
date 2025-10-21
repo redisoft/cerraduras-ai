@@ -243,14 +243,7 @@ class Cotizaciones extends CI_Controller
 		$data['limite']				= $limite+1;
 		$data['registros']			= $Pag["total_rows"];
 		
-		if(sistemaActivo=='IEXE')
-		{
-			$this->load->view('llamadas/obtenerLlamadasIexe',$data);
-		}
-		else
-		{
-			$this->load->view('llamadas/obtenerLlamadas',$data);
-		}
+		$this->load->view('llamadas/obtenerLlamadas',$data);
 		
 	}
 	

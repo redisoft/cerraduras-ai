@@ -1441,6 +1441,12 @@ class Crm extends CI_Controller
 	//PAGOS DE ALUMNOS
 	public function excelPagos()
 	{
+		if(sistemaActivo!='IEXE')
+		{
+			show_404();
+			return;
+		}
+
 		$criterio				= $this->input->post('criterio');
 		$idPrograma				= $this->input->post('idPrograma');
 		$idCampana				= $this->input->post('idCampana');

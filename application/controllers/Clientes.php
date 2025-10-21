@@ -188,146 +188,17 @@ class Clientes extends CI_Controller
 		$data['orden']			= $orden;
 		#$data["breadcumb"]		= sistemaActivo=='IEXE'?'Alumnos/Clientes':'Clientes';
 		
-		if(sistemaActivo=='IEXE')
-		{
-			$data['colegiaturas']	= $this->clientes->sumarColegiaturas($criterio,$idStatus,$idServicio,$fecha,$idResponsable,$idTipo,$fechaMes,$data['permiso'][4]->activo,$idZona,$idPrograma,$diaPago,$idCampana);
-			$data['diasPago']		= $this->clientes->obtenerDiasPago($criterio,$idStatus,$idServicio,$fecha,$idResponsable,$idTipo,$fechaMes,$data['permiso'][4]->activo,$idZona,$idPrograma,$diaPago,$idCampana);
-			$data['programas']		= $this->configuracion->obtenerProgramas();
-			$data['campanas']		= $this->configuracion->obtenerCampanas();
-		
-			if($data['tipoRegistro']=='clientes')
-			{
-				$this->load->view('clientes/iexe/obtenerClientes',$data);
-			}
-			else
-			{
-				$this->load->view('clientes/prospectos/obtenerProspectos',$data);
-			}
-		}
-		else
-		{
-			$this->load->view("clientes/obtenerClientes",$data);
-		}
+		$this->load->view("clientes/obtenerClientes",$data);
 	}
 	
 	public function activos()
 	{
-		$Data['title']			= "Panel de Administración";
-		$Data['cassadmin']		= $this->_csstyle["cassadmin"];
-		$Data['csmenu']			= $this->_csstyle["csmenu"];
-		$Data['csvalidate']		= $this->_csstyle["csvalidate"];
-		$Data['csui']			= $this->_csstyle["csui"];
-		$Data['nameusuario']	= $this->modelousuario->getUsuarios($this->_iduser);
-		$Data['Fecha_actual']	= $this->_fechaActual;
-		$Data['Jry']			= $this->_jss['jquery'];
-		$Data['jFicha_cliente']	= $this->_jss['jFicha_cliente']; 
-		$Data['Jquical']		= $this->_jss['jquerycal'];
-		$Data['Jqui']			= $this->_jss['jqueryui'];   
-		#$Data['permisos']		= $this->configuracion->obtenerRolPermisos($this->session->userdata('rol'));
-		$Data['permisos']		= $this->configuracion->obtenerRolPermisos($this->session->userdata('rol'));
-		$Data['menuActivo']		= 'clientes';   
-		$Data['conectados']		= $this->configuracion->obtenerUsuariosConectados(); //USUARIOS CONECTADOS
-		
-		$this->load->view("cabezera",$Data);
-		$this->load->view('header',$Data);
-		$this->load->view("principal",$Data);
-		
-		#----------------------------------PERMISOS------------------------------------#
-
-		$data['permiso']		= $this->configuracion->obtenerPermisosBoton('2',$this->session->userdata('rol'));
-		$data['permisoCrm']		= $this->configuracion->obtenerPermisosBoton('4',$this->session->userdata('rol'));
-		$data['permisoVenta']	= $this->configuracion->obtenerPermisosBoton('5',$this->session->userdata('rol'));
-		$data['permisoFactura']	= $this->configuracion->obtenerPermisosBoton('24',$this->session->userdata('rol'));
-		
-		if($data['permiso'][0]->activo=='0')
-		{
-			$this->load->view('accesos/index');
-			$this->load->view("pie",$Data);
-			
-			return;
-		}
-
-		$data['zonas']			= $this->configuracion->obtenerZonas();
-		$data['servicios']		= $this->configuracion->obtenerServicios(1);
-		$data['responsables']	= $this->configuracion->obtenerResponsables();
-		$data['grupos']			= $this->clientes->agruparClientesRegistro();
-		$data["breadcumb"]		= 'Alumnos activos';
-		
-		$this->load->view("clientes/iexe/activos",$data);
-		$this->load->view("pie",$Data);
+		show_404();
 	}
 	
 	public function obtenerActivos($limite=0)
 	{
-		$criterio		= trim($this->input->post('criterio'));
-		$idStatus		= $this->input->post('idStatus');
-		$idServicio		= $this->input->post('idServicio');
-		$fecha			= $this->input->post('fecha');
-		$idResponsable	= $this->input->post('idResponsable');
-		$idTipo			= $this->input->post('idTipo');
-		$fechaMes		= $this->input->post('mes');
-		$idZona			= $this->input->post('idZona');
-		$idPrograma		= $this->input->post('idPrograma');
-		$idCampana		= $this->input->post('idCampana');
-		$diaPago		= $this->input->post('diaPago');
-		$matricula		= $this->input->post('matricula');
-		$orden			= $this->input->post('orden');
-		
-		#----------------------------------PERMISOS------------------------------------#
-
-		$data['permiso']		= $this->configuracion->obtenerPermisosBoton('2',$this->session->userdata('rol'));
-		$data['permisoCrm']		= $this->configuracion->obtenerPermisosBoton('4',$this->session->userdata('rol'));
-		$data['permisoVenta']	= $this->configuracion->obtenerPermisosBoton('5',$this->session->userdata('rol'));
-		$data['permisoFactura']	= $this->configuracion->obtenerPermisosBoton('24',$this->session->userdata('rol'));
-		
-		if($data['permiso'][0]->activo=='0')
-		{
-			$this->load->view('accesos/index');
-
-			return;
-		}
-				
-		#----------------------------------PAGINACION------------------------------------#
-		$url		= base_url()."clientes/obtenerActivos/";
-		$registros	= $this->clientes->contarClientes($criterio,$idStatus,$idServicio,$fecha,$idResponsable,$idTipo,$fechaMes,$data['permiso'][4]->activo,$idZona,$idPrograma,$diaPago,$idCampana,$matricula);
-		$numero		= 20;
-		$links		= 5;
-		$uri		= 3;
-		
-		$paginador=$this->paginas->paginar($url,$registros,$numero,$links,$uri);
-		$this->pagination->initialize($paginador);
-		#---------------------------------------------------------------------------------#
-		
-		$data['zonas']			= $this->configuracion->obtenerZonas();
-		$data['clientes']		= $this->clientes->obtenerClientesUsuario($numero,$limite,$criterio,$idStatus,$idServicio,$fecha,$idResponsable,$idTipo,$fechaMes,$data['permiso'][4]->activo,$idZona,$idPrograma,$diaPago,$idCampana,$matricula,$orden);
-		
-		$data['status']			= $this->configuracion->obtenerStatus(1);
-		$data['servicios']		= $this->configuracion->obtenerServicios(1);
-		$data['responsables']	= $this->configuracion->obtenerResponsables();
-		$data['programas']		= $this->configuracion->obtenerProgramas();
-		$data['campanas']		= $this->configuracion->obtenerCampanas();
-		
-		#$data['cliente']		= $this->clientes->obtenerCliente($idCliente);
-		$data['zonas']			= $this->configuracion->obtenerZonas();
-		#$data['idCliente']		= $idCliente;
-		$data['idStatus']		= $idStatus;
-		$data['idResponsable']	= $idResponsable;
-		$data['idServicio']		= $idServicio;
-		$data['idTipo']			= $idTipo;
-		$data['fecha']			= $fecha;
-		$data['inicio']  		= $limite+1;
-		$data['fechaMes']		= $fechaMes;
-		$data['idZona']			= $idZona;
-		$data['idPrograma']		= $idPrograma;
-		$data['idCampana']		= $idCampana;
-		$data['tipoRegistro']	= $this->input->post('tipoRegistro');
-		$data['diaPago']		= $diaPago;
-		$data['registros']		= $registros;
-		$data['matricula']		= $matricula;
-		$data['orden']			= $orden;
-		#$data["breadcumb"]		= sistemaActivo=='IEXE'?'Alumnos/Clientes':'Clientes';
-		
-		$this->load->view('clientes/iexe/obtenerActivos',$data);
+		show_404();
 	}
 	
 	public function preinscritos()
