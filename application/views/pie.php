@@ -93,6 +93,12 @@
 <script>
 $(document).ready(function()
 {
+	$('textarea').attr({
+		'autocomplete': 'off',
+		'autocorrect': 'off',
+		'autocapitalize': 'off'
+	}).prop('spellcheck', false);
+
 	$('.busquedas').keypress(function(e)
 	 {
 		if(e.which == 13) 

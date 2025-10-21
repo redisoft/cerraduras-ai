@@ -88,7 +88,7 @@
 	
 	<div class="ventasCaja">
 		<label style="font-weight: normal; display: none">Prefactura <input type="checkbox" id="chkPrefactura" /></label><br>
-		<input type="text" id="txtBuscarTicket" name="txtBuscarTicket" class="cajasCaja"/>
+		<input type="text" id="txtBuscarTicket" name="txtBuscarTicket" class="cajasCaja" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
 		<input type="hidden" id="txtIdRol" name="txtIdRol" value="<?=$idRol?>" />
 		<input type="hidden" id="txtIdUsuarioRegistro" name="txtIdUsuarioRegistro" value="<?=$idUsuario?>" />
 		<br>
