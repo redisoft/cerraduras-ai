@@ -9,26 +9,26 @@
 			return existing;
 		}
 
-		var contenedor = document.getElementById('barraTop') || document.body;
-		if(window.getComputedStyle(contenedor).position === 'static')
+		var contenedor = document.querySelector('#barraTop .menuBarra');
+		if(!contenedor)
 		{
-			contenedor.style.position = 'relative';
+			contenedor = document.body;
 		}
 
-		var div = document.createElement('div');
-		div.id = 'estadoConexion';
-		div.style.position = 'absolute';
-		div.style.top = '8px';
-		div.style.right = '20px';
-		div.style.zIndex = '999';
-		div.style.padding = '6px 14px';
-		div.style.borderRadius = '20px';
-		div.style.fontSize = '13px';
-		div.style.fontWeight = '600';
-		div.style.boxShadow = '0 3px 6px rgba(0,0,0,0.2)';
-		div.style.transition = 'background-color 0.3s ease';
-		contenedor.appendChild(div);
-		return div;
+		var li = document.createElement('li');
+		li.id = 'estadoConexion';
+		li.style.display = 'inline-block';
+		li.style.marginLeft = '12px';
+		li.style.padding = '4px 12px';
+		li.style.borderRadius = '16px';
+		li.style.fontSize = '12px';
+		li.style.fontWeight = '600';
+		li.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+		li.style.transition = 'background-color 0.3s ease';
+		li.style.listStyle = 'none';
+		li.style.alignSelf = 'center';
+		contenedor.appendChild(li);
+		return li;
 	}
 
 	function updateIndicator()

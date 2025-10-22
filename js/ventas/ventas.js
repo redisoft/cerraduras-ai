@@ -38,6 +38,7 @@ function cacheProductosDesdeTabla()
 
 		var codigoInterno = obtenerValor('txtCodigoProducto');
 		var nombreProducto = obtenerValor('txtNombre');
+		var esServicio = parseInt(fila.getAttribute('data-servicio') || '0', 10) === 1;
 
 		var selectPrecios = document.getElementById('selectPrecios' + sufijo);
 		var preciosLista = [];
@@ -67,6 +68,7 @@ function cacheProductosDesdeTabla()
 			nombre: nombreProducto,
 			codigoInterno: codigoInterno,
 			unidad: obtenerValor('txtUnidad'),
+			servicio: esServicio ? 1 : 0,
 			precioA: precioA,
 			precioB: preciosLista[1] || 0,
 			precioC: parseFloat(obtenerValor('txtPrecio3')) || 0,
@@ -268,7 +270,7 @@ window.inicializarTablaProductos = function(totalProductos)
 		var rowIdx = table.cell(this).index().row;
 		var rowNode = table.row(rowIdx).node();
 		var servicio = $(rowNode).data('servicio') || 0;
-		agregarProductoVenta(rowIdx+1,servicio,'si','0');
+		agregarProductoVenta(rowIdx+1,servicio,'si');
 	});
 
 	$('#example').off('key.dt').on('key.dt', function(e, datatable, key, cell)
@@ -280,7 +282,7 @@ window.inicializarTablaProductos = function(totalProductos)
 			var servicio = $(rowNode).data('servicio') || 0;
 			setTimeout(function()
 			{
-				if(agregarProductoVenta(data[0],servicio,'si','0'))
+				if(agregarProductoVenta(data[0],servicio,'si'))
 				{
 					table.cell.blur();
 				}
@@ -292,7 +294,7 @@ window.inicializarTablaProductos = function(totalProductos)
 
 	if(totalProductos === 1)
 	{
-		agregarProductoVenta(1,0,'si','0');
+		agregarProductoVenta(1,0,'si');
 	}
 
 	window.tableProductosPOS = table;

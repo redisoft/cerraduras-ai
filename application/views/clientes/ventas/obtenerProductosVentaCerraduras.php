@@ -66,7 +66,7 @@ if($productos!=null)
 		#'.$onclick.' '.($i%2>0?'class="sinSombra"':'class="sombreado"').'
 		
 		echo'		
-		<tr '.$onclick.' '.($i%2>0?'class="sinSombra"':'class="sombreado"').' id="tab'.$i.'" >
+		<tr '.$onclick.' '.($i%2>0?'class="sinSombra"':'class="sombreado"').' id="tab'.$i.'" data-servicio="'.$row->servicio.'" >
 			<td style="font-size:11px">'.$i.'</td>
 			<td style="font-size:11px">';
 
