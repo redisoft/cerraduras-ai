@@ -6,6 +6,8 @@
 *.tiff
 *.pdf
 *.png
+!img/pwa/icon-192.png
+!img/pwa/icon-512.png
 *.jpg
 *.jpeg
 *.gif
@@ -16,7 +18,9 @@
 .svn/
 .DS_Store
 Thumbs.db
-img/
+img/*
+!img/pwa/
+!img/pwa/**
 media/
 ficheros/
 files/

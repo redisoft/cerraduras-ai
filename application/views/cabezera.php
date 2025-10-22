@@ -24,10 +24,25 @@ if(isset($jFicha_pedidos)){print($jFicha_pedidos);} // Funciones para pedidos
 
 ?>
 
+<link rel="manifest" href="<?=base_url()?>manifest.json?v=<?=ASSET_VERSION?>">
 <script>
+if('serviceWorker' in navigator)
+{
+	window.addEventListener('load', function()
+	{
+		navigator.serviceWorker.register('<?=base_url()?>service-worker.js?v=<?=ASSET_VERSION?>')
+			.then(function(reg){
+				console.log('Service Worker registrado', reg.scope);
+			})
+			.catch(function(err){
+				console.warn('Fallo al registrar Service Worker', err);
+			});
+	});
+}
+
 $(document).ready(function()
 {
-	menuActivo('<?php echo $menuActivo?>','<?php echo isset($subMenu)?$subMenu:''?>');
+    menuActivo('<?php echo $menuActivo?>','<?php echo isset($subMenu)?$subMenu:''?>');
 	codigoBorrado	= '<?php echo $this->session->userdata('codigoBorrado')?>';
 	codigoEditar	= '<?php echo $this->session->userdata('codigoEditar')?>';
 	codigoImportar	= '<?php echo $this->session->userdata('codigoImportar')?>';
@@ -329,4 +344,3 @@ setInterval(run, 1800000);*/
 	<h2>Existe un saldo pendiente, favor de enviar comprobante lo antes posible</h2>
 	</div>
 </div-->
-
