@@ -1,6 +1,7 @@
 (function(window, document, $){
     'use strict';
 
+    var STORAGE_KEY = 'cerradurasPwaInstalada';
     var deferredPrompt = null;
     var procesoInterval = null;
 
@@ -38,8 +39,6 @@
                 clearInterval(procesoInterval);
                 consola.append('<p class="linea">'+mensajeFinal+'</p>');
                 setTimeout(function(){ contenedor.fadeOut(); }, 2500);
-                $('.barraInstalacion').hide();
-                $('#btnInstalarLogin').hide();
                 return;
             }
             var linea = $('<p class="linea"></p>').text(pasos[index]);
@@ -62,17 +61,30 @@
         renderConsola(contenedor, pasosLogin, '>> Instalación completada.');
     }
 
+    function marcarInstalada()
+    {
+        $('#estadoPwa').addClass('instalada').text('APP instalada');
+        $('#btnInstalarLogin').hide();
+        $('.barraInstalacion').hide();
+        localStorage.setItem(STORAGE_KEY,'1');
+    }
+
+    function prepararBotonInstalacion()
+    {
+        $('#estadoPwa').removeClass('instalada').text('');
+        $('#btnInstalarLogin').text('Instalar App Cerraduras').prop('disabled', false).show();
+        $('.barraInstalacion').show();
+    }
+
     window.addEventListener('beforeinstallprompt', function(event){
         event.preventDefault();
         deferredPrompt = event;
-        $('#btnInstalarLogin').text('Instalar App Cerraduras').prop('disabled', false).show();
-        $('#estadoPwa').removeClass('instalada').text('');
+        prepararBotonInstalacion();
     });
 
     window.addEventListener('appinstalled', function(){
         deferredPrompt = null;
-        $('#btnInstalarLogin').prop('disabled', true).text('App instalada');
-        $('#estadoPwa').addClass('instalada').text('APP instalada');
+        marcarInstalada();
     });
 
     function iniciarInstalacion()
@@ -92,22 +104,31 @@
                     if(choiceResult.outcome === 'accepted')
                     {
                         consola.append('<p class="linea">El usuario aceptó la instalación.</p>');
+                        marcarInstalada();
                     }
                     else
                     {
                         consola.append('<p class="linea">Instalación cancelada por el usuario.</p>');
+                        prepararBotonInstalacion();
                     }
                 }).catch(function(){
                     consola.append('<p class="linea">Error al iniciar la instalación.</p>');
+                    prepararBotonInstalacion();
                 }).finally(function(){
                     deferredPrompt = null;
-                    boton.prop('disabled', false).text('Instalar App Cerraduras');
+                    if(!$('#estadoPwa').hasClass('instalada'))
+                    {
+                        boton.prop('disabled', false).text('Instalar App Cerraduras').show();
+                    }
                 });
             }
             else
             {
                 consola.append('<p class="linea">Tu navegador ya dispone de la app o no soporta instalación automática.</p>');
-                boton.prop('disabled', false).text('Instalar App Cerraduras');
+                if(!$('#estadoPwa').hasClass('instalada'))
+                {
+                    boton.prop('disabled', false).text('Instalar App Cerraduras').show();
+                }
             }
         }, duracion);
     }
@@ -117,15 +138,19 @@
         if(noFirefox){
             alert('El sistema es compatible únicamente con Mozilla Firefox.');
         }
-        if(window.matchMedia('(display-mode: standalone)').matches)
+        var instaladaPrev = localStorage.getItem(STORAGE_KEY) === '1' || window.matchMedia('(display-mode: standalone)').matches;
+        if(instaladaPrev)
         {
-            $('#estadoPwa').addClass('instalada').text('APP instalada');
-            $('#btnInstalarLogin').prop('disabled', true).text('App instalada').show();
+            marcarInstalada();
         }
         var botonLogin = $('#btnInstalarLogin');
         if(botonLogin.length)
         {
             botonLogin.show().on('click', iniciarInstalacion);
+            if(instaladaPrev)
+            {
+                botonLogin.hide();
+            }
         }
 
         var botonEstacion = $('#btnSimularInstalacion');
@@ -134,6 +159,10 @@
             botonEstacion.on('click', function(){
                 window.mostrarProcesoInstalacion('#instalacionCookieProceso');
             });
+            if(instaladaPrev)
+            {
+                botonEstacion.hide();
+            }
         }
     });
 

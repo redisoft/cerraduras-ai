@@ -45,6 +45,10 @@ $(document).ready(function()
 		alert('El sistema es compatible únicamente con Mozilla Firefox.');
 	}
 	$('.barraInstalacion').show();
+    if(localStorage.getItem('cerradurasPwaInstalada') === '1'){
+        $('#btnSimularInstalacion').hide();
+        $('#instalacionCookieProceso').hide();
+    }
 });
 
 </script>
