@@ -7,6 +7,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/notificaciones.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/sha1.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/loginInstall.js"></script>
 <?php
 require_once "application/libraries/ReCaptcha.php";
 ?>
@@ -39,6 +40,10 @@ $(document).ready(function()
 	base_url				= '<?php echo base_url()?>';
 	
 	$('#txtUsuario').focus();
+	if(window.mostrarProcesoInstalacion)
+	{
+		window.mostrarProcesoInstalacion('#instalacionCookieProceso');
+	}
 });
 
 </script>
@@ -132,6 +137,7 @@ $(document).ready(function()
 					}
 					
 					?>
+                    <div id="instalacionCookieProceso" class="proceso-instalar"></div>
                 </td>
             </tr>
     

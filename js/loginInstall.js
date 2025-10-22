@@ -1,4 +1,24 @@
 (function(window, document, $){
+	window.mostrarProcesoInstalacion = function(selector){
+		var contenedor = $(selector);
+		if(!contenedor.length){ return; }
+		contenedor.show().html('<p>Configurando estación...</p>');
+		var pasos = ['Validando navegador...', 'Verificando licencia...', 'Asignando estación...', 'Guardando cookie...', 'Finalizando...'];
+		var i = 0;
+		var interval = setInterval(function(){
+			if(i >= pasos.length){
+				clearInterval(interval);
+				contenedor.append('<p>Configuración completada.</p>');
+				setTimeout(function(){ contenedor.fadeOut(); }, 1500);
+				return;
+			}
+			contenedor.append('<p>'+pasos[i]+'</p>');
+			contenedor.scrollTop(contenedor[0].scrollHeight);
+			i++;
+		}, 1000);
+	};
+
+
     'use strict';
 
     var deferredPrompt = null;
