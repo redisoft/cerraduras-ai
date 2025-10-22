@@ -147,10 +147,14 @@
         var botonLogin = $('#btnInstalarLogin');
         if(botonLogin.length)
         {
-            botonLogin.show().on('click', iniciarInstalacion);
             if(instaladaPrev)
             {
-                botonLogin.hide();
+                marcarInstalada();
+            }
+            else
+            {
+                $('.barraInstalacion').show();
+                botonLogin.show().on('click', iniciarInstalacion);
             }
         }
 
@@ -163,6 +167,7 @@
             if(instaladaPrev)
             {
                 botonEstacion.hide();
+                $('#instalacionCookieProceso').hide();
             }
         }
     });
