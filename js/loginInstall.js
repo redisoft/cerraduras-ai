@@ -99,6 +99,7 @@
             var consola = $('#instalacionProceso .console-codigo');
             if(deferredPrompt)
             {
+                localStorage.setItem(STORAGE_KEY,'1');
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then(function(choiceResult){
                     if(choiceResult.outcome === 'accepted')
