@@ -68,34 +68,45 @@
 
 	function syncProductos()
 	{
-		return window.posCache.getLastSync('productos').then(function(ultimoSync)
+	return window.posCache.getLastSync('productos').then(function(ultimoSync)
+	{
+		var limite = 500;
+		var baseParams = { limite: limite };
+		if(ultimoSync)
 		{
-			var params = {
-				limite: 200,
-				offset: 0
-			};
-			if(ultimoSync)
-			{
-				params.desde = new Date(parseInt(ultimoSync, 10)).toISOString();
-			}
+			baseParams.desde = new Date(parseInt(ultimoSync, 10)).toISOString();
+		}
 
+		var totalGuardado = 0;
+
+		function cargarPagina(offset)
+		{
+			var params = Object.assign({ offset: offset }, baseParams);
 			return fetchJson(API_PRODUCTOS, params).then(function(respuesta)
 			{
-				if(!respuesta || !Array.isArray(respuesta.data))
+				if(!respuesta || !Array.isArray(respuesta.data) || respuesta.data.length === 0)
 				{
 					return;
 				}
 
 				var productos = respuesta.data.map(transformProducto);
-				if(!productos.length)
+				return window.posCache.saveProductos(productos).then(function()
 				{
-					return;
-				}
-
-				return window.posCache.saveProductosLote(productos);
+					totalGuardado += productos.length;
+					if(respuesta.data.length === limite)
+					{
+						return cargarPagina(offset + respuesta.data.length);
+					}
+				});
 			});
+		}
+
+		return cargarPagina(0).then(function()
+		{
+			return window.posCache.setLastSync('productos', Date.now());
 		});
-	}
+	});
+}
 
 	function transformCliente(registro)
 	{
@@ -115,37 +126,42 @@
 
 	function syncClientes()
 	{
-		return window.posCache.getLastSync('clientes').then(function(ultimoSync)
+	return window.posCache.getLastSync('clientes').then(function(ultimoSync)
+	{
+		var limite = 500;
+		var baseParams = { limite: limite };
+		if(ultimoSync)
 		{
-			var params = {
-				limite: 200,
-				offset: 0
-			};
-			if(ultimoSync)
-			{
-				params.desde = new Date(parseInt(ultimoSync, 10)).toISOString();
-			}
+			baseParams.desde = new Date(parseInt(ultimoSync, 10)).toISOString();
+		}
 
+		function cargarPagina(offset)
+		{
+			var params = Object.assign({ offset: offset }, baseParams);
 			return fetchJson(API_CLIENTES, params).then(function(respuesta)
 			{
-				if(!respuesta || !Array.isArray(respuesta.data))
+				if(!respuesta || !Array.isArray(respuesta.data) || respuesta.data.length === 0)
 				{
 					return;
 				}
 
 				var clientes = respuesta.data.map(transformCliente);
-				if(!clientes.length)
-				{
-					return;
-				}
-
 				return window.posCache.saveClientes(clientes).then(function()
 				{
-					return window.posCache.setLastSync('clientes', Date.now());
+					if(respuesta.data.length === limite)
+					{
+						return cargarPagina(offset + respuesta.data.length);
+					}
 				});
 			});
+		}
+
+		return cargarPagina(0).then(function()
+		{
+			return window.posCache.setLastSync('clientes', Date.now());
 		});
-	}
+	});
+}
 
 window.posSync = {
 	syncProductos: syncProductos,
