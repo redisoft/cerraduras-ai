@@ -1,57 +1,62 @@
 (function(window, document, $){
-	window.mostrarProcesoInstalacion = function(selector){
-		var contenedor = $(selector);
-		if(!contenedor.length){ return; }
-		contenedor.show().html('<p>Configurando estación...</p>');
-		var pasos = ['Validando navegador...', 'Verificando licencia...', 'Asignando estación...', 'Guardando cookie...', 'Finalizando...'];
-		var i = 0;
-		var interval = setInterval(function(){
-			if(i >= pasos.length){
-				clearInterval(interval);
-				contenedor.append('<p>Configuración completada.</p>');
-				setTimeout(function(){ contenedor.fadeOut(); }, 1500);
-				return;
-			}
-			contenedor.append('<p>'+pasos[i]+'</p>');
-			contenedor.scrollTop(contenedor[0].scrollHeight);
-			i++;
-		}, 1000);
-	};
-
-
     'use strict';
 
     var deferredPrompt = null;
     var procesoInterval = null;
-    var pasos = [
+    var pasosLogin = [
+        '>> Iniciando instalador Cerraduras POS',
         'Descargando paquete de instalación...',
         'Verificando integridad...',
         'Preparando recursos offline...',
         'Configurando permisos...',
+        'Compilando scripts...',
         'Instalando módulos POS...',
-        'Optimizando caché para modo sin conexión...',
-        'Registrando aplicación...',
-        'Finalizando...' 
+        'Inyectando dependencias...',
+        'Finalizando...'
     ];
 
-    function mostrarProceso()
+    var pasosEstacion = [
+        'Validando navegador...',
+        'Verificando licencia...',
+        'Asignando estación...',
+        'Guardando cookie...',
+        'Generando llaves...',
+        'Compilando scripts...',
+        'Estación lista.'
+    ];
+
+    function renderConsola(contenedor, pasos, mensajeFinal)
     {
-        var contenedor = $('#instalacionProceso');
-        contenedor.show().html('');
+        contenedor.show().html('<div class="console-codigo"></div>');
+        var consola = contenedor.find('.console-codigo');
         var index = 0;
 
         procesoInterval = setInterval(function(){
             if(index >= pasos.length)
             {
                 clearInterval(procesoInterval);
-                contenedor.append('<p>Instalación completada.</p>');
-                setTimeout(function(){ contenedor.fadeOut(); }, 1500);
+                consola.append('<p class="linea">'+mensajeFinal+'</p>');
+                setTimeout(function(){ contenedor.fadeOut(); }, 2000);
                 return;
             }
-            contenedor.append('<p>'+pasos[index]+'</p>');
-            contenedor.scrollTop(contenedor[0].scrollHeight);
+            var linea = $('<p class="linea"></p>').text(pasos[index]);
+            consola.append(linea);
+            consola.scrollTop(consola[0].scrollHeight);
             index++;
         }, 800);
+    }
+
+    window.mostrarProcesoInstalacion = function(selector)
+    {
+        var contenedor = $(selector);
+        if(!contenedor.length){ return; }
+        renderConsola(contenedor, pasosEstacion, '>> Estación configurada.');
+    };
+
+    function mostrarProcesoLogin()
+    {
+        var contenedor = $('#instalacionProceso');
+        renderConsola(contenedor, pasosLogin, '>> Instalación completada.');
     }
 
     window.addEventListener('beforeinstallprompt', function(event){
@@ -77,27 +82,28 @@
         boton.on('click', function(){
             if(!deferredPrompt)
             {
-                mostrarProceso();
-                setTimeout(function(){ $('#instalacionProceso').append('<p>Tu navegador ya tiene la app instalada.</p>'); }, 2000);
+                mostrarProcesoLogin();
+                setTimeout(function(){ $('#instalacionProceso .console-codigo').append('<p class="linea">Tu navegador ya tiene la app instalada.</p>'); }, 2000);
                 return;
             }
 
             boton.prop('disabled', true);
-            mostrarProceso();
+            mostrarProcesoLogin();
 
             setTimeout(function(){
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then(function(choiceResult){
+                    var consola = $('#instalacionProceso .console-codigo');
                     if(choiceResult.outcome === 'accepted')
                     {
-                        $('#instalacionProceso').append('<p>El usuario aceptó la instalación.</p>');
+                        consola.append('<p class="linea">El usuario aceptó la instalación.</p>');
                     }
                     else
                     {
-                        $('#instalacionProceso').append('<p>Instalación cancelada.</p>');
+                        consola.append('<p class="linea">Instalación cancelada.</p>');
                     }
                 }).catch(function(){
-                    $('#instalacionProceso').append('<p>Error al iniciar la instalación.</p>');
+                    $('#instalacionProceso .console-codigo').append('<p class="linea">Error al iniciar la instalación.</p>');
                 }).finally(function(){
                     deferredPrompt = null;
                     boton.prop('disabled', false);

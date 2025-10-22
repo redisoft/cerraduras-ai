@@ -329,3 +329,29 @@ img
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+.console-codigo {
+    font-family: 'Courier New', monospace;
+    background:#000;
+    color:#0f0;
+    padding:1vh;
+    border-radius:8px;
+    height:25vh;
+    overflow:auto;
+    box-shadow:inset 0 0 12px rgba(0,0,0,0.6);
+}
+
+.console-codigo .linea {
+    margin:0;
+    white-space:pre;
+}
+
+.console-codigo .puntero::after {
+    content:'▮';
+    margin-left:4px;
+    animation:cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity:1; }
+    50% { opacity:0; }
+}
