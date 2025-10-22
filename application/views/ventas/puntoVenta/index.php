@@ -1,3 +1,4 @@
+<script defer src="<?=base_url()?>js/ventas/posCache.js?v=<?=ASSET_VERSION?>"></script>
 <script defer src="<?=base_url()?>js/ventas/cotizaciones.js?v=<?=ASSET_VERSION?>"></script>
 <script defer src="<?=base_url()?>js/bancos/bancos.js?v=<?=ASSET_VERSION?>"></script>
 <script defer src="<?=base_url()?>js/facturacion/folios.js?v=<?=ASSET_VERSION?>"></script>
@@ -19,6 +20,14 @@
 <script>
 $(document).ready(function()
 {
+	if(window.posCache && typeof window.posCache.openDatabase === 'function')
+	{
+		window.posCache.openDatabase().catch(function(error)
+		{
+			console.warn('IndexedDB no disponible para POS', error);
+		});
+	}
+
 	//$('#barraTop').fadeOut(0)
 	//$('#ulMenuPrincipal').fadeOut(0)
 	//$('.footer').fadeOut(0)
