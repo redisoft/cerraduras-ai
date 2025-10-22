@@ -31,6 +31,58 @@
 		return indicator;
 	}
 
+	function createSyncButton()
+	{
+		var contenedor = document.querySelector('#barraTop .col-md-4');
+		if(!contenedor)
+		{
+			return null;
+		}
+
+		var boton = document.getElementById('btnSincronizarPOS');
+		if(!boton)
+		{
+			boton = document.createElement('span');
+			boton.id = 'btnSincronizarPOS';
+			boton.className = 'boton-sync-pos';
+			boton.textContent = 'Sincronizar';
+			boton.title = 'Sincronizar catálogo y ventas pendientes';
+			boton.onclick = function()
+			{
+				if(typeof window.sincronizarPOS === 'function')
+				{
+					$(boton).addClass('en-progreso');
+					window.sincronizarPOS().then(function(){
+						notify('Sincronización completada',500,4000,'',30,5);
+					}).catch(function(error){
+						console.warn('Sincronización manual fallida', error);
+						notify('No se pudo sincronizar. Intente de nuevo.',500,5000,'error',30,5);
+					}).finally(function(){
+						$(boton).removeClass('en-progreso');
+						if(typeof window.actualizarEstadoConexion === 'function')
+						{
+							window.actualizarEstadoConexion();
+						}
+					});
+				}
+			};
+			contenedor.insertBefore(boton, document.getElementById('menuDesconectado'));
+		}
+
+		boton.style.display = 'inline-block';
+		boton.style.padding = '0.5vh 1.2vh';
+		boton.style.borderRadius = '16px';
+		boton.style.backgroundColor = '#01579b';
+		boton.style.color = '#fff';
+		boton.style.fontSize = '1.4vh';
+		boton.style.fontWeight = '600';
+		boton.style.cursor = 'pointer';
+		boton.style.marginRight = '1vh';
+		boton.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
+
+		return boton;
+	}
+
 	function updateIndicator()
 	{
 		var indicator = createIndicator();
@@ -38,6 +90,7 @@
 		{
 			return;
 		}
+		createSyncButton();
 		if(!indicator)
 		{
 			return;
