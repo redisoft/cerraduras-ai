@@ -73,8 +73,8 @@
                            <br>
                         </div>
 
-                        <div class="col-md-12" style="font-size:2vh">
-                            <?=$estilo->nombre?> | <?=$estacion->nombre?>
+                    <div class="col-md-12" style="font-size:2vh">
+                            <?=$estilo->nombre?> | <?=$estacion->nombre?> <span id="estadoPwa" class="estado-pwa"></span>
                         </div>
                       
                       

@@ -64,11 +64,13 @@
         event.preventDefault();
         deferredPrompt = event;
         $('#btnInstalarLogin').text('Instalar App Cerraduras').prop('disabled', false).show();
+        $('#estadoPwa').removeClass('instalada').text('');
     });
 
     window.addEventListener('appinstalled', function(){
         deferredPrompt = null;
         $('#btnInstalarLogin').prop('disabled', true).text('App instalada');
+        $('#estadoPwa').addClass('instalada').text('APP instalada');
     });
 
     function iniciarInstalacion()
@@ -108,6 +110,11 @@
     }
 
     $(document).ready(function(){
+        if(window.matchMedia('(display-mode: standalone)').matches)
+        {
+            $('#estadoPwa').addClass('instalada').text('APP instalada');
+            $('#btnInstalarLogin').prop('disabled', true).text('App instalada').show();
+        }
         var botonLogin = $('#btnInstalarLogin');
         if(botonLogin.length)
         {
