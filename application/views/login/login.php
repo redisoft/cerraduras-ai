@@ -124,7 +124,12 @@
                             <br>
                         </div>
                     </div>
-                    
+
+                    <div class="barraInstalacion">
+                        <button type="button" id="btnInstalarLogin" class="btn-instalar-login">Instalar App</button>
+                        <div id="instalacionProceso"><p>Preparando instalador...</p></div>
+                    </div>
+
                     <div class="col-md-12 text-center">
                         <button type="button" class="btn btn-danger"  onclick="window.location.href='<?php echo base_url().'instalacion'?>'"/>Cambiar estación</button>
                     </div>
@@ -170,11 +175,7 @@
 
 </form>
 
-<script>
-			
-			
-			
-		</script>
+<script src="<?php echo base_url()?>js/loginInstall.js?v=<?=time()?>"></script>
 
     
     </div>
