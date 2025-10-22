@@ -2168,6 +2168,45 @@ class InventarioProductos_modelo extends CI_Model
 
 		return $this->db->get()->result();
 	}
+
+	public function obtenerProductosSync($desde = null, $limite = 100, $offset = 0)
+	{
+		$limite = (int) $limite;
+		$offset = (int) $offset;
+
+		$limite = $limite > 0 ? $limite : 100;
+		$offset = $offset >= 0 ? $offset : 0;
+
+		$this->db->select(
+			'a.idProducto, a.nombre, a.codigoInterno, a.codigoBarras, a.descripcion, a.servicio, a.precioImpuestos, a.idLinea, '
+			.'a.fechaActualizacion as productoActualizacion, '
+			.'h.precioA, h.precioB, h.precioC, h.precioD, h.precioE, h.stock, h.cantidadMayoreo, '
+			.'h.fechaActualizacion as inventarioActualizacion, '
+			.'g.tasa, g.nombre as impuestoNombre, g.tipo as impuestoTipo, g.idImpuesto, '
+			.'(select b.nombre from fac_catalogos_unidades as b where b.idUnidad=a.idUnidad) as unidad',
+			false
+		);
+
+		$this->db->from('productos as a');
+		$this->db->join('configuracion_impuestos as g', 'g.idImpuesto = a.idImpuesto');
+		$this->db->join('productos_inventarios as h', 'h.idProducto = a.idProducto');
+		$this->db->where('a.activo', '1');
+		$this->db->where('h.idLicencia', $this->idLicencia);
+
+		if(!empty($desde))
+		{
+			$this->db->group_start();
+			$this->db->where('a.fechaActualizacion >=', $desde);
+			$this->db->or_where('h.fechaActualizacion >=', $desde);
+			$this->db->group_end();
+		}
+
+		$this->db->group_by('a.idProducto');
+		$this->db->order_by('a.fechaActualizacion', 'DESC');
+		$this->db->limit($limite, $offset);
+
+		return $this->db->get()->result();
+	}
 	
 	public function obtenerProductoCodigo($codigoBarras)
 	{

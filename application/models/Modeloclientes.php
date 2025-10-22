@@ -36,6 +36,30 @@ class Modeloclientes extends CI_Model
 			$this->idEstacion		= get_cookie('idEstacion'.$this->session->userdata('idCookie')); 
 		}
 	}
+
+	public function obtenerClientesSync($desde = null, $limite = 100, $offset = 0)
+	{
+		$limite = (int) $limite;
+		$offset = (int) $offset;
+
+		$limite = $limite > 0 ? $limite : 100;
+		$offset = $offset >= 0 ? $offset : 0;
+
+		$this->db->select('a.idCliente, a.empresa, a.razonSocial, a.nombre, a.paterno, a.materno, a.email, a.telefono, a.precio, a.fechaRegistro');
+		$this->db->from('clientes as a');
+		$this->db->where('a.idLicencia', $this->idLicencia);
+		$this->db->where('a.activo', '1');
+
+		if(!empty($desde))
+		{
+			$this->db->where('a.fechaRegistro >=', $desde);
+		}
+
+		$this->db->order_by('a.fechaRegistro', 'DESC');
+		$this->db->limit($limite, $offset);
+
+		return $this->db->get()->result();
+	}
 	
 	public function detalleProductosRemision($idCotizacion)
 	{
