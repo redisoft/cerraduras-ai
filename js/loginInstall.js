@@ -90,6 +90,7 @@
     function iniciarInstalacion()
     {
         var boton = $('#btnInstalarLogin');
+        var instaladaPrev = localStorage.getItem(STORAGE_KEY) === '1';
         boton.prop('disabled', true).text('Instalando...');
         $('.barraInstalacion').show();
         mostrarProcesoLogin();
@@ -135,11 +136,17 @@
     }
 
     $(document).ready(function(){
+        var installedNavigator = navigator.standalone === true;
+        var standalone = window.matchMedia('(display-mode: standalone)').matches;
+        if(installedNavigator || standalone){ localStorage.setItem('cerradurasPwaInstalada','1'); }
         var noFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') === -1;
         if(noFirefox){
             alert('El sistema es compatible únicamente con Mozilla Firefox.');
         }
-        var instaladaPrev = localStorage.getItem(STORAGE_KEY) === '1' || window.matchMedia('(display-mode: standalone)').matches;
+        var installedNavigator = navigator.standalone === true;
+        var standalone = window.matchMedia('(display-mode: standalone)').matches;
+        if(installedNavigator || standalone){ localStorage.setItem(STORAGE_KEY,'1'); }
+        var instaladaPrev = localStorage.getItem(STORAGE_KEY) === '1';
         if(instaladaPrev)
         {
             marcarInstalada();
