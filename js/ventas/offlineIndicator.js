@@ -3,43 +3,30 @@
 
 	function createIndicator()
 	{
-		var contenedor = document.querySelector('#barraTop .col-md-4');
-		if(!contenedor)
+		var indicator = document.getElementById('menuDesconectado');
+		if(!indicator)
 		{
 			return null;
 		}
 
-		var indicator = document.getElementById('estadoConexion');
-		if(indicator && indicator.parentElement && indicator.tagName !== 'SPAN')
-		{
-			target = indicator.parentElement;
-			target.removeChild(indicator);
-			indicator = null;
-		}
-		if(!indicator)
-		{
-			indicator = document.createElement('span');
-			indicator.id = 'estadoConexion';
-			indicator.className = 'estado-conexion';
-			contenedor.appendChild(indicator);
-		}
-		else if(indicator.parentElement !== contenedor)
-		{
-			contenedor.appendChild(indicator);
-		}
+		indicator.classList.add('estado-conexion');
 
 		indicator.style.display = 'inline-block';
-		indicator.style.marginLeft = '1vh';
+		indicator.style.float = 'none';
+		indicator.style.backgroundImage = 'none';
+		indicator.style.backgroundColor = '#1b5e20';
+		indicator.style.width = 'auto';
 		indicator.style.padding = '0.5vh 1.5vh';
+		indicator.style.margin = '0 0 0 1vh';
 		indicator.style.borderRadius = '16px';
 		indicator.style.fontSize = '1.5vh';
 		indicator.style.fontWeight = '600';
+		indicator.style.lineHeight = 'normal';
 		indicator.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
-		indicator.style.cursor = 'default';
 		indicator.style.border = 'none';
-		indicator.style.backgroundRepeat = 'no-repeat';
-		indicator.style.backgroundImage = 'none';
-		indicator.style.verticalAlign = 'middle';
+		indicator.style.cursor = 'default';
+		indicator.style.textAlign = 'center';
+		indicator.style.minWidth = '8vh';
 
 		return indicator;
 	}

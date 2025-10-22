@@ -358,3 +358,24 @@ ul.menuBarra li.conectados > ul > li.primerUsuario:after
 	height:3.8vh;
 	z-index:500;
 }
+#barraTop .col-md-4 {
+	display:flex;
+	align-items:center;
+	justify-content:flex-end;
+	gap:1vh;
+}
+ul.menuBarra li.estado-conexion {
+	float:none !important;
+	background:none !important;
+	background-image:none !important;
+	width:auto !important;
+	height:auto !important;
+	padding:0 !important;
+	border:none !important;
+	line-height:normal !important;
+	box-shadow:none !important;
+	cursor:default !important;
+}
+ul.menuBarra li.estado-conexion:after {
+	content:'' !important;
+}
