@@ -101,6 +101,7 @@ $(document).ready(function()
 <script src="<?php echo base_url()?>js/conexion/offline.js"></script>	
 <script src="<?php echo base_url()?>js/correos/firma.js"></script>
 <script src="<?php echo base_url()?>js/configuracion/sincronizacion.js"></script>
+<script src="<?php echo base_url()?>js/ventas/offlineIndicator.js?v=<?=ASSET_VERSION?>"></script>
 
 <script src="<?php echo base_url()?>js/administracion/comprobantesIngresos.js?v=<?=ASSET_VERSION?>"></script>
 

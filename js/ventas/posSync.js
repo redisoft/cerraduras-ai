@@ -152,4 +152,23 @@
 		syncClientes: syncClientes
 	};
 
+	window.addEventListener('online', function(){
+		if(window.posSync && typeof window.posSync.syncProductos === 'function')
+		{
+			window.posSync.syncProductos().catch(function(error){
+				console.warn('Sync productos fallo online', error);
+			});
+		}
+		if(window.posSync && typeof window.posSync.syncClientes === 'function')
+		{
+			window.posSync.syncClientes().catch(function(error){
+				console.warn('Sync clientes fallo online', error);
+			});
+		}
+		if(window.syncVentasPendientes)
+		{
+			window.syncVentasPendientes();
+		}
+	});
+
 })(window);
