@@ -3,15 +3,16 @@
  
 $(document).ready(function ()
 {
-    table = $('#example').DataTable(
+	 table = $('#example').DataTable(
 	{
-		
+
         keys: 
 		{
 			keys: [ 13 /* ENTER */, 38 /* UP */, 40 /* DOWN */ ],
         },
 		"tabIndex": 3,
 		pageLength: 8,
+		deferRender: true,
 		/*pageLength: 10,
 		scrollY:        200,*/
 		

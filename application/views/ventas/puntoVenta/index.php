@@ -1,33 +1,19 @@
-<script src="<?php echo base_url()?>js/ventas/cotizaciones.js?v=<?php echo(rand());?>"></script>
-
-<!--<script src="<?php echo base_url()?>js/clientes/clientes.js"></script>
-<script src="<?php echo base_url()?>js/clientes/catalogo.js"></script>-->
-
-<script src="<?php echo base_url()?>js/bancos/bancos.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/facturacion/folios.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/informacion.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/ventas/faltantesTraspasos.js?v=<?php echo(rand()); ?>"></script>
-
-<script src="<?php echo base_url()?>js/ventas/ventasFacturas.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/ventas/sucursales.js?v=<?php echo(rand()); ?>"></script>
-<!--<script src="<?php echo base_url()?>js/cotizaciones/cotizacionClientes.js"></script>-->
-<script src="<?php echo base_url()?>js/cotizaciones/descuentos.js?v=<?php echo(rand()); ?>" ></script>
-<script src="<?php echo base_url()?>js/configuracion/zonas/catalogo.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/clientes/contactos/catalogo.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/informacion.js?v=<?php echo(rand()); ?>"></script>
-
-<script src="<?php echo base_url()?>js/ventas/ventasTicket.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/bibliotecas/barcode.js?v=<?php echo(rand()); ?>"></script>
-<script src="<?php echo base_url()?>js/bibliotecas/JsBarcode.all.js?v=<?php echo(rand());?>"></script>
-<script src="<?php echo base_url()?>js/lineas/lineas.js?v=<?php echo(rand()); ?>"></script>
-
-<script src="<?php echo base_url()?>js/bibliotecas/datatables.min.js"></script>
-
-<!--<script src="<?php echo base_url()?>js/bibliotecas/datatables.js"></script>-->
-
-<?php
-echo '<script src="'.base_url().'js/ventas/ventas.js?v='.rand().'"></script>';
-?>
+<script defer src="<?=base_url()?>js/ventas/cotizaciones.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/bancos/bancos.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/facturacion/folios.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/informacion.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/ventas/faltantesTraspasos.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/ventas/ventasFacturas.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/ventas/sucursales.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/cotizaciones/descuentos.js?v=<?=ASSET_VERSION?>" ></script>
+<script defer src="<?=base_url()?>js/configuracion/zonas/catalogo.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/clientes/contactos/catalogo.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/ventas/ventasTicket.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/bibliotecas/barcode.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/bibliotecas/JsBarcode.all.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/lineas/lineas.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/bibliotecas/datatables.min.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/ventas/ventas.js?v=<?=ASSET_VERSION?>"></script>
 
 
 <script>
@@ -276,4 +262,3 @@ $(document).ready(function()
 </div>
 
 <script type="text/javascript" src="<?php echo base_url()?>js/fullscreen.js"></script>
-

@@ -622,7 +622,7 @@ class Ventas extends CI_Controller
 	{
 		#$Pag["base_url"]		= base_url()."clientes/obtenerProductosVenta/";
 		#$Pag["total_rows"]		= $this->inventarioProductos->contarProductosVentaCerraduras();
-		$Pag["per_page"]		= 50;
+		$Pag["per_page"]		= 40;
 		#$Pag["num_links"]		= 5;
 		#
 		#$this->pagination->initialize($Pag);

@@ -2,6 +2,8 @@
 
 $("#txtBuscarProductoCodigo").focus();
 	
+var buscarProductosTimer = null;
+
 $("#txtBuscarCliente").autocomplete(
 {
 	source:base_url+'configuracion/obtenerClientes',
@@ -50,18 +52,18 @@ $(document).ready(function()
 	});
 	
 
-	$("#txtBuscarProducto,#txtBuscarProductoCodigo,#txtBuscarProveedor").keyup(function(e) 
+	$("#txtBuscarProducto,#txtBuscarProductoCodigo,#txtBuscarProveedor").on('input', function(e) 
 	{
-		if(e.which == 09) 
+		if(e && e.which === 9)
 		{
 			return;
 		}
 		
-		/*clearTimeout(tiempoRetraso);
-		tiempoRetraso 	= setTimeout(function() 
+		clearTimeout(buscarProductosTimer);
+		buscarProductosTimer = setTimeout(function()
 		{
-			obtenerProductosVenta();
-		}, 700);*/
+			obtenerProductosVenta('debounce');
+		}, 250);
 	});
 	
 	$('#txtBuscarProducto,#txtBuscarProductoCodigo').keypress(function(e)

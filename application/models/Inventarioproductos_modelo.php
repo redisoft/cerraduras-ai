@@ -2054,71 +2054,119 @@ class InventarioProductos_modelo extends CI_Model
 	
 	public function contarProductosVentaCerraduras()
 	{
-		$codigoInterno		= $this->input->post('codigoInterno');
-		$nombre				= $this->input->post('criterio');
-		$proveedor			= $this->input->post('proveedor');
-		
-		$sql =" select a.idProducto
-		from productos as a
-		inner join productos_inventarios as b
-		on b.idProducto=a.idProducto
-		
-		where a.activo='1'
-		and b.idLicencia=$this->idLicencia ";
-		
-		#$sql.=strlen($codigoInterno)>0?" and a.codigoInterno like '$codigoInterno%' ":'';
-		#$sql.=strlen($nombre)>0?" and a.nombre like '%$nombre%' ":'';
-		
-		$sql.=" group by a.idProducto
-		 limit 30";
+		$codigoInterno	= trim($this->input->post('codigoInterno'));
+		$nombre			= trim($this->input->post('criterio'));
+		$codigoBusqueda	= $nombre;
+		$idLinea		= (int) $this->input->post('idLinea');
+		$idSubLinea		= (int) $this->input->post('idSubLinea');
 
-		return $this->db->query($sql)->num_rows();
+		$this->db->select('a.idProducto');
+		$this->db->from('productos as a');
+		$this->db->join('productos_inventarios as b', 'b.idProducto = a.idProducto');
+		$this->db->where('a.activo', '1');
+		$this->db->where('b.idLicencia', $this->idLicencia);
+
+		if($codigoInterno !== '')
+		{
+			$this->db->like('a.codigoInterno', $codigoInterno, 'after');
+		}
+
+		if($nombre !== '')
+		{
+			$this->db->group_start();
+			$this->db->like('a.nombre', $nombre);
+			$this->db->or_like('a.codigoBarras', $nombre);
+			$this->db->or_like('a.codigoInterno', $nombre);
+			$this->db->group_end();
+		}
+
+		if($idLinea > 0)
+		{
+			$this->db->where('a.idLinea', $idLinea);
+		}
+
+		if($idSubLinea > 0)
+		{
+			$this->db->where('a.idSubLinea', $idSubLinea);
+		}
+
+		$this->db->group_by('a.idProducto');
+
+		return $this->db->get()->num_rows();
 	}
 
 	public function obtenerProductosVentaCerraduras($numero,$limite)
 	{
-		$codigoInterno		= $this->input->post('codigoInterno');
-		$nombre				= $this->input->post('criterio');
-		$proveedor			= $this->input->post('proveedor');
+		$codigoInterno		= trim($this->input->post('codigoInterno'));
+		$nombre				= trim($this->input->post('criterio'));
+		$idLinea			= (int) $this->input->post('idLinea');
+		$idSubLinea			= (int) $this->input->post('idSubLinea');
 
-		$sql =" select a.idProducto, a.nombre, a.imagen, a.cantidadMayoreo,
-		h.precioA, h.precioB, h.precioC, a.reventa, 
-		a.codigoBarras, a.codigoInterno, a.descripcion,
-		h.precioD, h.precioE,  a.servicio, a.precioImpuestos,  a.idLinea,
-		g.tasa, g.nombre as impuesto, g.tipo as tipoImpuesto, g.idImpuesto, h.stock,
-		(select b.nombre from fac_catalogos_unidades as b where b.idUnidad=a.idUnidad) as unidad
-		from productos as a
+		$this->db->select("
+			a.idProducto,
+			a.nombre,
+			a.imagen,
+			a.cantidadMayoreo,
+			h.precioA,
+			h.precioB,
+			h.precioC,
+			a.reventa,
+			a.codigoBarras,
+			a.codigoInterno,
+			a.descripcion,
+			h.precioD,
+			h.precioE,
+			a.servicio,
+			a.precioImpuestos,
+			a.idLinea,
+			g.tasa,
+			g.nombre as impuesto,
+			g.tipo as tipoImpuesto,
+			g.idImpuesto,
+			h.stock,
+			(select b.nombre from fac_catalogos_unidades as b where b.idUnidad=a.idUnidad) as unidad
+		", false);
 
-		inner join configuracion_impuestos as g 
-		on g.idImpuesto=a.idImpuesto
-		
-		inner join productos_inventarios as h
-		on h.idProducto=a.idProducto
-		
-		
-		where a.activo='1'
+		$this->db->from('productos as a');
+		$this->db->join('configuracion_impuestos as g', 'g.idImpuesto = a.idImpuesto');
+		$this->db->join('productos_inventarios as h', 'h.idProducto = a.idProducto');
+		$this->db->where('a.activo', '1');
+		$this->db->where('h.idLicencia', $this->idLicencia);
 
-		and h.idLicencia=$this->idLicencia ";
-		
-		/*(select coalesce(sum(e.cantidad),0) from cotiza_productos as e
-		inner join cotizaciones as f
-		on f.idCotizacion=e.idCotizacion
-		where a.idProducto=e.idProduct
-		and f.estatus='1'
-		and f.cancelada='0') as vendidos,*/
-		
-		$sql.=strlen($codigoInterno)>0?" and a.codigoInterno like '$codigoInterno%' ":'';
-		$sql.=strlen($nombre)>0?" and a.nombre like '%$nombre%' ":'';
-		
-		$sql.="  group by a.idProducto ";
+		if($codigoInterno !== '')
+		{
+			$this->db->like('a.codigoInterno', $codigoInterno, 'after');
+		}
 
-		#$sql .= $this->ordenProductos=='stock'?" order by stock desc, vendidos desc, a.nombre asc ":' order by vendidos desc, stock desc, a.nombre asc ';
-		$sql .= " order by h.stock desc, a.nombre asc ";
-		
-		$sql.="  limit 100 ";
-		#$sql.=" limit $limite,$numero";
-		#echo $sql;
-		return $this->db->query($sql)->result();
+		if($nombre !== '')
+		{
+			$this->db->group_start();
+			$this->db->like('a.nombre', $nombre);
+			$this->db->or_like('a.codigoBarras', $nombre);
+			$this->db->or_like('a.codigoInterno', $nombre);
+			$this->db->group_end();
+		}
+
+		if($idLinea > 0)
+		{
+			$this->db->where('a.idLinea', $idLinea);
+		}
+
+		if($idSubLinea > 0)
+		{
+			$this->db->where('a.idSubLinea', $idSubLinea);
+		}
+
+		$this->db->group_by('a.idProducto');
+		$this->db->order_by('h.stock', 'DESC');
+		$this->db->order_by('a.nombre', 'ASC');
+
+		$numero = (int) $numero;
+		$limite = (int) $limite;
+
+		$this->db->limit($numero > 0 ? $numero : 40, $limite);
+
+		return $this->db->get()->result();
 	}
 	
 	public function obtenerProductoCodigo($codigoBarras)

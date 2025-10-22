@@ -1,3 +1,5 @@
+var filtroProductosFirma = "";
+
 
 $(document).ready(function()
 {
@@ -484,6 +486,23 @@ function definirSubLinea(idSubLinea)
 
 function obtenerProductosVenta(retraso)
 {
+	var firmaActual = [
+		$('#txtBuscarProducto').val(),
+		$('#txtBuscarProductoCodigo').val(),
+		$('#selectLineas').val(),
+		$('#selectSubLineas').val(),
+		$('#txtBuscarProveedor').val(),
+		$('#txtIdCliente').val(),
+		PRECIO1 ? '1' : '0'
+	].join('|');
+
+	if(firmaActual === filtroProductosFirma && retraso === 'debounce')
+	{
+		return;
+	}
+
+	filtroProductosFirma = firmaActual;
+
 	if(retraso!='1')
 	{
 		if(ejecutar && ejecutar.readystate != 4)
@@ -497,6 +516,7 @@ function obtenerProductosVenta(retraso)
 		if(!camposVacios($('#txtBuscarProducto').val()) && obtenerNumeros($('#selectLineas').val())==0 && obtenerNumeros($('#selectSubLineas').val())==0)
 		{
 			obtenerLineasVentas();
+			filtroProductosFirma = '';
 			return;
 		}
 	}
