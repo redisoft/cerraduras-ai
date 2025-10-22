@@ -268,6 +268,16 @@ function guardarVentaOffline(url, payload, resumen)
 	window.posCache.addVentaPendiente(registro).then(function()
 	{
 		notify('Venta guardada sin conexión. Se enviará automáticamente al reconectar.',500,5000,'',30,5);
+		if(navigator.serviceWorker && typeof navigator.serviceWorker.ready === 'function')
+		{
+			navigator.serviceWorker.ready.then(function(reg)
+			{
+				if(reg.sync && typeof reg.sync.register === 'function')
+				{
+					reg.sync.register('sync-ventas').catch(function(){});
+				}
+			}).catch(function(){});
+		}
 		finalizarVentaOffline();
 	}).catch(function(error)
 	{
@@ -438,6 +448,17 @@ $(document).ready(function()
 	if(typeof window.syncVentasPendientes === 'function' && navigator.onLine)
 	{
 		window.syncVentasPendientes();
+	}
+
+	if(navigator.serviceWorker && navigator.serviceWorker.addEventListener)
+	{
+		navigator.serviceWorker.addEventListener('message', function(event)
+		{
+			if(event.data && event.data.type === 'SYNC_VENTAS' && typeof window.syncVentasPendientes === 'function')
+			{
+				window.syncVentasPendientes();
+			}
+		});
 	}
 
 	//$('.ajax-pagVen > li a').live('click',function(eve)

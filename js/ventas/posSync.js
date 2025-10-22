@@ -147,28 +147,46 @@
 		});
 	}
 
-	window.posSync = {
-		syncProductos: syncProductos,
-		syncClientes: syncClientes
-	};
+window.posSync = {
+	syncProductos: syncProductos,
+	syncClientes: syncClientes
+};
 
-	window.addEventListener('online', function(){
-		if(window.posSync && typeof window.posSync.syncProductos === 'function')
-		{
-			window.posSync.syncProductos().catch(function(error){
+window.sincronizarPOS = function()
+{
+	var tareas = [];
+	if(window.posSync && typeof window.posSync.syncProductos === 'function')
+	{
+		tareas.push(window.posSync.syncProductos());
+	}
+	if(window.posSync && typeof window.posSync.syncClientes === 'function')
+	{
+		tareas.push(window.posSync.syncClientes());
+	}
+	if(typeof window.syncVentasPendientes === 'function')
+	{
+		tareas.push(window.syncVentasPendientes());
+	}
+	return Promise.all(tareas);
+};
+
+window.addEventListener('online', function(){
+	if(window.posSync && typeof window.posSync.syncProductos === 'function')
+	{
+		window.posSync.syncProductos().catch(function(error){
 				console.warn('Sync productos fallo online', error);
 			});
 		}
-		if(window.posSync && typeof window.posSync.syncClientes === 'function')
-		{
-			window.posSync.syncClientes().catch(function(error){
-				console.warn('Sync clientes fallo online', error);
-			});
-		}
-		if(window.syncVentasPendientes)
-		{
-			window.syncVentasPendientes();
-		}
-	});
+	if(window.posSync && typeof window.posSync.syncClientes === 'function')
+	{
+		window.posSync.syncClientes().catch(function(error){
+			console.warn('Sync clientes fallo online', error);
+		});
+	}
+	if(window.syncVentasPendientes)
+	{
+		window.syncVentasPendientes();
+	}
+});
 
 })(window);

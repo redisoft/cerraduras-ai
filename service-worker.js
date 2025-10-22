@@ -42,8 +42,8 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('sync', event => {
-  if(event.tag === 'sync-ventas' && self.registration.periodicSync) {
-    event.waitUntil(self.clients.matchAll().then(clients => {
+  if(event.tag === 'sync-ventas') {
+    event.waitUntil(self.clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(clients => {
       clients.forEach(client => client.postMessage({ type: 'SYNC_VENTAS'}));
     }));
   }
