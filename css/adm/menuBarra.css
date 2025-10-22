@@ -387,6 +387,21 @@ ul.menuBarra li.conectados > ul > li.primerUsuario:after
 	box-shadow:0 2px 4px rgba(0,0,0,0.3);
 }
 
+.barraAuxiliar .boton-instalar-pos {
+	padding:0.6vh 1.5vh;
+	border-radius:16px;
+	background:#2e7d32;
+	color:#fff;
+	font-size:1.4vh;
+	font-weight:600;
+	cursor:pointer;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+.barraAuxiliar .boton-instalar-pos.hidden {
+	display:none !important;
+}
+
 .barraAuxiliar .boton-pendientes-pos {
 	padding:0.6vh 1.5vh;
 	border-radius:16px;
@@ -414,6 +429,59 @@ ul.menuBarra li.conectados > ul > li.primerUsuario:after
 	font-weight:600;
 	box-shadow:0 2px 4px rgba(0,0,0,0.3);
 	cursor:default;
+}
+
+.tablaPendientes {
+	width:100%;
+	border-collapse:collapse;
+	margin-top:1vh;
+}
+
+.tablaPendientes th,
+.tablaPendientes td {
+	border:1px solid #ddd;
+	padding:0.8vh;
+	text-align:left;
+	font-size:1.4vh;
+}
+
+.tablaPendientes th {
+	background:#f5f5f5;
+}
+
+.tablaPendientes tr:nth-child(even) {
+	background:#fafafa;
+}
+
+.tablaPendientes tr:hover {
+	background:#e3f2fd;
+}
+
+.tablaPendientes .btn-Reintentar {
+	padding:0.4vh 1vh;
+	border:none;
+	border-radius:12px;
+	background:#0277bd;
+	color:#fff;
+	font-size:1.3vh;
+	cursor:pointer;
+}
+
+.detallePendiente {
+	margin-top:1.5vh;
+	background:#fafafa;
+	border:1px solid #ddd;
+	border-radius:6px;
+	padding:1vh;
+	max-height:25vh;
+	overflow:auto;
+}
+
+.detallePendiente pre {
+	margin:0;
+	font-size:1.3vh;
+	white-space:pre-wrap;
+	word-break:break-all;
 }
 #barraTop .col-md-4 {
 	display:flex;

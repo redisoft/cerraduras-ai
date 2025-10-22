@@ -109,6 +109,7 @@
     </div>
 	<div class="barraAuxiliar" id="barraOffline">
 		<div class="contenedorOffline">
+			<span id="btnInstalarPWA" class="boton-instalar-pos" title="Instalar aplicación" style="display:none">Instalar app</span>
 			<span id="btnSincronizarPOS" class="boton-sync-pos" title="Sincronizar catálogo y ventas pendientes">Sincronizar</span>
 			<span id="btnPendientesPOS" class="boton-pendientes-pos" title="Ver ventas guardadas sin conexión">Pendientes</span>
 			<span id="estadoConexion" class="estado-conexion">Conectado</span>
