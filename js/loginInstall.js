@@ -3,6 +3,7 @@
 
     var deferredPrompt = null;
     var procesoInterval = null;
+
     var pasosLogin = [
         '>> Iniciando instalador Cerraduras POS',
         'Descargando paquete de instalación...',
@@ -36,7 +37,7 @@
             {
                 clearInterval(procesoInterval);
                 consola.append('<p class="linea">'+mensajeFinal+'</p>');
-                setTimeout(function(){ contenedor.fadeOut(); }, 2000);
+                setTimeout(function(){ contenedor.fadeOut(); }, 2500);
                 return;
             }
             var linea = $('<p class="linea"></p>').text(pasos[index]);
@@ -62,55 +63,64 @@
     window.addEventListener('beforeinstallprompt', function(event){
         event.preventDefault();
         deferredPrompt = event;
-        $('#btnInstalarLogin').show();
+        $('#btnInstalarLogin').text('Instalar App Cerraduras').prop('disabled', false).show();
     });
 
     window.addEventListener('appinstalled', function(){
         deferredPrompt = null;
-        $('#btnInstalarLogin').hide();
+        $('#btnInstalarLogin').prop('disabled', true).text('App instalada');
     });
 
-    $(document).ready(function(){
+    function iniciarInstalacion()
+    {
         var boton = $('#btnInstalarLogin');
-        if(!boton.length)
-        {
-            return;
-        }
+        boton.prop('disabled', true).text('Instalando...');
+        mostrarProcesoLogin();
 
-        boton.hide();
-
-        boton.on('click', function(){
-            if(!deferredPrompt)
+        var duracion = pasosLogin.length * 800 + 1200;
+        setTimeout(function(){
+            var consola = $('#instalacionProceso .console-codigo');
+            if(deferredPrompt)
             {
-                mostrarProcesoLogin();
-                setTimeout(function(){ $('#instalacionProceso .console-codigo').append('<p class="linea">Tu navegador ya tiene la app instalada.</p>'); }, 2000);
-                return;
-            }
-
-            boton.prop('disabled', true);
-            mostrarProcesoLogin();
-
-            setTimeout(function(){
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then(function(choiceResult){
-                    var consola = $('#instalacionProceso .console-codigo');
                     if(choiceResult.outcome === 'accepted')
                     {
                         consola.append('<p class="linea">El usuario aceptó la instalación.</p>');
                     }
                     else
                     {
-                        consola.append('<p class="linea">Instalación cancelada.</p>');
+                        consola.append('<p class="linea">Instalación cancelada por el usuario.</p>');
                     }
                 }).catch(function(){
-                    $('#instalacionProceso .console-codigo').append('<p class="linea">Error al iniciar la instalación.</p>');
+                    consola.append('<p class="linea">Error al iniciar la instalación.</p>');
                 }).finally(function(){
                     deferredPrompt = null;
-                    boton.prop('disabled', false);
-                    setTimeout(function(){ $('#instalacionProceso').fadeOut(); }, 2000);
+                    boton.prop('disabled', false).text('Instalar App Cerraduras');
                 });
-            }, 1500);
-        });
+            }
+            else
+            {
+                consola.append('<p class="linea">Tu navegador ya dispone de la app o no soporta instalación automática.</p>');
+                boton.prop('disabled', false).text('Instalar App Cerraduras');
+            }
+        }, duracion);
+    }
+
+    $(document).ready(function(){
+        var botonLogin = $('#btnInstalarLogin');
+        if(botonLogin.length)
+        {
+            botonLogin.show().on('click', iniciarInstalacion);
+        }
+
+        var botonEstacion = $('#btnSimularInstalacion');
+        if(botonEstacion.length)
+        {
+            botonEstacion.on('click', function(){
+                window.mostrarProcesoInstalacion('#instalacionCookieProceso');
+            });
+        }
     });
 
 })(window, document, jQuery);

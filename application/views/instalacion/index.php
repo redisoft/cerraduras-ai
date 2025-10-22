@@ -137,7 +137,10 @@ $(document).ready(function()
 					}
 					
 					?>
-                    <div id="instalacionCookieProceso" class="proceso-instalar"></div>
+                    <div class="barraInstalacion" style="margin-top:1.5vh;">
+                        <button type="button" id="btnSimularInstalacion" class="btn-instalar-login">Instalar App Cerraduras</button>
+                        <div id="instalacionCookieProceso" style="display:none;"></div>
+                    </div>
                 </td>
             </tr>
     
