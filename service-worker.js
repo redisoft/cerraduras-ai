@@ -3,7 +3,11 @@ const OFFLINE_URLS = [
   '/',
   '/ventas',
   '/ventas/puntoVenta/0',
-  '/manifest.json'
+  '/manifest.json',
+  '/css/adm/menuBarra.css',
+  '/js/ventas/offlineIndicator.js',
+  '/js/ventas/offlineSales.js',
+  '/js/installPrompt.js'
 ];
 
 self.addEventListener('install', event => {

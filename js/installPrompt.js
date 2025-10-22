@@ -1,13 +1,13 @@
 (function(window, document){
 	'use strict';
 
-	var deferredPrompt = null;
+var deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', function(event){
-		event.preventDefault();
-		deferredPrompt = event;
-		mostrarBotonInstalar(true);
-	});
+	event.preventDefault();
+	deferredPrompt = event;
+	mostrarBotonInstalar(true);
+});
 
 	window.addEventListener('appinstalled', function(){
 		deferredPrompt = null;
@@ -33,13 +33,28 @@ function mostrarBotonInstalar(visible)
 		}
 	}
 
-	document.addEventListener('DOMContentLoaded', function(){
-		var boton = document.getElementById('btnInstalarPWA');
-		if(!boton)
-		{
-			return;
-		}
-		boton.addEventListener('click', function(){
+function solicitarPersistencia()
+{
+	if(navigator.storage && navigator.storage.persist)
+	{
+		navigator.storage.persist().then(function(granted){
+			if(!granted)
+			{
+				console.warn('El almacenamiento persistente no fue concedido, riesgo de pérdida de datos offline.');
+			}
+		}).catch(function(err){
+			console.warn('No se pudo solicitar almacenamiento persistente', err);
+		});
+	}
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+	var boton = document.getElementById('btnInstalarPWA');
+	if(!boton)
+	{
+		return;
+	}
+	boton.addEventListener('click', function(){
 			if(!deferredPrompt)
 			{
 				return;
@@ -50,8 +65,10 @@ function mostrarBotonInstalar(visible)
 				boton.disabled = false;
 				mostrarBotonInstalar(false);
 				deferredPrompt = null;
-			});
 		});
 	});
+
+	solicitarPersistencia();
+});
 
 })(window, document);
