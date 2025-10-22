@@ -1,5 +1,73 @@
 var filtroProductosFirma = "";
 
+function cacheProductosDesdeTabla()
+{
+	if(!window.posCache || typeof window.posCache.saveProductos !== 'function')
+	{
+		return;
+	}
+
+	var filas = document.querySelectorAll('#example tbody tr');
+	if(!filas.length)
+	{
+		return;
+	}
+
+	var productosCache = [];
+
+	filas.forEach(function(fila)
+	{
+		var inputId = fila.querySelector('input[id^="txtIDProducto"]');
+		if(!inputId)
+		{
+			return;
+		}
+
+		var sufijo = inputId.id.replace('txtIDProducto', '');
+		var obtenerValor = function(prefijo)
+		{
+			var campo = document.getElementById(prefijo + sufijo);
+			return campo ? campo.value : '';
+		};
+
+		var idProducto = parseInt(inputId.value, 10);
+		if(isNaN(idProducto))
+		{
+			return;
+		}
+
+		var codigoInterno = obtenerValor('txtCodigoProducto');
+		var nombreProducto = obtenerValor('txtNombre');
+
+		productosCache.push({
+			idProducto: idProducto,
+			nombre: nombreProducto,
+			codigoInterno: codigoInterno,
+			unidad: obtenerValor('txtUnidad'),
+			precioA: parseFloat(obtenerValor('txtActualPrecio')) || 0,
+			precioC: parseFloat(obtenerValor('txtPrecio3')) || 0,
+			stock: parseFloat(obtenerValor('txtCantidadTotal')) || 0,
+			ultimaActualizacion: Date.now()
+		});
+	});
+
+	if(productosCache.length)
+	{
+	window.posCache.saveProductos(productosCache)
+		.then(function()
+		{
+			if(typeof window.posCache.setMetadata === 'function')
+			{
+				window.posCache.setMetadata('lastSyncProductos', Date.now()).catch(function(){});
+			}
+		})
+		.catch(function(error)
+		{
+			console.warn('No se pudo almacenar productos localmente', error);
+		});
+	}
+}
+
 
 $(document).ready(function()
 {
@@ -24,12 +92,14 @@ $(document).ready(function()
 			},
 			dataType:"html",
 			beforeSend:function(){$(element).html('<img src="'+ img_loader +'"/> Espere...');},
-			success:function(html,textStatus)
+		success:function(html,textStatus)
+		{
+			setTimeout(function()
 			{
-				setTimeout(function()
-				{
-					$(element).html(html);},300);
-				},
+				$(element).html(html);
+				cacheProductosDesdeTabla();
+			},300);
+			},
 				error:function(datos){$(element).html('Error '+ datos).show('slow');
 			}
 		});
@@ -547,6 +617,7 @@ function obtenerProductosVenta(retraso)
 		success:function(data, textStatus)
 		{
 			$('#obtenerProductosVenta').html(data);
+			cacheProductosDesdeTabla();
 		},
 		error:function(datos)
 		{
