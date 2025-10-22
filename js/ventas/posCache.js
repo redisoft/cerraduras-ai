@@ -151,6 +151,44 @@
 		});
 	}
 
+	function searchProductos(filtros)
+	{
+		filtros = filtros || {};
+		var limite = filtros.limite || 40;
+		var texto = (filtros.texto || '').toLowerCase();
+		var codigo = (filtros.codigo || '').toLowerCase();
+
+		return getAll(STORE_PRODUCTOS).then(function(lista)
+		{
+			if(!lista.length)
+			{
+				return [];
+			}
+
+			var resultados = lista.filter(function(producto)
+			{
+				var coincideTexto = true;
+				var coincideCodigo = true;
+
+				if(texto)
+				{
+					var nombre = (producto.nombre || '').toLowerCase();
+					coincideTexto = nombre.indexOf(texto) !== -1;
+				}
+
+				if(codigo)
+				{
+					var codigoInterno = (producto.codigoInterno || '').toLowerCase();
+					coincideCodigo = codigoInterno.indexOf(codigo) !== -1;
+				}
+
+				return coincideTexto && coincideCodigo;
+			});
+
+			return resultados.slice(0, limite);
+		});
+	}
+
 	function getMetadata(clave)
 	{
 		return withStore(STORE_META, 'readonly', function(store)
@@ -194,6 +232,7 @@
 		openDatabase: openDatabase,
 		saveProductos: function(productos){ return putMany(STORE_PRODUCTOS, productos); },
 		getProductos: function(){ return getAll(STORE_PRODUCTOS); },
+		searchProductos: searchProductos,
 		saveStocks: function(stocks){ return putMany(STORE_STOCKS, stocks); },
 		getStocks: function(){ return getAll(STORE_STOCKS); },
 		saveClientes: function(clientes){ return putMany(STORE_CLIENTES, clientes); },

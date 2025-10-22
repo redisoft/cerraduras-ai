@@ -39,14 +39,52 @@ function cacheProductosDesdeTabla()
 		var codigoInterno = obtenerValor('txtCodigoProducto');
 		var nombreProducto = obtenerValor('txtNombre');
 
+		var selectPrecios = document.getElementById('selectPrecios' + sufijo);
+		var preciosLista = [];
+		var precioCliente = 1;
+		if(selectPrecios)
+		{
+			for(var idx = 0; idx < selectPrecios.options.length; idx++)
+			{
+				var valor = parseFloat(selectPrecios.options[idx].value) || 0;
+				preciosLista.push(valor);
+			}
+			precioCliente = selectPrecios.selectedIndex + 1;
+		}
+
+		var impuestoNombre = obtenerValor('txtImpuestoNombre');
+		var impuestoTasa = parseFloat(obtenerValor('txtImpuestoTasa')) || 0;
+		var impuestoTipo = obtenerValor('txtImpuestoTipo');
+		var impuestoTotal = parseFloat(obtenerValor('txtImpuestoTotal')) || 0;
+		var impuestoId = obtenerValor('txtImpuestoId');
+
+		var precioA = parseFloat(obtenerValor('txtActualPrecio')) || 0;
+		var cantidadMayoreo = parseFloat(obtenerValor('txtMayoreoCantidad')) || 0;
+		var stock = parseFloat(obtenerValor('txtCantidadTotal')) || 0;
+
 		productosCache.push({
 			idProducto: idProducto,
 			nombre: nombreProducto,
 			codigoInterno: codigoInterno,
 			unidad: obtenerValor('txtUnidad'),
-			precioA: parseFloat(obtenerValor('txtActualPrecio')) || 0,
+			precioA: precioA,
+			precioB: preciosLista[1] || 0,
 			precioC: parseFloat(obtenerValor('txtPrecio3')) || 0,
-			stock: parseFloat(obtenerValor('txtCantidadTotal')) || 0,
+			precioD: preciosLista[3] || 0,
+			precioE: preciosLista[4] || 0,
+			preciosLista: preciosLista,
+			precioCliente: precioCliente,
+			precioTarjeta: precioA ? precioA * 1.025 : 0,
+			cantidadMayoreo: cantidadMayoreo,
+			stock: stock,
+			impuestos:
+			{
+				nombre: impuestoNombre,
+				tasa: impuestoTasa,
+				tipo: impuestoTipo,
+				total: impuestoTotal,
+				id: impuestoId
+			},
 			ultimaActualizacion: Date.now()
 		});
 	});
@@ -67,6 +105,193 @@ function cacheProductosDesdeTabla()
 		});
 	}
 }
+
+function formatCurrency(valor)
+{
+	return new Intl.NumberFormat('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(valor || 0);
+}
+
+function formatNumber(valor)
+{
+	return new Intl.NumberFormat('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(valor || 0);
+}
+
+function escapeHtml(valor)
+{
+	return String(valor || '').replace(/[&<>"']/g, function(caracter)
+	{
+		switch(caracter)
+		{
+			case '&': return '&amp;';
+			case '<': return '&lt;';
+			case '>': return '&gt;';
+			case '"': return '&quot;';
+			case "'": return '&#39;';
+		}
+		return caracter;
+	});
+}
+
+function renderProductosDesdeCache(lista)
+{
+	var contenedor = $('#obtenerProductosVenta');
+	if(!contenedor.length)
+	{
+		return;
+	}
+
+	if(!Array.isArray(lista) || !lista.length)
+	{
+		contenedor.html('<div class="Error_validar">Sin registro de productos</div>');
+		return;
+	}
+
+	var precio1Visible = $('#txtPrecioCliente').val() !== '0';
+	var html = '';
+
+	html += '<input type="hidden" id="txtNumeroTotalProductos" value="'+lista.length+'"/>';
+	html += '<div id="example-console"></div>';
+	html += '<div style="width:90%; margin-top:0%;">';
+	html += '<ul id="pagination-digg" class="ajax-pagVen"></ul>';
+	html += '</div>';
+	html += '<table class="admintable display" cellspacing="0" width="100%" id="example">';
+	html += '<thead><tr>';
+	html += '<th>#</th>';
+	html += '<th width="12%">Código</th>';
+	html += '<th width="20%">Nombre</th>';
+	html += '<th>Unidad</th>';
+	html += '<th>Stock</th>';
+	html += '<th>Precio</th>';
+	html += '<th>Precio tarjeta</th>';
+	html += '<th '+(precio1Visible?'':'style="display:none"')+'>Precio 1</th>';
+	html += '<th>Mayoreo</th>';
+	html += '</tr></thead><tbody>';
+
+	lista.forEach(function(producto, index)
+	{
+		var fila = index + 1;
+		var clase = fila % 2 ? 'sinSombra' : 'sombreado';
+		var preciosLista = producto.preciosLista || [];
+		var precioA = producto.precioA || 0;
+		var precioB = preciosLista[1] || 0;
+		var precioC = producto.precioC || 0;
+		var precioD = preciosLista[3] || 0;
+		var precioE = preciosLista[4] || 0;
+		var cantidadMayoreo = producto.cantidadMayoreo || 0;
+		var stock = producto.stock || 0;
+		var precioTarjeta = producto.precioTarjeta || (precioA * 1.025);
+		var impuesto = producto.impuestos || {};
+
+		html += '<tr class="'+clase+'" id="tab'+fila+'">';
+		html += '<td style="font-size:11px">'+fila+'</td>';
+		html += '<td style="font-size:11px">';
+		html += '<input type="hidden" id="txtNombre'+fila+'" value="'+escapeHtml(producto.nombre)+'" />';
+		html += '<input type="hidden" id="txtCodigoProducto'+fila+'" value="'+escapeHtml(producto.codigoInterno)+'" />';
+		html += escapeHtml(producto.codigoInterno);
+		html += '</td>';
+		html += '<td style="font-size:11px">'+escapeHtml(producto.nombre)+'</td>';
+		html += '<td style="font-size:11px">'+escapeHtml(producto.unidad)+'</td>';
+		html += '<td style="font-size:11px" align="center" '+(stock===0?'style="color:red"':'')+'>'+formatNumber(stock)+'<br><label style="cursor:pointer" onclick="obtenerStockSucursales('+producto.idProducto+')">Sucursales</label></td>';
+
+		html += '<td style="font-size:11px" align="center">$'+formatCurrency(precioA);
+		html += '<select id="selectPrecios'+fila+'" class="cajasPrecios" style="height: 23px; width:100px; display:none">';
+		[precioA, precioB, precioC, precioD, precioE].forEach(function(valor, idx)
+		{
+			html += '<option '+(producto.precioCliente === (idx+1) ? 'selected="selected"' : '')+' value="'+valor+'">$'+formatCurrency(valor)+'</option>';
+		});
+		html += '</select>';
+		html += '<input type="hidden" id="txtActualPrecio'+fila+'" value="'+precioA+'" />';
+		html += '<input type="hidden" id="txtCantidadTotal'+fila+'" value="'+(producto.stock || 0)+'" />';
+		html += '<input type="hidden" id="txtIDProducto'+fila+'" value="'+producto.idProducto+'" />';
+		html += '<input type="hidden" id="txtUnidad'+fila+'" value="'+escapeHtml(producto.unidad)+'" />';
+		html += '<input type="hidden" id="txtMayoreoCantidad'+fila+'" value="'+cantidadMayoreo+'" />';
+		html += '<input type="hidden" id="txtImpuestoNombre'+fila+'" value="'+escapeHtml(impuesto.nombre)+'" />';
+		html += '<input type="hidden" id="txtImpuestoTasa'+fila+'" value="'+(impuesto.tasa || 0)+'" />';
+		html += '<input type="hidden" id="txtImpuestoTipo'+fila+'" value="'+escapeHtml(impuesto.tipo)+'" />';
+		html += '<input type="hidden" id="txtImpuestoTotal'+fila+'" value="'+(impuesto.total || 0)+'" />';
+		html += '<input type="hidden" id="txtImpuestoId'+fila+'" value="'+(impuesto.id || 0)+'" />';
+		html += '<input type="hidden" id="txtPrecio3'+fila+'" value="'+precioC+'" />';
+		html += '</td>';
+
+		html += '<td style="font-size:11px" align="center">$'+formatCurrency(precioTarjeta)+'</td>';
+		html += '<td style="font-size:11px" '+(precio1Visible?'':'style="display:none"')+' align="center">$'+formatCurrency(precioC)+'</td>';
+		html += '<td style="font-size:11px" align="center">'+formatNumber(cantidadMayoreo)+'</td>';
+		html += '</tr>';
+	});
+
+html += '</tbody></table>';
+
+contenedor.html(html);
+
+	if(typeof window.inicializarTablaProductos === 'function')
+	{
+		window.inicializarTablaProductos(lista.length);
+	}
+}
+
+window.inicializarTablaProductos = function(totalProductos)
+{
+	if(!$('#example').length || !$.fn.DataTable)
+	{
+		return;
+	}
+
+	if($.fn.DataTable.isDataTable('#example'))
+	{
+		$('#example').DataTable().destroy();
+	}
+
+	var table = $('#example').DataTable({
+		keys:
+		{
+			keys: [13, 38, 40]
+		},
+		tabIndex: 3,
+		pageLength: 8,
+		deferRender: true
+	});
+
+	$('#example').off('key-focus.dt').on('key-focus.dt', function(e, datatable, cell)
+	{
+		$(table.row(cell.index().row).node()).addClass('selected');
+	});
+
+	$('#example').off('key-blur.dt').on('key-blur.dt', function(e, datatable, cell)
+	{
+		$(table.row(cell.index().row).node()).removeClass('selected');
+	});
+
+	$('#example').off('dblclick').on('dblclick', 'tbody td', function(e)
+	{
+		e.stopPropagation();
+		var rowIdx = table.cell(this).index().row;
+		agregarProductoVenta(rowIdx+1,0,'si','0');
+	});
+
+	$('#example').off('key.dt').on('key.dt', function(e, datatable, key, cell)
+	{
+		if(key === 13)
+		{
+			var data = table.row(cell.index().row).data();
+			setTimeout(function()
+			{
+				if(agregarProductoVenta(data[0],0,'si','0'))
+				{
+					table.cell.blur();
+				}
+			}, 100);
+		}
+	});
+
+	$('#example_info, #example_paginate, #example_length, #example_filter').hide();
+
+	if(totalProductos === 1)
+	{
+		agregarProductoVenta(1,0,'si','0');
+	}
+
+	window.tableProductosPOS = table;
+};
 
 
 $(document).ready(function()
@@ -573,57 +798,83 @@ function obtenerProductosVenta(retraso)
 
 	filtroProductosFirma = firmaActual;
 
-	if(retraso!='1')
+	var ejecutarConsultaServidor = function()
 	{
-		if(ejecutar && ejecutar.readystate != 4)
+		if(retraso!='1')
 		{
-			ejecutar.abort();
+			if(ejecutar && ejecutar.readystate != 4)
+			{
+				ejecutar.abort();
+			}
 		}
-	}
 	
-	if(sistemaActivo=='olyess')
-	{
-		if(!camposVacios($('#txtBuscarProducto').val()) && obtenerNumeros($('#selectLineas').val())==0 && obtenerNumeros($('#selectSubLineas').val())==0)
+		if(sistemaActivo=='olyess')
 		{
-			obtenerLineasVentas();
-			filtroProductosFirma = '';
-			return;
+			if(!camposVacios($('#txtBuscarProducto').val()) && obtenerNumeros($('#selectLineas').val())==0 && obtenerNumeros($('#selectSubLineas').val())==0)
+			{
+				obtenerLineasVentas();
+				filtroProductosFirma = '';
+				return;
+			}
 		}
-	}
 	
-	ejecutar=$.ajax(
+		ejecutar=$.ajax(
+		{
+			async:true,
+			beforeSend:function(objeto)
+			{
+				$('#obtenerProductosVenta').html('<label><img src="'+ img_loader +'"/> Obteniendo la lista de productos...</label>');
+			},
+			type:"POST",
+			url:base_url+'ventas/obtenerProductosVenta',
+			data:
+			{
+				criterio:	$('#txtBuscarProducto').val(),
+				idCliente:	$('#txtIdCliente').val(),
+				idLinea:	$('#selectLineas').val(),
+				idSubLinea:	$('#selectSubLineas').val(),
+				codigoInterno:	$('#txtBuscarProductoCodigo').val(),
+				proveedor:	$('#txtBuscarProveedor').val(),
+				precio1:	!PRECIO1?'0':'1'
+			},
+			datatype:"html",
+			success:function(data, textStatus)
+			{
+				$('#obtenerProductosVenta').html(data);
+				cacheProductosDesdeTabla();
+			},
+			error:function(datos)
+			{
+				$('#obtenerProductosVenta').html('');
+			}
+		});
+	};
+
+	var filtroLinea = parseInt($('#selectLineas').val(), 10) || 0;
+	var filtroSubLinea = parseInt($('#selectSubLineas').val(), 10) || 0;
+
+	if(window.posCache && typeof window.posCache.searchProductos === 'function' && filtroLinea === 0 && filtroSubLinea === 0)
 	{
-		async:true,
-		beforeSend:function(objeto)
+		window.posCache.searchProductos({
+			texto: $('#txtBuscarProducto').val(),
+			codigo: $('#txtBuscarProductoCodigo').val(),
+			limite: 40
+		}).then(function(resultado)
 		{
-			$('#obtenerProductosVenta').html('<label><img src="'+ img_loader +'"/> Obteniendo la lista de productos...</label>');
-		},
-		type:"POST",
-		url:base_url+'ventas/obtenerProductosVenta',
-		data:
+			if(resultado && resultado.length)
+			{
+				renderProductosDesdeCache(resultado);
+				return;
+			}
+			ejecutarConsultaServidor();
+		}).catch(function()
 		{
-			criterio:	$('#txtBuscarProducto').val(),
-			idCliente:	$('#txtIdCliente').val(),
-			idLinea:	$('#selectLineas').val(),
-			idSubLinea:	$('#selectSubLineas').val(),
-			
-			
-			codigoInterno:	$('#txtBuscarProductoCodigo').val(),
-			proveedor:		$('#txtBuscarProveedor').val(),
-			precio1:		!PRECIO1?'0':'1',
-			
-		},
-		datatype:"html",
-		success:function(data, textStatus)
-		{
-			$('#obtenerProductosVenta').html(data);
-			cacheProductosDesdeTabla();
-		},
-		error:function(datos)
-		{
-			$('#obtenerProductosVenta').html('');
-		}
-	});		
+			ejecutarConsultaServidor();
+		});
+		return;
+	}
+
+	ejecutarConsultaServidor();
 }
 
 function recargarPaginaVenta()
