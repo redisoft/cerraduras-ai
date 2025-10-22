@@ -113,6 +113,7 @@
 	indicator.onclick = function(){
 		if(typeof window.sincronizarPOS === 'function')
 		{
+			indicator.classList.add('sincronizando');
 			window.sincronizarPOS().then(function(){
 				if(typeof window.actualizarEstadoConexion === 'function')
 				{
@@ -120,6 +121,8 @@
 				}
 			}).catch(function(error){
 				console.warn('Sincronización manual fallida', error);
+			}).finally(function(){
+				indicator.classList.remove('sincronizando');
 			});
 		}
 	};

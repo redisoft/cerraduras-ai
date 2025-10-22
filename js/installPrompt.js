@@ -48,7 +48,7 @@ function solicitarPersistencia()
 	}
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+$(document).ready(function(){
 	var boton = document.getElementById('btnInstalarPWA');
 	if(!boton)
 	{
