@@ -40,10 +40,11 @@ $(document).ready(function()
 	base_url				= '<?php echo base_url()?>';
 	
 	$('#txtUsuario').focus();
-	if(window.mostrarProcesoInstalacion)
-	{
-		window.mostrarProcesoInstalacion('#instalacionCookieProceso');
+	var noFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') === -1;
+	if(noFirefox){
+		alert('El sistema es compatible únicamente con Mozilla Firefox.');
 	}
+	$('.barraInstalacion').show();
 });
 
 </script>

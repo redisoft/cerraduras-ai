@@ -38,6 +38,8 @@
                 clearInterval(procesoInterval);
                 consola.append('<p class="linea">'+mensajeFinal+'</p>');
                 setTimeout(function(){ contenedor.fadeOut(); }, 2500);
+                $('.barraInstalacion').hide();
+                $('#btnInstalarLogin').hide();
                 return;
             }
             var linea = $('<p class="linea"></p>').text(pasos[index]);
@@ -77,6 +79,7 @@
     {
         var boton = $('#btnInstalarLogin');
         boton.prop('disabled', true).text('Instalando...');
+        $('.barraInstalacion').show();
         mostrarProcesoLogin();
 
         var duracion = pasosLogin.length * 800 + 1200;
@@ -110,6 +113,10 @@
     }
 
     $(document).ready(function(){
+        var noFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') === -1;
+        if(noFirefox){
+            alert('El sistema es compatible únicamente con Mozilla Firefox.');
+        }
         if(window.matchMedia('(display-mode: standalone)').matches)
         {
             $('#estadoPwa').addClass('instalada').text('APP instalada');
