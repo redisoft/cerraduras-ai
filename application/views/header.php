@@ -110,6 +110,7 @@
 	<div class="barraAuxiliar" id="barraOffline">
 		<div class="contenedorOffline">
 			<span id="btnSincronizarPOS" class="boton-sync-pos" title="Sincronizar catálogo y ventas pendientes">Sincronizar</span>
+			<span id="btnPendientesPOS" class="boton-pendientes-pos" title="Ver ventas guardadas sin conexión">Pendientes</span>
 			<span id="estadoConexion" class="estado-conexion">Conectado</span>
 		</div>
 	</div>

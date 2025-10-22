@@ -387,6 +387,26 @@ ul.menuBarra li.conectados > ul > li.primerUsuario:after
 	box-shadow:0 2px 4px rgba(0,0,0,0.3);
 }
 
+.barraAuxiliar .boton-pendientes-pos {
+	padding:0.6vh 1.5vh;
+	border-radius:16px;
+	background:#37474f;
+	color:#fff;
+	font-size:1.4vh;
+	font-weight:600;
+	cursor:pointer;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+.barraAuxiliar .boton-pendientes-pos:hover {
+	background:#455a64;
+}
+
+.barraAuxiliar .boton-pendientes-pos.empty {
+	background:#9e9e9e;
+	cursor:default;
+}
+
 .barraAuxiliar .estado-conexion {
 	padding:0.6vh 1.5vh;
 	border-radius:16px;

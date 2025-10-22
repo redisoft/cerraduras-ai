@@ -3,13 +3,13 @@
 
 	function createIndicator()
 	{
-		var indicator = document.getElementById('menuDesconectado');
-		if(!indicator)
-		{
-			return null;
-		}
+	var indicator = document.getElementById('menuDesconectado');
+	if(!indicator)
+	{
+		return null;
+	}
 
-		indicator.classList.add('estado-conexion');
+	indicator.className = 'estado-conexion';
 
 		indicator.style.display = 'inline-block';
 		indicator.style.float = 'none';
@@ -131,6 +131,10 @@
 			if(total > 0)
 			{
 				indicator.textContent = mensaje + ' · Pendientes: ' + total;
+			}
+			if(typeof window.actualizarEstadoBotonPendientes === 'function')
+			{
+				window.actualizarEstadoBotonPendientes();
 			}
 		});
 	}

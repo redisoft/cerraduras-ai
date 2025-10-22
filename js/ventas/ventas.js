@@ -279,6 +279,10 @@ function guardarVentaOffline(url, payload, resumen)
 			}).catch(function(){});
 		}
 		finalizarVentaOffline();
+		if(typeof window.actualizarEstadoBotonPendientes === 'function')
+		{
+			window.actualizarEstadoBotonPendientes();
+		}
 	}).catch(function(error)
 	{
 		console.error('Error guardando venta offline', error);
@@ -368,6 +372,10 @@ window.syncVentasPendientes = function()
 			if(typeof window.actualizarEstadoConexion === 'function')
 			{
 				window.actualizarEstadoConexion();
+			}
+			if(typeof window.actualizarEstadoBotonPendientes === 'function')
+			{
+				window.actualizarEstadoBotonPendientes();
 			}
 		});
 	});
