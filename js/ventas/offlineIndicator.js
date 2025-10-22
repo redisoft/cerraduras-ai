@@ -9,19 +9,25 @@
 			return existing;
 		}
 
+		var contenedor = document.getElementById('barraTop') || document.body;
+		if(window.getComputedStyle(contenedor).position === 'static')
+		{
+			contenedor.style.position = 'relative';
+		}
+
 		var div = document.createElement('div');
 		div.id = 'estadoConexion';
-		div.style.position = 'fixed';
-		div.style.top = '20px';
+		div.style.position = 'absolute';
+		div.style.top = '8px';
 		div.style.right = '20px';
-		div.style.zIndex = '9999';
-		div.style.padding = '10px 16px';
-		div.style.borderRadius = '6px';
-		div.style.fontSize = '14px';
-		div.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-		div.style.display = 'block';
+		div.style.zIndex = '999';
+		div.style.padding = '6px 14px';
+		div.style.borderRadius = '20px';
+		div.style.fontSize = '13px';
+		div.style.fontWeight = '600';
+		div.style.boxShadow = '0 3px 6px rgba(0,0,0,0.2)';
 		div.style.transition = 'background-color 0.3s ease';
-		document.body.appendChild(div);
+		contenedor.appendChild(div);
 		return div;
 	}
 
@@ -33,13 +39,14 @@
 			indicator.style.backgroundColor = '#1b5e20';
 			indicator.style.color = '#fff';
 			indicator.textContent = 'Conectado';
+			indicator.style.display = 'inline-block';
 		}
 		else
 		{
 			indicator.style.backgroundColor = '#b00020';
 			indicator.style.color = '#fff';
 			indicator.textContent = 'Sin conexión';
-			indicator.style.display = 'block';
+			indicator.style.display = 'inline-block';
 		}
 	}
 

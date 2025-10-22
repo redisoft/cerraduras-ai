@@ -179,10 +179,11 @@ function renderProductosDesdeCache(lista)
 		var precioE = preciosLista[4] || 0;
 		var cantidadMayoreo = producto.cantidadMayoreo || 0;
 		var stock = producto.stock || 0;
+		var servicio = producto.servicio ? 1 : 0;
 		var precioTarjeta = producto.precioTarjeta || (precioA * 1.025);
 		var impuesto = producto.impuestos || {};
 
-		html += '<tr class="'+clase+'" id="tab'+fila+'">';
+		html += '<tr class="'+clase+'" id="tab'+fila+'" data-servicio="'+servicio+'">';
 		html += '<td style="font-size:11px">'+fila+'</td>';
 		html += '<td style="font-size:11px">';
 		html += '<input type="hidden" id="txtNombre'+fila+'" value="'+escapeHtml(producto.nombre)+'" />';
@@ -201,7 +202,7 @@ function renderProductosDesdeCache(lista)
 		});
 		html += '</select>';
 		html += '<input type="hidden" id="txtActualPrecio'+fila+'" value="'+precioA+'" />';
-		html += '<input type="hidden" id="txtCantidadTotal'+fila+'" value="'+(producto.stock || 0)+'" />';
+		html += '<input type="hidden" id="txtCantidadTotal'+fila+'" value="'+(servicio ? 100000 : stock)+'" />';
 		html += '<input type="hidden" id="txtIDProducto'+fila+'" value="'+producto.idProducto+'" />';
 		html += '<input type="hidden" id="txtUnidad'+fila+'" value="'+escapeHtml(producto.unidad)+'" />';
 		html += '<input type="hidden" id="txtMayoreoCantidad'+fila+'" value="'+cantidadMayoreo+'" />';
@@ -265,7 +266,9 @@ window.inicializarTablaProductos = function(totalProductos)
 	{
 		e.stopPropagation();
 		var rowIdx = table.cell(this).index().row;
-		agregarProductoVenta(rowIdx+1,0,'si','0');
+		var rowNode = table.row(rowIdx).node();
+		var servicio = $(rowNode).data('servicio') || 0;
+		agregarProductoVenta(rowIdx+1,servicio,'si','0');
 	});
 
 	$('#example').off('key.dt').on('key.dt', function(e, datatable, key, cell)
@@ -273,9 +276,11 @@ window.inicializarTablaProductos = function(totalProductos)
 		if(key === 13)
 		{
 			var data = table.row(cell.index().row).data();
+			var rowNode = table.row(cell.index().row).node();
+			var servicio = $(rowNode).data('servicio') || 0;
 			setTimeout(function()
 			{
-				if(agregarProductoVenta(data[0],0,'si','0'))
+				if(agregarProductoVenta(data[0],servicio,'si','0'))
 				{
 					table.cell.blur();
 				}
