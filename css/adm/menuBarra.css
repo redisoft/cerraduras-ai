@@ -363,20 +363,37 @@ ul.menuBarra li.conectados > ul > li.primerUsuario:after
 	opacity:0.7;
 	cursor:wait;
 }
-ul.menuBarra li.estado-conexion {
-	float:none !important;
-	background:none !important;
-	background-image:none !important;
-	width:auto !important;
-	height:auto !important;
-	padding:0 !important;
-	border:none !important;
-	line-height:normal !important;
-	box-shadow:none !important;
-	cursor:default !important;
+.barraAuxiliar {
+	background-color:#0d47a1;
+	color:#fff;
+	padding:0.6vh 1.5vh;
+	display:flex;
+	justify-content:flex-end;
+	align-items:center;
+	gap:1vh;
+	box-shadow:0 2px 6px rgba(0,0,0,0.2);
 }
-ul.menuBarra li.estado-conexion:after {
-	content:'' !important;
+
+.barraAuxiliar .contenedorOffline { display:flex; align-items:center; gap:1vh; }
+
+.barraAuxiliar .boton-sync-pos {
+	padding:0.6vh 1.5vh;
+	border-radius:16px;
+	background:#01579b;
+	color:#fff;
+	font-size:1.4vh;
+	font-weight:600;
+	cursor:pointer;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+.barraAuxiliar .estado-conexion {
+	padding:0.6vh 1.5vh;
+	border-radius:16px;
+	font-size:1.5vh;
+	font-weight:600;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+	cursor:default;
 }
 #barraTop .col-md-4 {
 	display:flex;

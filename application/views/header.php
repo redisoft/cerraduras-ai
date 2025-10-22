@@ -106,7 +106,13 @@
             </div>
             
         </ul>
-    </div>    
+    </div>
+	<div class="barraAuxiliar" id="barraOffline">
+		<div class="contenedorOffline">
+			<span id="btnSincronizarPOS" class="boton-sync-pos" title="Sincronizar catálogo y ventas pendientes">Sincronizar</span>
+			<span id="estadoConexion" class="estado-conexion">Conectado</span>
+		</div>
+	</div>
 </div>
 
 
