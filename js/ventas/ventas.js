@@ -232,6 +232,136 @@ contenedor.html(html);
 	}
 }
 
+function finalizarVentaOffline()
+{
+	$("#registrandoCobroVenta").html('');
+	if($('#ventanaCobrosVenta').data('ui-dialog'))
+	{
+		$('#ventanaCobrosVenta').dialog('close');
+	}
+	formularioVentas();
+	activarBotonesVenta();
+	if(typeof window.actualizarEstadoConexion === 'function')
+	{
+		window.actualizarEstadoConexion();
+	}
+}
+
+function guardarVentaOffline(url, payload, resumen)
+{
+	if(!window.posCache || typeof window.posCache.addVentaPendiente !== 'function')
+	{
+		notify('No se pudo guardar la venta sin conexión, intente nuevamente.',500,5000,'error',30,5);
+		activarBotonesVenta();
+		return;
+	}
+
+	var registro = {
+		url: url,
+		payload: payload,
+		clienteId: resumen && resumen.clienteId ? resumen.clienteId : '',
+		clienteNombre: resumen && resumen.clienteNombre ? resumen.clienteNombre : '',
+		total: resumen && resumen.total ? resumen.total : '',
+		fecha: new Date().toISOString()
+	};
+
+	window.posCache.addVentaPendiente(registro).then(function()
+	{
+		notify('Venta guardada sin conexión. Se enviará automáticamente al reconectar.',500,5000,'',30,5);
+		finalizarVentaOffline();
+	}).catch(function(error)
+	{
+		console.error('Error guardando venta offline', error);
+		notify('No se pudo guardar la venta sin conexión.',500,5000,'error',30,5);
+		activarBotonesVenta();
+	});
+}
+
+function enviarVentaPendiente(venta)
+{
+	return new Promise(function(resolve)
+	{
+		$.ajax(
+		{
+			type: 'POST',
+			url: venta.url || base_url+'ventas/registrarVenta',
+			data: venta.payload,
+			dataType: 'html'
+		}).done(function(respuesta)
+		{
+			var ok = false;
+			try
+			{
+				var data = eval(respuesta);
+				ok = data && data[0] === "1";
+			}
+			catch(e)
+			{
+				ok = false;
+			}
+			if(ok && window.posCache && typeof window.posCache.removeVentaPendiente === 'function')
+			{
+				window.posCache.removeVentaPendiente(venta.id).finally(function()
+				{
+					resolve(true);
+				});
+			}
+			else
+			{
+				resolve(false);
+			}
+		}).fail(function()
+		{
+			resolve(false);
+		});
+	});
+}
+
+window.syncVentasPendientes = function()
+{
+	if(!navigator.onLine || !window.posCache || typeof window.posCache.getVentasPendientes !== 'function')
+	{
+		return Promise.resolve();
+	}
+
+	return window.posCache.getVentasPendientes().then(function(lista)
+	{
+		if(!lista || !lista.length)
+		{
+			if(typeof window.actualizarEstadoConexion === 'function')
+			{
+				window.actualizarEstadoConexion();
+			}
+			return;
+		}
+		var exitos = 0;
+		return lista.reduce(function(promise, venta)
+		{
+			return promise.then(function()
+			{
+				return enviarVentaPendiente(venta).then(function(ok)
+				{
+					if(ok)
+					{
+						exitos++;
+					}
+				});
+			});
+		}, Promise.resolve()).then(function()
+		{
+			if(exitos>0)
+			{
+				notify(exitos+' ventas sincronizadas correctamente.',500,5000,'',30,5);
+			}
+		}).finally(function()
+		{
+			if(typeof window.actualizarEstadoConexion === 'function')
+			{
+				window.actualizarEstadoConexion();
+			}
+		});
+	});
+};
 window.inicializarTablaProductos = function(totalProductos)
 {
 	if(!$('#example').length || !$.fn.DataTable)
@@ -270,7 +400,7 @@ window.inicializarTablaProductos = function(totalProductos)
 		var rowIdx = table.cell(this).index().row;
 		var rowNode = table.row(rowIdx).node();
 		var servicio = $(rowNode).data('servicio') || 0;
-		agregarProductoVenta(rowIdx+1,servicio,'si');
+		agregarProductoVenta(rowIdx+1,servicio,'si','0');
 	});
 
 	$('#example').off('key.dt').on('key.dt', function(e, datatable, key, cell)
@@ -282,7 +412,7 @@ window.inicializarTablaProductos = function(totalProductos)
 			var servicio = $(rowNode).data('servicio') || 0;
 			setTimeout(function()
 			{
-				if(agregarProductoVenta(data[0],servicio,'si'))
+				if(agregarProductoVenta(data[0],servicio,'si','0'))
 				{
 					table.cell.blur();
 				}
@@ -294,7 +424,7 @@ window.inicializarTablaProductos = function(totalProductos)
 
 	if(totalProductos === 1)
 	{
-		agregarProductoVenta(1,0,'si');
+		agregarProductoVenta(1,0,'si','0');
 	}
 
 	window.tableProductosPOS = table;
@@ -304,7 +434,12 @@ window.inicializarTablaProductos = function(totalProductos)
 $(document).ready(function()
 {
 	PRECIO1	= false;
-	
+
+	if(typeof window.syncVentasPendientes === 'function' && navigator.onLine)
+	{
+		window.syncVentasPendientes();
+	}
+
 	//$('.ajax-pagVen > li a').live('click',function(eve)
 	$(document).on("click", ".ajax-pagVen > li a", function(eve)
 	{
@@ -606,8 +741,27 @@ function registrarVenta()
 		}
 	}
 
+	var ventaPayload = $('#frmVentasClientes').serialize()+'&'+$('#frmCobros').serialize()+'&tipoVenta='+tipoVenta+'&cotizacion=0'
+	+'&condiciones='+$('#txtCondicionesPago').val()
+	+'&tipoEnvio=' + $("#selectMostrador option:selected").text()
+	+'&metodoPago='+metodoPago[0]+'&metodoPagoTexto='+MetodoPago
+	+'&formaPago='+formaPago[0]+'&formaPagoTexto='+FormaPago
+	+'&usoCfdi='+usoCfdi[0]+'&usoCfdiTexto='+UsoCfdi;
 
-	ejecutarAccion=$.ajax(
+	var resumenVenta = {
+		clienteId: $('#txtIdCliente').val(),
+		clienteNombre: $('#txtBuscarCliente').val(),
+		total: $('#txtTotal').val()
+	};
+
+	if(!navigator.onLine)
+	{
+		guardarVentaOffline(url, ventaPayload, resumenVenta);
+		return;
+	}
+
+	
+		ejecutarAccion=$.ajax(
 	{
 		async:false,
 		beforeSend:function(objeto){$('#registrandoCobroVenta').html('<img src="'+ img_loader +'"/> Se esta realizando la venta, por favor tenga paciencia ...');},
@@ -616,12 +770,7 @@ function registrarVenta()
 		
 		url:url,
 		
-		data: $('#frmVentasClientes').serialize()+'&'+$('#frmCobros').serialize()+'&tipoVenta='+tipoVenta+'&cotizacion=0'
-		+'&condiciones='+$('#txtCondicionesPago').val()
-		+'&tipoEnvio=' + $("#selectMostrador option:selected").text()
-		+'&metodoPago='+metodoPago[0]+'&metodoPagoTexto='+MetodoPago
-		+'&formaPago='+formaPago[0]+'&formaPagoTexto='+FormaPago
-		+'&usoCfdi='+usoCfdi[0]+'&usoCfdiTexto='+UsoCfdi,
+		data: ventaPayload,
 		datatype:"html",
 
 		success:function(data, textStatus)
@@ -715,10 +864,17 @@ function registrarVenta()
 		error:function(datos)
 		{
 			$("#registrandoCobroVenta").html('');
-			notify('Error al realizar la venta, por favor verifique la conexión a internet',500,5000,'error',30,3);
-			activarBotonesVenta();
+			if(!navigator.onLine || datos.status === 0)
+			{
+				guardarVentaOffline(url, ventaPayload, resumenVenta);
+			}
+			else
+			{
+				notify('Error al realizar la venta, por favor verifique la conexión a internet',500,5000,'error',30,3);
+				activarBotonesVenta();
+			}
 		}
-	});		
+	});	
 }
 
 function invocarImpresora(idCotizacion)

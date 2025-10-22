@@ -260,11 +260,58 @@
 		});
 	}
 
-	function saveProductosLote(registros)
+function saveProductosLote(registros)
+{
+	return putMany(STORE_PRODUCTOS, registros).then(function()
 	{
-		return putMany(STORE_PRODUCTOS, registros).then(function()
+		return setLastSync('productos', Date.now());
+	});
+}
+
+	function addVentaPendiente(venta)
+	{
+		venta = Object.assign({}, venta, { fecha: venta.fecha || new Date().toISOString() });
+		return withStore(STORE_VENTAS, 'readwrite', function(store)
 		{
-			return setLastSync('productos', Date.now());
+			return new Promise(function(resolve, reject)
+			{
+				const request = store.add(venta);
+				request.onsuccess = function(event)
+				{
+					resolve(event.target.result);
+				};
+				request.onerror = function(event)
+				{
+					reject(event.target.error);
+				};
+			});
+		});
+	}
+
+	function removeVentaPendiente(id)
+	{
+		return withStore(STORE_VENTAS, 'readwrite', function(store)
+		{
+			store.delete(id);
+		});
+	}
+
+	function countVentasPendientes()
+	{
+		return withStore(STORE_VENTAS, 'readonly', function(store)
+		{
+			return new Promise(function(resolve, reject)
+			{
+				const request = store.count();
+				request.onsuccess = function(event)
+				{
+					resolve(event.target.result || 0);
+				};
+				request.onerror = function(event)
+				{
+					reject(event.target.error);
+				};
+			});
 		});
 	}
 
@@ -279,8 +326,10 @@
 		getStocks: function(){ return getAll(STORE_STOCKS); },
 		saveClientes: function(clientes){ return putMany(STORE_CLIENTES, clientes); },
 		getClientes: function(){ return getAll(STORE_CLIENTES); },
-		addVentaPendiente: function(venta){ return putMany(STORE_VENTAS, [venta]); },
-		getVentasPendientes: function(){ return getAll(STORE_VENTAS); },
+	addVentaPendiente: addVentaPendiente,
+	removeVentaPendiente: removeVentaPendiente,
+	countVentasPendientes: countVentasPendientes,
+	getVentasPendientes: function(){ return getAll(STORE_VENTAS); },
 		clearStore: clearStore,
 		getMetadata: getMetadata,
 		setMetadata: setMetadata,
