@@ -1,4 +1,5 @@
 <script defer src="<?=base_url()?>js/ventas/posCache.js?v=<?=ASSET_VERSION?>"></script>
+<script defer src="<?=base_url()?>js/ventas/posSync.js?v=<?=ASSET_VERSION?>"></script>
 <script defer src="<?=base_url()?>js/ventas/cotizaciones.js?v=<?=ASSET_VERSION?>"></script>
 <script defer src="<?=base_url()?>js/bancos/bancos.js?v=<?=ASSET_VERSION?>"></script>
 <script defer src="<?=base_url()?>js/facturacion/folios.js?v=<?=ASSET_VERSION?>"></script>
@@ -26,6 +27,22 @@ $(document).ready(function()
 		{
 			console.warn('IndexedDB no disponible para POS', error);
 		});
+
+		if(window.posSync && typeof window.posSync.syncProductos === 'function')
+		{
+			window.posSync.syncProductos().catch(function(error)
+			{
+				console.warn('Sync productos falló', error);
+			});
+		}
+
+		if(window.posSync && typeof window.posSync.syncClientes === 'function')
+		{
+			window.posSync.syncClientes().catch(function(error)
+			{
+				console.warn('Sync clientes falló', error);
+			});
+		}
 	}
 
 	//$('#barraTop').fadeOut(0)

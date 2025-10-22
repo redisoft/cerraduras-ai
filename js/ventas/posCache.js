@@ -227,10 +227,52 @@
 		});
 	}
 
+	function getLastSync(key)
+	{
+		return getMetadata('lastSync_' + key).then(function(valor)
+		{
+			return valor;
+		});
+	}
+
+	function setLastSync(key, value)
+	{
+		return setMetadata('lastSync_' + key, value);
+	}
+
+	function needsSync(key, minutos)
+	{
+		minutos = minutos || 5;
+		return getLastSync(key).then(function(timestamp)
+		{
+			if(!timestamp)
+			{
+				return true;
+			}
+			
+			var ultimo = parseInt(timestamp, 10);
+			if(isNaN(ultimo))
+			{
+				return true;
+			}
+			var diferencia = Date.now() - ultimo;
+			return diferencia > minutos * 60 * 1000;
+		});
+	}
+
+	function saveProductosLote(registros)
+	{
+		return putMany(STORE_PRODUCTOS, registros).then(function()
+		{
+			return setLastSync('productos', Date.now());
+		});
+	}
+
 	const api =
 	{
 		openDatabase: openDatabase,
 		saveProductos: function(productos){ return putMany(STORE_PRODUCTOS, productos); },
+		saveProductosLote: saveProductosLote,
 		getProductos: function(){ return getAll(STORE_PRODUCTOS); },
 		searchProductos: searchProductos,
 		saveStocks: function(stocks){ return putMany(STORE_STOCKS, stocks); },
@@ -241,7 +283,10 @@
 		getVentasPendientes: function(){ return getAll(STORE_VENTAS); },
 		clearStore: clearStore,
 		getMetadata: getMetadata,
-		setMetadata: setMetadata
+		setMetadata: setMetadata,
+		getLastSync: getLastSync,
+		setLastSync: setLastSync,
+		needsSync: needsSync
 	};
 
 	window.posCache = api;
