@@ -31,8 +31,14 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const request = event.request;
+  const requestUrl = new URL(request.url);
+
   if(request.method !== 'GET') {
     event.respondWith(fetch(request));
+    return;
+  }
+
+  if(requestUrl.protocol !== 'http:' && requestUrl.protocol !== 'https:') {
     return;
   }
 
