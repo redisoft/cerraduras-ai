@@ -15,6 +15,7 @@
         <script type="text/javascript" src="<?php echo base_url()?>js/jquery/jquery.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>js/jquery/jquery-ui.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>js/bootstrap/bootstrap.js"></script>
+        <script>window.base_url = '<?php echo base_url()?>';</script>
         
         <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/jquery.disableAutoFill.js"></script>
         <script>
