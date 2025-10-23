@@ -61,25 +61,7 @@
                 <li title="Salir del sistema" id="menuSalir" onclick="window.location.href='<?php echo base_url()?>login/logout'" class="salir">Salir</li>
             </ul>
         </li>
-        	<!-- elementos removidos -->
-            <!-- <li class="ayuda" ... > ... -->
-            <!-- <li id="menuRecargar" ... > -->
-            <!-- <li id="menuDesconectado" ... > -->
-            <!-- <li class="conectados" ... > -->
-            <?php
-
-            </li>
-			
-			<?php
-			if($this->session->userdata('tiendaLocal')=='1' and $this->session->userdata('rol')=='1')
-			{
-				echo '
-				<li id="menuRecargar" onclick="formularioSincronizacion(0)" title="Actualizar hacia el servidor" class="nube"></li>
-				<li id="menuRecargar" onclick="formularioSincronizacion(1)" title="Actualizar desde el servidor" class="local"></li>';
-			}
-			?>
-            
-            </div>
+        </div>
             
         </ul>
     </div>

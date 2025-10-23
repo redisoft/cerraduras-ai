@@ -7,6 +7,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/notificaciones.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/sha1.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js"></script>
+<script>window.base_url = '<?php echo base_url()?>';</script>
 <script type="text/javascript" src="<?php echo base_url()?>js/loginInstall.js"></script>
 <?php
 require_once "application/libraries/ReCaptcha.php";
