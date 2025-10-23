@@ -127,10 +127,7 @@
             else
             {
                 consola.append('<p class="linea">Tu navegador ya dispone de la app o no soporta instalación automática.</p>');
-                if(!$('#estadoPwa').hasClass('instalada'))
-                {
-                    boton.prop('disabled', false).text('Instalar App Cerraduras').show();
-                }
+                marcarInstalada();
             }
         }, duracion);
     }
@@ -138,14 +135,11 @@
     $(document).ready(function(){
         var installedNavigator = navigator.standalone === true;
         var standalone = window.matchMedia('(display-mode: standalone)').matches;
-        if(installedNavigator || standalone){ localStorage.setItem('cerradurasPwaInstalada','1'); }
+        if(installedNavigator || standalone){ localStorage.setItem(STORAGE_KEY,'1'); }
         var noFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') === -1;
         if(noFirefox){
             alert('El sistema es compatible únicamente con Mozilla Firefox.');
         }
-        var installedNavigator = navigator.standalone === true;
-        var standalone = window.matchMedia('(display-mode: standalone)').matches;
-        if(installedNavigator || standalone){ localStorage.setItem(STORAGE_KEY,'1'); }
         var instaladaPrev = localStorage.getItem(STORAGE_KEY) === '1';
         if(instaladaPrev)
         {
