@@ -9,6 +9,25 @@
 	const API_PRODUCTOS = base_url + 'api_catalogo/productos';
 	const API_CLIENTES  = base_url + 'api_catalogo/clientes';
 
+	function getModuloActual()
+	{
+		var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
+
+		if(path.indexOf('/clientes') !== -1)
+		{
+			return 'clientes';
+		}
+		if(path.indexOf('/inventarioproductos') !== -1)
+		{
+			return 'productos';
+		}
+		if(path.indexOf('/ventas') !== -1)
+		{
+			return 'ventas';
+		}
+		return 'general';
+	}
+
 	function fetchJson(url, params)
 	{
 		if(params)
@@ -167,44 +186,52 @@
 
 window.posSync = {
 	syncProductos: syncProductos,
-	syncClientes: syncClientes
+	syncClientes: syncClientes,
+	getModuloActual: getModuloActual
 };
 
-window.sincronizarPOS = function()
+window.obtenerModuloPOSActual = getModuloActual;
+
+window.sincronizarPOS = function(opciones)
 {
+	var modulo = opciones && opciones.modulo ? opciones.modulo : getModuloActual();
 	var tareas = [];
-	if(window.posSync && typeof window.posSync.syncProductos === 'function')
+
+	function agregarTarea(nombre, disponible, ejecutar)
 	{
-		tareas.push(window.posSync.syncProductos());
+		if(!disponible)
+		{
+			return;
+		}
+		tareas.push(Promise.resolve().then(ejecutar).catch(function(error){
+			console.warn('Sync '+nombre+' falló', error);
+		}));
 	}
-	if(window.posSync && typeof window.posSync.syncClientes === 'function')
-	{
-		tareas.push(window.posSync.syncClientes());
-	}
-	if(typeof window.syncVentasPendientes === 'function')
-	{
-		tareas.push(window.syncVentasPendientes());
-	}
+
+	var puedeSyncProductos = window.posSync && typeof window.posSync.syncProductos === 'function';
+	var puedeSyncClientes = window.posSync && typeof window.posSync.syncClientes === 'function';
+	var puedeSyncVentas = typeof window.syncVentasPendientes === 'function';
+
+	agregarTarea('productos', (modulo === 'productos' || modulo === 'general') && puedeSyncProductos, function(){
+		return window.posSync.syncProductos();
+	});
+	agregarTarea('clientes', (modulo === 'clientes' || modulo === 'general') && puedeSyncClientes, function(){
+		return window.posSync.syncClientes();
+	});
+	agregarTarea('ventas pendientes', (modulo === 'ventas' || modulo === 'general') && puedeSyncVentas, function(){
+		return window.syncVentasPendientes();
+	});
+
 	return Promise.all(tareas);
 };
 
 window.addEventListener('online', function(){
-	if(window.posSync && typeof window.posSync.syncProductos === 'function')
-	{
-		window.posSync.syncProductos().catch(function(error){
-				console.warn('Sync productos fallo online', error);
-			});
+	window.sincronizarPOS().finally(function(){
+		if(typeof window.actualizarEstadoConexion === 'function')
+		{
+			window.actualizarEstadoConexion();
 		}
-	if(window.posSync && typeof window.posSync.syncClientes === 'function')
-	{
-		window.posSync.syncClientes().catch(function(error){
-			console.warn('Sync clientes fallo online', error);
-		});
-	}
-	if(window.syncVentasPendientes)
-	{
-		window.syncVentasPendientes();
-	}
+	});
 });
 
 })(window);

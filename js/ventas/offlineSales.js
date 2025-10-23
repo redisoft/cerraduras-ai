@@ -5,6 +5,15 @@
 	var tablaDetallesId = 'tablaPendientesPOS';
 var botonPendientesId = 'btnPendientesPOS';
 
+	function obtenerModuloActual()
+	{
+		if(typeof window.obtenerModuloPOSActual === 'function')
+		{
+			return window.obtenerModuloPOSActual();
+		}
+		return 'general';
+	}
+
 	function ensureDialog()
 	{
 		var modal = document.getElementById(dialogId);
@@ -115,6 +124,12 @@ var botonPendientesId = 'btnPendientesPOS';
 		{
 			return;
 		}
+		if(obtenerModuloActual() !== 'ventas')
+		{
+			boton.style.display = 'none';
+			return;
+		}
+		boton.style.display = 'inline-block';
 		window.posCache.countVentasPendientes().then(function(total)
 		{
 			if(total > 0)
@@ -177,6 +192,11 @@ var botonPendientesId = 'btnPendientesPOS';
 		var boton = document.getElementById('btnPendientesPOS');
 		if(boton)
 		{
+			if(obtenerModuloActual() !== 'ventas')
+			{
+				boton.style.display = 'none';
+				return;
+			}
 			boton.addEventListener('click', function(){
 				if(boton.classList.contains('empty'))
 				{

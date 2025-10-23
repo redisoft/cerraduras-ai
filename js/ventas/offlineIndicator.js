@@ -31,6 +31,15 @@
 		return indicator;
 	}
 
+	function obtenerModuloActual()
+	{
+		if(typeof window.obtenerModuloPOSActual === 'function')
+		{
+			return window.obtenerModuloPOSActual();
+		}
+		return 'general';
+	}
+
 	function createSyncButton()
 	{
 		var contenedor = document.querySelector('#barraTop .col-md-4');
@@ -46,13 +55,14 @@
 			boton.id = 'btnSincronizarPOS';
 			boton.className = 'boton-sync-pos';
 			boton.textContent = 'Sincronizar';
-			boton.title = 'Sincronizar catálogo y ventas pendientes';
+			boton.title = 'Sincronizar información offline';
 			boton.onclick = function()
 			{
 				if(typeof window.sincronizarPOS === 'function')
 				{
 					$(boton).addClass('en-progreso');
-					window.sincronizarPOS().then(function(){
+					var modulo = obtenerModuloActual();
+					window.sincronizarPOS({ modulo: modulo }).then(function(){
 						notify('Sincronización completada',500,4000,'',30,5);
 					}).catch(function(error){
 						console.warn('Sincronización manual fallida', error);
@@ -67,6 +77,28 @@
 				}
 			};
 			contenedor.insertBefore(boton, document.getElementById('menuDesconectado'));
+		}
+
+		var moduloActual = obtenerModuloActual();
+		if(moduloActual === 'clientes')
+		{
+			boton.textContent = 'Sincronizar clientes';
+			boton.title = 'Sincronizar catálogo de clientes';
+		}
+		else if(moduloActual === 'productos')
+		{
+			boton.textContent = 'Sincronizar productos';
+			boton.title = 'Sincronizar catálogo de productos';
+		}
+		else if(moduloActual === 'ventas')
+		{
+			boton.textContent = 'Sincronizar ventas';
+			boton.title = 'Reintentar ventas pendientes';
+		}
+		else
+		{
+			boton.textContent = 'Sincronizar';
+			boton.title = 'Sincronizar información offline';
 		}
 
 		boton.style.display = 'inline-block';
@@ -114,7 +146,7 @@
 		if(typeof window.sincronizarPOS === 'function')
 		{
 			indicator.classList.add('sincronizando');
-			window.sincronizarPOS().then(function(){
+			window.sincronizarPOS({ modulo: obtenerModuloActual() }).then(function(){
 				if(typeof window.actualizarEstadoConexion === 'function')
 				{
 					window.actualizarEstadoConexion();
@@ -129,9 +161,10 @@
 
 	if(window.posCache && typeof window.posCache.countVentasPendientes === 'function')
 	{
+		var moduloActual = obtenerModuloActual();
 		window.posCache.countVentasPendientes().then(function(total)
 		{
-			if(total > 0)
+			if(moduloActual === 'ventas' && total > 0)
 			{
 				indicator.textContent = mensaje + ' · Pendientes: ' + total;
 			}

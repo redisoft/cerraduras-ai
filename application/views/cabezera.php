@@ -154,7 +154,8 @@ $(document).ready(function(){
             return;
         }
         boton.addClass('en-progreso');
-        window.sincronizarPOS().finally(function(){
+        var modulo = typeof window.obtenerModuloPOSActual === 'function' ? window.obtenerModuloPOSActual() : undefined;
+        window.sincronizarPOS({ modulo: modulo }).finally(function(){
             boton.removeClass('en-progreso');
             if(typeof window.actualizarEstadoConexion === 'function'){
                 window.actualizarEstadoConexion();
