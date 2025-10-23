@@ -515,3 +515,7 @@ ul.menuBarra li.estado-conexion:after {
 .barraAuxiliar .boton-pendientes-pos:active {
 	transform: scale(0.97);
 }
+.barraAuxiliar .boton-sync-pos.en-progreso {
+	opacity:0.7;
+	cursor:wait;
+}

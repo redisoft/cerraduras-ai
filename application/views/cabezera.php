@@ -77,6 +77,7 @@ $(document).ready(function()
 });
 
 </script>
+<script>window.base_url = '<?php echo base_url()?>';</script>
 <script src="<?php echo base_url()?>js/jsruta.js?v=<?=ASSET_VERSION?>"></script>
 
 <?php $estilo=$this->session->userdata('estilo');?>
@@ -101,6 +102,8 @@ $(document).ready(function()
 <script src="<?php echo base_url()?>js/conexion/offline.js"></script>	
 <script src="<?php echo base_url()?>js/correos/firma.js"></script>
 <script src="<?php echo base_url()?>js/configuracion/sincronizacion.js"></script>
+<script src="<?php echo base_url()?>js/ventas/posCache.js?v=<?=ASSET_VERSION?>"></script>
+<script src="<?php echo base_url()?>js/ventas/posSync.js?v=<?=ASSET_VERSION?>"></script>
 <script src="<?php echo base_url()?>js/ventas/offlineIndicator.js?v=<?=ASSET_VERSION?>"></script>
 <script src="<?php echo base_url()?>js/ventas/offlineSales.js?v=<?=ASSET_VERSION?>"></script>
 <script src="<?php echo base_url()?>js/installPrompt.js?v=<?=ASSET_VERSION?>"></script>
@@ -108,6 +111,30 @@ $(document).ready(function()
 <script src="<?php echo base_url()?>js/administracion/comprobantesIngresos.js?v=<?=ASSET_VERSION?>"></script>
 
 <script src="<?php echo base_url()?>js/bibliotecas/jquery.PrintArea.js"></script>
+
+<script>
+if(window.posCache && typeof window.posCache.openDatabase === 'function'){
+    window.posCache.openDatabase();
+}
+$(document).ready(function(){
+    $('#btnSincronizarPOS').on('click', function(){
+        var boton = $(this);
+        if(typeof window.sincronizarPOS !== 'function'){
+            return;
+        }
+        boton.addClass('en-progreso');
+        window.sincronizarPOS().finally(function(){
+            boton.removeClass('en-progreso');
+            if(typeof window.actualizarEstadoConexion === 'function'){
+                window.actualizarEstadoConexion();
+            }
+            if(typeof window.actualizarEstadoBotonPendientes === 'function'){
+                window.actualizarEstadoBotonPendientes();
+            }
+        });
+    });
+});
+</script>
 
 <!--Start of Zopim Live Chat Script-->
 <!--<script type="text/javascript">
