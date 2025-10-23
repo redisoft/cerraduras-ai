@@ -40,7 +40,7 @@ var botonPendientesId = 'btnPendientesPOS';
 	{
 		if(!Array.isArray(lista) || !lista.length)
 		{
-			return '<div class="mensajePendientes">Sin ventas pendientes.</div>';
+			return '<div class="mensajePendientes">Sin pendientes.</div>';
 		}
 		var html = '<table class="tablaPendientes" id="'+tablaDetallesId+'">';
 		html += '<thead><tr><th>#</th><th>Cliente</th><th>Total</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody>';

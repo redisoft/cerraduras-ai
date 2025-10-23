@@ -6,6 +6,10 @@
 	var indicator = document.getElementById('menuDesconectado');
 	if(!indicator)
 	{
+		indicator = document.getElementById('estadoConexion');
+	}
+	if(!indicator)
+	{
 		return null;
 	}
 
