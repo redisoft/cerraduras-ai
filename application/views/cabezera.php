@@ -99,7 +99,7 @@ $(document).ready(function()
 <script src="<?php echo base_url()?>js/compras/comprasPagos.js?v=<?=ASSET_VERSION?>"></script>
 <script src="<?php echo base_url()?>js/ventas/ventasPagos.js?v=<?=ASSET_VERSION?>"></script>	
 <script src="<?php echo base_url()?>js/bibliotecas/fechas.js"></script>	
-<script src="<?php echo base_url()?>js/conexion/offline.js"></script>	
+<script src="<?php echo base_url()?>js/conexion/offline.js"></script>
 <script src="<?php echo base_url()?>js/correos/firma.js"></script>
 <script src="<?php echo base_url()?>js/configuracion/sincronizacion.js"></script>
 <script src="<?php echo base_url()?>js/ventas/posCache.js?v=<?=ASSET_VERSION?>"></script>
@@ -111,6 +111,37 @@ $(document).ready(function()
 <script src="<?php echo base_url()?>js/administracion/comprobantesIngresos.js?v=<?=ASSET_VERSION?>"></script>
 
 <script src="<?php echo base_url()?>js/bibliotecas/jquery.PrintArea.js"></script>
+<style>
+.offline-ui,
+.offline-ui::before,
+.offline-ui::after,
+.offline-ui *{
+	display:none !important;
+}
+</style>
+<script>
+if(window.Offline){
+	try{
+		Offline.options = Offline.options || {};
+		Offline.options.checkOnLoad = false;
+		Offline.options.interceptRequests = false;
+		Offline.options.requests = false;
+		Offline.options.reconnect = false;
+		Offline.on('down', function(){
+			if(typeof window.actualizarEstadoConexion === 'function'){
+				window.actualizarEstadoConexion();
+			}
+		});
+		Offline.on('up', function(){
+			if(typeof window.actualizarEstadoConexion === 'function'){
+				window.actualizarEstadoConexion();
+			}
+		});
+	}catch(e){
+		console.warn('No fue posible ajustar Offline.js', e);
+	}
+}
+</script>
 
 <script>
 if(window.posCache && typeof window.posCache.openDatabase === 'function'){

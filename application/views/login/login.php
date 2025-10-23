@@ -7,6 +7,7 @@
     	<title>
     		<?php echo $estilo->nombre?>
     	</title>
+        <?php $loginAssetVersion = defined('ASSET_VERSION') ? ASSET_VERSION : date('YmdHi'); ?>
         
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/login/login.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/adminLte.css">
@@ -18,6 +19,15 @@
         <script>window.base_url = '<?php echo base_url()?>';</script>
         
         <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/jquery.disableAutoFill.js"></script>
+        <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/sha1.js"></script>
+        <style>
+        .offline-login-status{display:none;margin-top:1.2vh;font-size:1.4vh;font-weight:600;text-align:center;color:#ffe082;}
+        .offline-login-status.info{color:#b3e5fc;}
+        .offline-login-status.error{color:#ff8a80;}
+        .offline-login-status.success{color:#c5e1a5;}
+        .btn-descarga-offline{margin-top:1vh;background-color:#01579b;color:#fff;border:none;padding:0.8vh 1.8vh;border-radius:18px;font-size:1.4vh;font-weight:600;box-shadow:0 2px 4px rgba(0,0,0,0.3);}
+        .btn-descarga-offline:disabled{opacity:0.6;cursor:default;}
+        </style>
         <script>
 			
 			$(document).ready(function()
@@ -120,6 +130,14 @@
                         <button type="submit" class="btn btn-warning" >Aceptar</button>
                     </div>
                     
+                    <div class="col-md-12">
+                        <div id="offlineLoginStatus" class="offline-login-status"></div>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <button type="button" id="btnSyncOffline" class="btn btn-default btn-descarga-offline">Sincronizar catálogos offline</button>
+                    </div>
+                    
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <br>
@@ -176,6 +194,9 @@
 
 </form>
 
+<script defer src="<?php echo base_url()?>js/ventas/posCache.js?v=<?=$loginAssetVersion?>"></script>
+<script defer src="<?php echo base_url()?>js/ventas/posSync.js?v=<?=$loginAssetVersion?>"></script>
+<script defer src="<?php echo base_url()?>js/loginOffline.js?v=<?=$loginAssetVersion?>"></script>
 <script src="<?php echo base_url()?>js/loginInstall.js?v=<?=time()?>"></script>
 
     

@@ -2,11 +2,12 @@
 	'use strict';
 
 	const DB_NAME = 'cerradurasPOS';
-	const DB_VERSION = 1;
+	const DB_VERSION = 2;
 
 	const STORE_PRODUCTOS = 'productos';
 	const STORE_STOCKS = 'stocks';
 	const STORE_CLIENTES = 'clientes';
+	const STORE_USUARIOS = 'usuarios';
 	const STORE_VENTAS = 'ventasPendientes';
 	const STORE_META = 'metadatos';
 
@@ -57,6 +58,11 @@
 					const clientes = db.createObjectStore(STORE_CLIENTES, { keyPath: 'idCliente' });
 					clientes.createIndex('nombre', 'nombre', { unique: false });
 					clientes.createIndex('rfc', 'rfc', { unique: false });
+				}
+
+				if(!db.objectStoreNames.contains(STORE_USUARIOS))
+				{
+					db.createObjectStore(STORE_USUARIOS, { keyPath: 'username' });
 				}
 
 				if(!db.objectStoreNames.contains(STORE_VENTAS))
@@ -260,13 +266,48 @@
 		});
 	}
 
-function saveProductosLote(registros)
-{
-	return putMany(STORE_PRODUCTOS, registros).then(function()
+	function saveProductosLote(registros)
 	{
-		return setLastSync('productos', Date.now());
-	});
-}
+		return putMany(STORE_PRODUCTOS, registros).then(function()
+		{
+			return setLastSync('productos', Date.now());
+		});
+	}
+
+	function saveUsuarioCredential(usuario)
+	{
+		if(!usuario || !usuario.username)
+		{
+			return Promise.resolve();
+		}
+		return withStore(STORE_USUARIOS, 'readwrite', function(store)
+		{
+			store.put(Object.assign({}, usuario, { actualizado: Date.now() }));
+		});
+	}
+
+	function getUsuarioCredential(username)
+	{
+		if(!username)
+		{
+			return Promise.resolve(null);
+		}
+		return withStore(STORE_USUARIOS, 'readonly', function(store)
+		{
+			return new Promise(function(resolve, reject)
+			{
+				const request = store.get(username);
+				request.onsuccess = function(event)
+				{
+					resolve(event.target.result || null);
+				};
+				request.onerror = function(event)
+				{
+					reject(event.target.error);
+				};
+			});
+		});
+	}
 
 	function addVentaPendiente(venta)
 	{
@@ -326,6 +367,8 @@ function saveProductosLote(registros)
 		getStocks: function(){ return getAll(STORE_STOCKS); },
 		saveClientes: function(clientes){ return putMany(STORE_CLIENTES, clientes); },
 		getClientes: function(){ return getAll(STORE_CLIENTES); },
+		saveUsuarioCredential: saveUsuarioCredential,
+		getUsuarioCredential: getUsuarioCredential,
 	addVentaPendiente: addVentaPendiente,
 	removeVentaPendiente: removeVentaPendiente,
 	countVentasPendientes: countVentasPendientes,

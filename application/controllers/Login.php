@@ -142,6 +142,7 @@ class Login extends CI_Controller
 	{
 		$Data['csslogin']	= $this->_csstyle["csslogin"];
 		$Data['estilo']		= $this->configuracion->obtenerEstilo();
+		$isAjax				= $this->input->is_ajax_request() || $this->input->post('ajax');
 		
 		$reglas['username'] = "required";
 		$reglas['password'] = "required";
@@ -154,8 +155,19 @@ class Login extends CI_Controller
 		
 		if ($this->validation->run() == FALSE)
 		{
-			$this->session->set_userdata('errorNotificacion','El nombre de usuario o contraseña son incorrectos - validacion');	
-					
+			if($isAjax)
+			{
+				$this->output
+					->set_status_header(400)
+					->set_content_type('application/json')
+					->set_output(json_encode(array(
+						'success' => false,
+						'message' => 'Usuario y contraseña son requeridos.'
+					)));
+				return;
+			}
+
+			$this->session->set_userdata('errorNotificacion','El nombre de usuario o contraseña son incorrectos - validacion');
 			redirect('login');
 		}
 		else
@@ -169,8 +181,19 @@ class Login extends CI_Controller
 			switch($redux)
 			{
 				case false: 
-					$this->session->set_userdata('errorNotificacion','El nombre de usuario o contraseña son incorrectos - login');	
-					
+					if($isAjax)
+					{
+						$this->output
+							->set_status_header(401)
+							->set_content_type('application/json')
+							->set_output(json_encode(array(
+								'success' => false,
+								'message' => 'El nombre de usuario o la contraseña son incorrectos.'
+							)));
+						return;
+					}
+
+					$this->session->set_userdata('errorNotificacion','El nombre de usuario o contraseña son incorrectos - login');
 					redirect('login');
 				break;
 				case true:
@@ -189,14 +212,55 @@ class Login extends CI_Controller
 				}
 				else
 				{
+					if($isAjax)
+					{
+						$this->output
+							->set_status_header(401)
+							->set_content_type('application/json')
+							->set_output(json_encode(array(
+								'success' => false,
+								'message' => 'No se pudo validar el acceso con el servidor.'
+							)));
+						return;
+					}
 					redirect('login/logout','refresh');
 				}
 				
 				if($this->configuracion->comprobarHorario($licencia->idUsuario)==0)
 				{
-					$this->session->set_userdata('errorNotificacion','El dia y horario de acceso no estan disponibles para el usuario');	
-					
+					if($isAjax)
+					{
+						$this->output
+							->set_status_header(403)
+							->set_content_type('application/json')
+							->set_output(json_encode(array(
+								'success' => false,
+								'message' => 'El día u horario de acceso no están disponibles para el usuario.'
+							)));
+						return;
+					}
+					$this->session->set_userdata('errorNotificacion','El dia y horario de acceso no estan disponibles para el usuario');
 					redirect('login');
+				}
+
+				if($isAjax)
+				{
+					$configuracionCookie = $this->configuracion->obtenerConfiguracionCookie();
+					$idEstacionCookie    = get_cookie('idEstacion'.$configuracionCookie->idCookie);
+					$this->output
+						->set_content_type('application/json')
+						->set_output(json_encode(array(
+							'success'  => true,
+							'redirect' => base_url()."principal/index/",
+							'usuario'  => array(
+								'username'   => $user,
+								'idUsuario'  => $licencia->idUsuario,
+								'idLicencia' => $this->input->post('selectSucursal'),
+								'idEstacion' => $idEstacionCookie ? $idEstacionCookie : null,
+								'idRol'      => $licencia->idRol
+							)
+						)));
+					return;
 				}
 
 				redirect(base_url()."principal/index/","refresh");

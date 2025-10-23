@@ -1,13 +1,19 @@
 const CACHE_NAME = 'cerraduras-pos-v1';
 const OFFLINE_URLS = [
   '/',
+  '/login',
   '/ventas',
   '/ventas/puntoVenta/0',
   '/manifest.json',
   '/css/adm/menuBarra.css',
+  '/css/login/login.css',
   '/js/ventas/offlineIndicator.js',
   '/js/ventas/offlineSales.js',
-  '/js/installPrompt.js'
+  '/js/ventas/posCache.js',
+  '/js/ventas/posSync.js',
+  '/js/loginOffline.js',
+  '/js/installPrompt.js',
+  '/js/bibliotecas/sha1.js'
 ];
 
 self.addEventListener('install', event => {
