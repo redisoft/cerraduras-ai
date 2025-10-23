@@ -61,37 +61,13 @@
                 <li title="Salir del sistema" id="menuSalir" onclick="window.location.href='<?php echo base_url()?>login/logout'" class="salir">Salir</li>
             </ul>
         </li>
-        	<li class="ayuda" title="Ayuda">
-            
-            	<ul>
-                    <li id="menuEmail" class="email">Email</li>
-                    <!--<li id="menuTutorial" class="tutorial">Tutorial</li>-->
-                    <li onclick="window.open('https://redisoftsystems.zendesk.com/hc/es')" id="menuManual" class="manual">Manual</li>
-                </ul>
-                
-            </li>
-            <li id="menuRecargar" onclick="recargarPagina()" title="Recargar" class="recargar"></li>
-            <li id="menuDesconectado" class="conectado" title="Conectado a internet"></li>
-            
-            <li class="conectados" title="Usuarios conectados">
-            	<?php
-                if(isset($conectados))
-				{
-					$i=0;
-					echo '
-					<ul>';
-						
-						foreach($conectados as $row)
-						{
-							echo' <li '.($i==0?'class="primerUsuario"':'').' title="'.$row->usuario.'">'.substr($row->usuario,0,15).'</li>';
-							
-							$i++;
-						}
-					
-					echo'</ul>';
-				}
-				?>
-            	
+        	<!-- elementos removidos -->
+            <!-- <li class="ayuda" ... > ... -->
+            <!-- <li id="menuRecargar" ... > -->
+            <!-- <li id="menuDesconectado" ... > -->
+            <!-- <li class="conectados" ... > -->
+            <?php
+
             </li>
 			
 			<?php
