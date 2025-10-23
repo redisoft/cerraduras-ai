@@ -504,3 +504,14 @@ ul.menuBarra li.estado-conexion {
 ul.menuBarra li.estado-conexion:after {
 	content:'' !important;
 }
+.barraAuxiliar .boton-sync-pos:hover,
+.barraAuxiliar .boton-instalar-pos:hover,
+.barraAuxiliar .boton-pendientes-pos:hover {
+	filter: brightness(1.1);
+}
+
+.barraAuxiliar .boton-sync-pos:active,
+.barraAuxiliar .boton-instalar-pos:active,
+.barraAuxiliar .boton-pendientes-pos:active {
+	transform: scale(0.97);
+}

@@ -84,7 +84,7 @@
 			var params = Object.assign({ offset: offset }, baseParams);
 			return fetchJson(API_PRODUCTOS, params).then(function(respuesta)
 			{
-				console.log('syncProductos lote', offset, respuesta && respuesta.data ? respuesta.data.length : 0);
+				
 				if(!respuesta || !Array.isArray(respuesta.data) || respuesta.data.length === 0)
 				{
 					return;
@@ -141,7 +141,7 @@
 			var params = Object.assign({ offset: offset }, baseParams);
 			return fetchJson(API_CLIENTES, params).then(function(respuesta)
 			{
-				console.log('syncClientes lote', offset, respuesta && respuesta.data ? respuesta.data.length : 0);
+				
 				if(!respuesta || !Array.isArray(respuesta.data) || respuesta.data.length === 0)
 				{
 					return;
