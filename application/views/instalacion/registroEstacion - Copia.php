@@ -7,7 +7,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/notificaciones.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/sha1.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js?v=20241024"></script>
 
 <title>.: Zapaterias México :.</title>
 
@@ -20,18 +20,6 @@
 
 $(document).ready(function()
 {
-	var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-	
-	if(!es_firefox)
-	{
-		$('#btnAceptar').remove()
-		$('#frmInstalacion').attr('action',null)
-		
-		notify('El sistema solo es compatible con Mozilla Firefox',500,6000,"error",55,8);
-		
-		
-	}
-	
 	base_url	= '<?php echo base_url()?>';
 	
 	obtenerEstaciones()

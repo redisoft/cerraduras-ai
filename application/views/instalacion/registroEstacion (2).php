@@ -15,7 +15,7 @@
         <script type="text/javascript" src="<?php echo base_url()?>js/jquery/jquery.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>js/jquery/jquery-ui.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>js/bootstrap/bootstrap.js"></script>
-        <script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js"></script>
+        <script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js?v=20241024"></script>
         <script>
 			
 			$(document).ready(function()
@@ -23,18 +23,6 @@
 				base_url				= '<?php echo base_url()?>';
 				
 				$('#username').focus();
-				
-				var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-		
-				if(!es_firefox)
-				{
-					$('#btnAceptar,#btnCambiarEstacion').remove()
-					$('#frmInstalacion').attr('action',null)
-					
-					notify('El sistema solo es compatible con Mozilla Firefox',500,6000,"error",55,8);
-					
-					
-				}
 				
 				obtenerEstaciones()
 			});

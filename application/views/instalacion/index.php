@@ -6,9 +6,9 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/notificaciones.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bibliotecas/sha1.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/instalacion/instalacion.js?v=20241024"></script>
 <script>window.base_url = '<?php echo base_url()?>';</script>
-<script type="text/javascript" src="<?php echo base_url()?>js/loginInstall.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/loginInstall.js?v=20241024"></script>
 <?php
 require_once "application/libraries/ReCaptcha.php";
 ?>
@@ -24,35 +24,15 @@ require_once "application/libraries/ReCaptcha.php";
 
 $(document).ready(function()
 {
-	var es_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-	
-	if(!es_firefox)
-	{
-		$('#btnAceptar,#btnCambiarEstacion').remove()
-		$('#frmInstalacion').attr('action',null)
-		
-		notify('El sistema solo es compatible con Mozilla Firefox',500,6000,"error",55,8);
-		
-		
-	}
-	
 	instalacion				= '<?php echo $estilo->passwordTiendas?>';
 	usuarioInstalacion		= '<?php echo $estilo->usuarioTiendas?>';
 	base_url				= '<?php echo base_url()?>';
 	
 	$('#txtUsuario').focus();
-	var noFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') === -1;
-	if(noFirefox){
-		alert('El sistema es compatible únicamente con Mozilla Firefox.');
-	}
 	$('.barraInstalacion').show();
     if(localStorage.getItem('cerradurasPwaInstalada')==='1'){
         $('#instalacionCookieProceso').hide();
         $('#btnSimularInstalacion').hide();
-    }
-    if(localStorage.getItem('cerradurasPwaInstalada') === '1'){
-        $('#btnSimularInstalacion').hide();
-        $('#instalacionCookieProceso').hide();
     }
 });
 
