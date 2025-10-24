@@ -47,156 +47,137 @@ $("#txtBuscarCodigo").keypress(function(e)
 
 
 <?php
-echo '
+$clientePlaceholder = $cliente!=null ? $cliente->empresa : (sistemaActivo=='olyess' ? 'Seleccione cliente' : 'VENTAS AL PÚBLICO GENERAL');
+$clienteId          = $cliente!=null ? $cliente->idCliente : (sistemaActivo=='olyess' ? 0 : 1);
+$precioCliente      = $cliente!=null ? $cliente->precio : 1;
+?>
 
+<form id="frmVentasClientes" name="frmVentasClientes" action="javascript:formularioCobros()" class="pos-form">
+	<input type="hidden" id="txtClaveDescuento" name="txtClaveDescuento" value="<?=$claveDescuento?>" />
+	<input type="hidden" id="txtNumeroProductos" name="txtNumeroProductos" value="0" />
+	<input type="hidden" id="txtTipoUsuarioActivo" name="txtTipoUsuarioActivo" value="<?=tipoUsuario?>" />
+	<input type="hidden" id="txtVentasF4" name="txtVentasF4" value="<?=$ventasF4?>" />
+	<input type="hidden" id="txtLimiteVentas" name="txtLimiteVentas" value="<?=$limiteVentas?>" />
+	<input type="hidden" id="txtPrecioCliente" name="txtPrecioCliente" value="<?=$precioCliente?>" />
+	<input type="hidden" id="txtTotalPrevio" value="0" />
 
-<!--<div style="width:370px; float: left">-->
-<!--<div style="width:420px; float: left">-->
-<form id="frmVentasClientes" name="frmVentasClientes" action="javascript:formularioCobros()">
+	<div class="pos-layout">
+		<section class="pos-panel pos-panel--cart">
+			<header class="pos-panel__header">
+				<div>
+					<h2 class="pos-panel__title">Carrito</h2>
+					<p class="pos-panel__subtitle">Productos agregados a la venta</p>
+				</div>
+			</header>
 
+			<div class="listaVentas pos-cart">
+				<div class="Error_validar" id="carritoVacio">Carrito de ventas vacio</div>
+				<table class="admintable" id="tablaVentas">
+					<tbody></tbody>
+				</table>
+			</div>
 
-
-<div class="col-md-4">
-
-		<input type="hidden" id="txtClaveDescuento" 	name="txtClaveDescuento" 	value="'.$claveDescuento.'" />
-		<input type="hidden" id="txtNumeroProductos" 	name="txtNumeroProductos" 	value="0" />
-		<input type="hidden" id="txtTipoUsuarioActivo" 	name="txtTipoUsuarioActivo" 	value="'.tipoUsuario.'" />
-		
-		<input type="hidden" id="txtVentasF4" 			name="txtVentasF4" 			value="'.$ventasF4.'" />
-		<input type="hidden" id="txtLimiteVentas" 		name="txtLimiteVentas" 			value="'.$limiteVentas.'" />
-		
-		<input type="hidden" id="txtPrecioCliente" 		name="txtPrecioCliente" 	value="'.($cliente!=null?$cliente->precio:1).'" />
-		
-		<input type="hidden" id="txtTotalPrevio" 	 	value="0" />
-		
-		<div class="listaVentas">
-			<div class="Error_validar" id="carritoVacio">Carrito de ventas vacio</div>
-			
-			<table class="admintable" width="100%" id="tablaVentas">
-				<tbody>
-				</tbody>
-			</table>
-		</div>
-	
-	<table class="admintable" width="100%">
-		<tr>
-			<td align="right" colspan="3" class="filaSubTotal">
-			
-				
-				'.(strlen($claveDescuento)>0?'<img src="'.base_url().'img/descuento.png" onclick="accesoAsignarDescuento(0)" style="cursor:pointer; " title="Asignar descuento" width="20" />':'').' 
-				
-				
-				
-				<label id="filaTotal" style="font-size: 2vh;">TOTAL: $0.00 </label>
-				
-				<br />
-				
-				
-				<label id="filaSubTotal" 	style="font-size: 1.2vh;">SUBTOTAL: $0.00 </label> |
-				
-				<label id="filaDescuento" 	style="font-size: 1.2vh;">DESC: $0.00 </label> |
-				
-				<label id="filaIva" 		style="font-size: 1.2vh;">IMPUESTOS: $0.00 </label> 
-				
+			<div class="pos-summary">
+				<?php if(strlen($claveDescuento) > 0): ?>
+					<button type="button" class="pos-summary__discount" onclick="accesoAsignarDescuento(0)" title="Asignar descuento">
+						<img src="<?=base_url()?>img/descuento.png" alt="" aria-hidden="true" />
+						<span>Aplicar descuento</span>
+					</button>
+				<?php endif; ?>
+				<span id="filaTotal" class="pos-summary__total">TOTAL: $0.00</span>
+				<div class="pos-summary__breakdown">
+					<span id="filaSubTotal" class="pos-summary__meta">SUBTOTAL: $0.00</span>
+					<span id="filaDescuento" class="pos-summary__meta">DESC: $0.00</span>
+					<span id="filaIva" class="pos-summary__meta">IMPUESTOS: $0.00</span>
+				</div>
 				<input type="hidden" id="txtDescuentoPorcentaje0" value="0" />
 				<input type="hidden" id="txtDescuentoProducto0" value="0" />
-				
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">';
-				
-				if(sistemaActivo=='olyess')
-				{
-					echo'
-					<input placeholder="'.($cliente!=null?$cliente->empresa:'Seleccione cliente').'" type="text" class="cajas" id="txtBuscarCliente" style="width:50vh; height: 1.8vh; font-size: 1.2vh"  />
-					<input type="hidden" id="txtIdCliente" 	name="txtIdCliente" value="'.($cliente!=null?$cliente->idCliente:0).'" />';
-				}
-				else
-				{
-					echo'<input placeholder="'.($cliente!=null?$cliente->empresa:'VENTAS AL PÚBLICO GENERAL').'" type="text" class="cajas" id="txtBuscarCliente" style="width:50vh; height: 1.8vh; font-size: 1.2vh"  />
-					<input type="hidden" id="txtIdCliente" 	name="txtIdCliente" value="'.($cliente!=null?$cliente->idCliente:1).'" />';
-				}
-				
-				
-				echo'
-				
-				<input type="hidden" id="txtCreditoDias" name="txtCreditoDias" value="0" />
-				<img src="'.base_url().'img/clientes.png" onclick="formularioClientes(\'venta\')" title="Nuevo cliente" style="width:2.4vh" />
-			</td>
-		</tr>
+			</div>
 
-		<tr>
-			<td colspan="1">
-				<label>Fecha: </label>
-				<input type="text" style="width:13vh; font-size: 1.2vh" class="cajas" id="txtFechaVenta" name="txtFechaVenta" value="'.date('Y-m-d H:i').'" />
-				<script>
-					$("#txtFechaVenta").timepicker()
-				</script>
-			</td>
-			<td colspan="2">
-				<textarea id="txtObservacionesVenta" name="txtObservacionesVenta" class="TextArea" style="height:5vh; width:35vh" placeholder="Observaciones" ></textarea>
-			</td>
-		</tr>
-		
-	</table>
-</div>
+			<div class="pos-client">
+				<label for="txtBuscarCliente">Cliente</label>
+				<div class="pos-client__field">
+					<input
+						type="text"
+						class="cajas"
+						id="txtBuscarCliente"
+						placeholder="<?=$clientePlaceholder?>"
+					/>
+					<input type="hidden" id="txtIdCliente" name="txtIdCliente" value="<?=$clienteId?>" />
+					<input type="hidden" id="txtCreditoDias" name="txtCreditoDias" value="0" />
+					<button type="button" class="pos-client__new" onclick="formularioClientes('venta')" title="Nuevo cliente">
+						<img src="<?=base_url()?>img/clientes.png" alt="Nuevo cliente" />
+					</button>
+				</div>
+			</div>
 
-<div class="col-md-8">
+			<div class="pos-meta">
+				<div class="pos-meta__item">
+					<label for="txtFechaVenta">Fecha</label>
+					<input type="text" class="cajas" id="txtFechaVenta" name="txtFechaVenta" value="<?=date('Y-m-d H:i')?>" />
+				</div>
+				<div class="pos-meta__item pos-meta__item--full">
+					<label for="txtObservacionesVenta">Observaciones</label>
+					<textarea id="txtObservacionesVenta" name="txtObservacionesVenta" class="TextArea" placeholder="Observaciones"></textarea>
+				</div>
+			</div>
+		</section>
 
-	<table>
-		<tr>
-			<td>
-				<input type="hidden" id="txtIdLinea" name="txtIdLinea" value="0" />
-	
-				<select class="cajas" id="selectLineas" name="selectLineas" style="width:20vh; height: 1.8vh; font-size: 1.2vh" onchange="obtenerProductosVenta(); obtenerSubLineasCatalogo()">
-					<option value="0">Seleccione línea</option>';
-					
-					foreach($lineas as $row)
-					{
-						echo '<option value="'.$row->idLinea.'">'.$row->nombre.'</option>';
-					}
-				
-				echo'
-				</select>
-			</td>
-			<td id="obtenerSubLineas">
-				<select class="cajas" id="selectSubLineas" name="selectSubLineas" '.(sistemaActivo=='pinata'?'style="display:none"':'style="width:20vh; height: 1.8vh; font-size: 1.2vh"').'  onchange="obtenerProductosVenta()">
-				<option value="0">Seleccione sublinea</option>';
-				
-				foreach($sublineas as $row)
-				{
-					echo '<option value="'.$row->idSubLinea.'">'.$row->nombre.'</option>';
-				}
-			
-			echo'
-			</select>
-			</td>
-			<td>
-				<input type="text" class="cajas" id="txtBuscarProducto" style="width:25vh; height: 1.8vh; font-size: 1.2vh" placeholder="Buscar productos / servicios"  />
-			</td>
-			<td>
-				<input type="text" class="cajas" id="txtBuscarCodigo" style="width:25vh; height: 1.8vh; font-size: 1.2vh" placeholder="Buscar por código de barras, código"  />
-			</td>
-		</tr>
-	</table>
-	
-	
-	
-	<div id="obtenerProductosVenta" align="right" class="productosPuntoVenta">
+		<section class="pos-panel pos-panel--catalog">
+			<header class="pos-panel__header pos-panel__header--compact">
+				<div>
+					<h2 class="pos-panel__title">Productos y servicios</h2>
+					<p class="pos-panel__subtitle">Busca y agrega artículos al carrito</p>
+				</div>
+			</header>
+
+			<input type="hidden" id="txtIdLinea" name="txtIdLinea" value="0" />
+
+			<div class="pos-filters">
+				<div class="pos-filters__item">
+					<label for="selectLineas">Línea</label>
+					<select class="cajas" id="selectLineas" name="selectLineas" onchange="obtenerProductosVenta(); obtenerSubLineasCatalogo()">
+						<option value="0">Seleccione línea</option>
+						<?php foreach($lineas as $row): ?>
+							<option value="<?=$row->idLinea?>"><?=$row->nombre?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+
+				<div class="pos-filters__item" id="obtenerSubLineas">
+					<label for="selectSubLineas">Sublinea</label>
+					<select class="cajas" id="selectSubLineas" name="selectSubLineas" <?=sistemaActivo=='pinata'?'style="display:none"':''?> onchange="obtenerProductosVenta()">
+						<option value="0">Seleccione sublinea</option>
+						<?php foreach($sublineas as $row): ?>
+							<option value="<?=$row->idSubLinea?>"><?=$row->nombre?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+
+				<div class="pos-filters__item pos-filters__item--grow">
+					<label for="txtBuscarProducto">Buscar producto</label>
+					<input type="text" class="cajas" id="txtBuscarProducto" placeholder="Buscar productos / servicios" />
+				</div>
+
+				<div class="pos-filters__item pos-filters__item--grow">
+					<label for="txtBuscarCodigo">Buscar por código</label>
+					<input type="text" class="cajas" id="txtBuscarCodigo" placeholder="Buscar por código de barras, código" />
+				</div>
+			</div>
+
+			<div id="obtenerProductosVenta" class="productosPuntoVenta" align="right"></div>
+
+			<div class="pos-actions">
+				<?php if(sistemaActivo=='olyess'): ?>
+					<input type="button" value="Pedidos" class="botonPuntoVenta" id="btnCobros" onclick="formularioPedidos()" />
+				<?php endif; ?>
+				<input type="button" value="Cancelar(F2)" class="botonPuntoVenta" id="btnCancelarVenta" onclick="formularioVentas()" />
+				<input type="button" value="Cobrar(F3)" class="botonPuntoVenta" id="btnCobros" onclick="formularioCobros()" />
+			</div>
+		</section>
 	</div>
-	
-	<div align="right" style="margin-top:0.5vh">';
-		
-		if(sistemaActivo=='olyess')
-		{
-			echo'<input type="button" value="Pedidos" class="botonPuntoVenta"  style="margin-right:1vh" id="btnCobros" onclick="formularioPedidos()" >';
-		}
-		
-		echo'
-		<input type="button" value="Cancelar(F2)" class="botonPuntoVenta"  style="margin-right:1vh" id="btnCancelarVenta" onclick="formularioVentas()">
-		<input type="button" value="Cobrar(F3)" class="botonPuntoVenta"  style="margin-right:7vh" id="btnCobros" onclick="formularioCobros()" >
-		
-	</div>
-</div>
-</form>';
+</form>
+
+<script>
+	$("#txtFechaVenta").timepicker();
+</script>
