@@ -197,13 +197,13 @@ var botonPendientesId = 'btnPendientesPOS';
 				boton.style.display = 'none';
 				return;
 			}
-			boton.addEventListener('click', function(){
-				if(boton.classList.contains('empty'))
-				{
-					notify('No hay ventas pendientes.',500,3000,'',30,5);
-					return;
-				}
-				window.mostrarVentasPendientes();
+				boton.addEventListener('click', function(){
+					if(boton.classList.contains('empty'))
+					{
+						notify('Sin pendientes.',500,3000,'',30,5);
+						return;
+					}
+					window.mostrarVentasPendientes();
 			});
 		}
 		actualizarEstadoBotonPendientes();
