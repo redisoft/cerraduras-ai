@@ -1,5 +1,10 @@
 <div class="arriba">
     <div class="barraMenu" id="barraTop">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-controls="ulMenuPrincipal" aria-expanded="false">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+        </button>
     	<img src="<?php echo base_url()?>img/menuBarra/desconectado-b.png" style="display:none"  />
         <img src="<?php echo base_url()?>img/menuBarra/desconectado.png" style="display:none"  />
         
@@ -44,7 +49,7 @@
             <!--<div class="col-md-1 text-center"></div>-->
         
         <div class="col-md-4 text-center" >
-        <li id="menuUsuarioRegistrado" class="usuarioRegistrado">
+        <li id="menuUsuarioRegistrado" class="usuarioRegistrado" aria-expanded="false">
         	
         	<?php echo  substr($this->session->userdata('nombreUsuarioSesion'),0,15)?>
             

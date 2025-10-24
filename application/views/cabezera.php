@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html>
-	<meta charset="utf-8">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
 <?php print($title);?>
 </title>
@@ -74,6 +75,68 @@ $(document).ready(function()
 			return false;
 		}
 	});
+    
+    var $menuToggle = $('#menuToggle');
+    var $menuPrincipal = $('#ulMenuPrincipal');
+    var $usuarioRegistrado = $('.menuBarra li.usuarioRegistrado');
+    var collapseUserMenu = function(){
+        if($usuarioRegistrado.length){
+            $usuarioRegistrado.removeClass('open').attr('aria-expanded', 'false');
+            if(window.matchMedia('(max-width: 991px)').matches){
+                $usuarioRegistrado.children('ul').stop(true, true).slideUp(0);
+            }else{
+                $usuarioRegistrado.children('ul').removeAttr('style');
+            }
+        }
+    };
+    collapseUserMenu();
+    if($menuToggle.length && $menuPrincipal.length){
+        var closeMenu = function(){
+            $('body').removeClass('menu-open');
+            $menuPrincipal.removeClass('menu-visible');
+            $menuToggle.attr('aria-expanded', 'false');
+            collapseUserMenu();
+        };
+        $menuToggle.on('click', function(){
+            var expanded = $(this).attr('aria-expanded') === 'true';
+            $(this).attr('aria-expanded', expanded ? 'false' : 'true');
+            $('body').toggleClass('menu-open', !expanded);
+            $menuPrincipal.toggleClass('menu-visible', !expanded);
+        });
+        $(window).on('resize', function(){
+            if(window.matchMedia('(min-width: 992px)').matches){
+                closeMenu();
+            }
+        });
+    }
+    if($usuarioRegistrado.length){
+        $usuarioRegistrado.on('click', function(e){
+            if(window.matchMedia('(max-width: 991px)').matches){
+                e.preventDefault();
+                e.stopPropagation();
+                var $this = $(this);
+                var isOpen = $this.hasClass('open');
+                collapseUserMenu();
+                if(!isOpen){
+                    $this.addClass('open').attr('aria-expanded', 'true');
+                    $this.children('ul').stop(true, true).slideDown(150);
+                }
+            }
+        });
+        $usuarioRegistrado.children('ul').on('click', function(e){
+            if(window.matchMedia('(max-width: 991px)').matches){
+                e.stopPropagation();
+            }
+        });
+        $(document).on('click', function(){
+            if(window.matchMedia('(max-width: 991px)').matches){
+                collapseUserMenu();
+            }
+        });
+        $(window).on('resize', function(){
+            collapseUserMenu();
+        });
+    }
 });
 
 </script>

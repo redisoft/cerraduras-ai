@@ -3043,6 +3043,157 @@ table.tablaFixed th a
 	text-align:  center;
 }
 
+.menu-toggle
+{
+	display:none;
+	background:none;
+	border:0;
+	padding:0.8rem;
+	margin-right:0.8rem;
+	cursor:pointer;
+}
+
+.menu-toggle__bar
+{
+	display:block;
+	width:24px;
+	height:2px;
+	background-color:#FFFFFF;
+	margin:4px 0;
+}
+
+body.menu-open
+{
+	overflow:hidden;
+}
+
+@media (max-width: 991px)
+{
+	.arriba
+	{
+		min-height:auto;
+		width:100%;
+	}
+
+	.barraMenu
+	{
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		padding:0 1rem;
+		height:auto;
+		min-height:4rem;
+	}
+
+	.menu-toggle
+	{
+		display:inline-flex;
+		flex-direction:column;
+		justify-content:center;
+	}
+
+	ul.menuBarra
+	{
+		width:100%;
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		margin-top:0.5rem;
+	}
+
+	ul.menuBarra > div,
+	ul.menuBarra li
+	{
+		width:100%;
+		text-align:center;
+		float:none;
+	}
+
+	ul.menuBarra li
+	{
+		height:auto;
+		padding:0.8rem 0;
+		font-size:1rem;
+		line-height:1.4;
+		border:none;
+	}
+
+	ul.menuBarra li:after
+	{
+		display:none;
+	}
+
+	ul.menuBarra li ul
+	{
+		position:static;
+		display:none;
+		margin-top:0.5rem;
+		padding:0;
+		width:100%;
+	}
+
+	ul.menuBarra li.open ul
+	{
+		display:block;
+	}
+
+	ul.menuBarra li ul li
+	{
+		width:100%;
+		padding:0.6rem 0;
+	}
+
+	#ulMenuPrincipal
+	{
+		position:fixed;
+		top:0;
+		left:0;
+		bottom:0;
+		width:280px;
+		max-width:80%;
+		background-color:#F1F1F1;
+		padding:1.5rem 1rem;
+		overflow-y:auto;
+		transform:translateX(-110%);
+		transition:transform 0.3s ease-in-out;
+		z-index:9999;
+		box-shadow:2px 0 10px rgba(0,0,0,0.15);
+	}
+
+	#ulMenuPrincipal.menu-visible,
+	body.menu-open #ulMenuPrincipal
+	{
+		transform:translateX(0);
+	}
+
+	div.izquierda
+	{
+		width:100%;
+		float:none;
+		margin-bottom:1.5rem;
+	}
+
+	div.derecha
+	{
+		width:100%;
+		float:none;
+		min-height:auto;
+	}
+
+	.desplegable,
+	.desplegableSeguimentos,
+	.desplegableAlertas
+	{
+		max-height:none;
+	}
+
+	.footer
+	{
+		padding:1rem;
+		text-align:center;
+	}
+}
+
 
 
 </style>
