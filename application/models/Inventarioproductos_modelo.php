@@ -25,6 +25,27 @@ class InventarioProductos_modelo extends CI_Model
 		
 		#$this->load->model('materiales_modelo','materiales');
    }
+
+	public function establecerContexto($contexto = array())
+	{
+		if(is_array($contexto))
+		{
+			if(isset($contexto['idLicencia']) && $contexto['idLicencia'] !== null && $contexto['idLicencia'] !== '')
+			{
+				$this->idLicencia = $contexto['idLicencia'];
+			}
+
+			if(isset($contexto['idTienda']) && $contexto['idTienda'] !== null && $contexto['idTienda'] !== '')
+			{
+				$this->idTienda = $contexto['idTienda'];
+			}
+		}
+	}
+
+	public function obtenerIdLicencia()
+	{
+		return $this->idLicencia;
+	}
    
    //=================TIENDAS==================//
    public function enviarProductosTienda()

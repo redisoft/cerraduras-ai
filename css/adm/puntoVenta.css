@@ -158,17 +158,14 @@ table.admintable td.textoGrande > select
 
 .productosPuntoVenta
 {
-	display:grid;
-	grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
-	gap:1rem;
-	padding:1.2rem;
-	margin-top:0px;
-	width:auto !important;
-	position:relative;
 	background:#ffffff;
 	border-radius:14px;
 	border:1px solid #dbe3f3;
 	box-shadow:0 6px 20px rgba(15,23,42,0.05);
+	padding:1.2rem;
+	margin-top:0;
+	width:auto !important;
+	position:relative;
 	max-height:65vh;
 	overflow-y:auto;
 	overflow-x:hidden;
@@ -601,6 +598,7 @@ table.admintable td.textoGrande > select
 
 	.productosPuntoVenta
 	{
+		display:grid;
 		grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
 		padding:1rem;
 	}
@@ -615,6 +613,7 @@ table.admintable td.textoGrande > select
 {
 	.productosPuntoVenta
 	{
+		display:grid;
 		grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
 		gap:0.75rem;
 		padding:0.85rem;

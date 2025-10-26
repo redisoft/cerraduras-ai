@@ -9,6 +9,54 @@ class Api_catalogo extends CI_Controller
 		$this->load->model('inventarioproductos_modelo', 'productos');
 		$this->load->model('modeloclientes', 'clientes');
 		$this->output->set_content_type('application/json', 'UTF-8');
+
+		$this->inicializarContexto();
+	}
+
+	protected function inicializarContexto()
+	{
+		$idLicencia = $this->input->get_post('idLicencia');
+		if(empty($idLicencia))
+		{
+			$idLicencia = $this->input->get_post('licencia');
+		}
+
+		if(empty($idLicencia))
+		{
+			$idLicencia = $this->session->userdata('idLicencia');
+		}
+
+		$idEstacion = $this->input->get_post('idEstacion');
+		if(empty($idEstacion))
+		{
+			$idEstacion = $this->session->userdata('idEstacion');
+		}
+
+		$contexto = array();
+
+		if(!empty($idLicencia))
+		{
+			$contexto['idLicencia'] = $idLicencia;
+			$this->session->set_userdata('idLicencia', $idLicencia);
+		}
+
+		if(!empty($idEstacion))
+		{
+			$contexto['idEstacion'] = $idEstacion;
+			$this->session->set_userdata('idEstacion', $idEstacion);
+		}
+
+		if(!empty($contexto))
+		{
+			if(method_exists($this->productos, 'establecerContexto'))
+			{
+				$this->productos->establecerContexto($contexto);
+			}
+			if(method_exists($this->clientes, 'establecerContexto'))
+			{
+				$this->clientes->establecerContexto($contexto);
+			}
+		}
 	}
 
 	protected function respond($data, $status = 200)
@@ -39,10 +87,29 @@ class Api_catalogo extends CI_Controller
 		$offset = (int) $this->input->get('offset');
 		$desde  = $this->parseFecha($this->input->get('desde'));
 
+		if(method_exists($this->productos, 'obtenerIdLicencia') && empty($this->productos->obtenerIdLicencia()))
+		{
+			return $this->respond(array(
+				'success' => false,
+				'message' => 'No se proporcionó la licencia para la sincronización.'
+			), 400);
+		}
+
 		$limite = $limite > 0 ? min($limite, 500) : 100;
 		$offset = $offset >= 0 ? $offset : 0;
 
-		$registros = $this->productos->obtenerProductosSync($desde, $limite, $offset);
+		try
+		{
+			$registros = $this->productos->obtenerProductosSync($desde, $limite, $offset);
+		}
+		catch(Exception $ex)
+		{
+			log_message('error', 'Error al sincronizar productos: '.$ex->getMessage());
+			return $this->respond(array(
+				'success' => false,
+				'message' => 'No fue posible obtener el catálogo de productos.'
+			), 500);
+		}
 
 		$payload = array();
 
@@ -96,10 +163,29 @@ class Api_catalogo extends CI_Controller
 		$offset = (int) $this->input->get('offset');
 		$desde  = $this->parseFecha($this->input->get('desde'));
 
+		if(method_exists($this->clientes, 'obtenerIdLicencia') && empty($this->clientes->obtenerIdLicencia()))
+		{
+			return $this->respond(array(
+				'success' => false,
+				'message' => 'No se proporcionó la licencia para la sincronización.'
+			), 400);
+		}
+
 		$limite = $limite > 0 ? min($limite, 500) : 100;
 		$offset = $offset >= 0 ? $offset : 0;
 
-		$registros = $this->clientes->obtenerClientesSync($desde, $limite, $offset);
+		try
+		{
+			$registros = $this->clientes->obtenerClientesSync($desde, $limite, $offset);
+		}
+		catch(Exception $ex)
+		{
+			log_message('error', 'Error al sincronizar clientes: '.$ex->getMessage());
+			return $this->respond(array(
+				'success' => false,
+				'message' => 'No fue posible obtener el catálogo de clientes.'
+			), 500);
+		}
 
 		$payload = array();
 		foreach($registros as $row)

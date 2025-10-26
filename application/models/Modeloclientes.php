@@ -37,6 +37,27 @@ class Modeloclientes extends CI_Model
 		}
 	}
 
+	public function establecerContexto($contexto = array())
+	{
+		if(is_array($contexto))
+		{
+			if(isset($contexto['idLicencia']) && $contexto['idLicencia'] !== null && $contexto['idLicencia'] !== '')
+			{
+				$this->idLicencia = $contexto['idLicencia'];
+			}
+
+			if(isset($contexto['idEstacion']) && $contexto['idEstacion'] !== null && $contexto['idEstacion'] !== '')
+			{
+				$this->idEstacion = $contexto['idEstacion'];
+			}
+		}
+	}
+
+	public function obtenerIdLicencia()
+	{
+		return $this->idLicencia;
+	}
+
 	public function obtenerClientesSync($desde = null, $limite = 100, $offset = 0)
 	{
 		$limite = (int) $limite;

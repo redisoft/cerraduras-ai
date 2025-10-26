@@ -8,6 +8,44 @@
 
 	const API_PRODUCTOS = base_url + 'api_catalogo/productos';
 	const API_CLIENTES  = base_url + 'api_catalogo/clientes';
+	const CONTEXTO_CACHE_KEY = 'cerradurasOfflineSession';
+
+	function obtenerContextoSincronizacion()
+	{
+		var contexto = {};
+
+		try
+		{
+			var almacenado = localStorage.getItem(CONTEXTO_CACHE_KEY);
+			if(almacenado)
+			{
+				var data = JSON.parse(almacenado);
+				if(data && typeof data === 'object')
+				{
+					if(data.idLicencia)
+					{
+						contexto.idLicencia = data.idLicencia;
+					}
+					if(data.idEstacion)
+					{
+						contexto.idEstacion = data.idEstacion;
+					}
+				}
+			}
+		}
+		catch(error)
+		{
+			console.warn('No fue posible recuperar el contexto offline', error);
+		}
+
+		var licenciaInput = document.getElementById('selectSucursal');
+		if(licenciaInput && licenciaInput.value)
+		{
+			contexto.idLicencia = licenciaInput.value;
+		}
+
+		return contexto;
+	}
 
 	function getModuloActual()
 	{
@@ -91,6 +129,17 @@
 	{
 		var limite = 500;
 		var baseParams = { limite: limite };
+		var contexto = obtenerContextoSincronizacion();
+
+		if(contexto.idLicencia)
+		{
+			baseParams.idLicencia = contexto.idLicencia;
+		}
+		if(contexto.idEstacion)
+		{
+			baseParams.idEstacion = contexto.idEstacion;
+		}
+
 		if(ultimoSync)
 		{
 			baseParams.desde = new Date(parseInt(ultimoSync, 10)).toISOString();
@@ -150,6 +199,17 @@
 	{
 		var limite = 500;
 		var baseParams = { limite: limite };
+		var contexto = obtenerContextoSincronizacion();
+
+		if(contexto.idLicencia)
+		{
+			baseParams.idLicencia = contexto.idLicencia;
+		}
+		if(contexto.idEstacion)
+		{
+			baseParams.idEstacion = contexto.idEstacion;
+		}
+
 		if(ultimoSync)
 		{
 			baseParams.desde = new Date(parseInt(ultimoSync, 10)).toISOString();
