@@ -172,6 +172,6 @@ $(document).ready(function()
 	echo'
 	</div>-->
 	
-	<div id="obtenerProductosVenta" align="right" class="productosPuntoVenta">
+<div id="obtenerProductosVenta" class="productosPuntoVenta">
 	</div>
 </div>';

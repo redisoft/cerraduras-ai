@@ -132,7 +132,7 @@ $("#txtBuscarCliente").autocomplete(
 		}
 	echo'
 	</div>
-	<div id="obtenerProductosVenta" align="right"></div>
+<div id="obtenerProductosVenta"></div>
 </div>
 
 <table class="admintable" width="100%" style="display:none" >

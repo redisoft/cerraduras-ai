@@ -511,9 +511,41 @@ table.admintable td.textoGrande > select
 
 .pos-products__table.productosPuntoVenta
 {
-	display:grid;
-	grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
-	gap:1rem;
+	padding:0;
+}
+
+#example-console
+{
+	display:none !important;
+}
+
+.col-md-8 > #obtenerProductosVenta,
+.col-md-8 > .productosPuntoVenta
+{
+	display:flex;
+	gap:16px;
+	align-items:flex-start;
+	width:100%;
+	height:auto;
+	min-height:0;
+	flex-direction:column;
+}
+
+.col-md-8 > .productosPuntoVenta #example_wrapper
+{
+	flex:1 1 auto;
+	min-width:0;
+	overflow:auto;
+}
+
+.col-md-8 .dataTables_wrapper
+{
+	width:100%;
+}
+
+.col-md-8
+{
+	min-width:0;
 }
 
 .pos-actions

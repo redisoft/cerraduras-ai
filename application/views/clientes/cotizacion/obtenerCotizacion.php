@@ -175,7 +175,7 @@ $("#tablaVentas tr:odd").addClass("sinSombra");
 		</select>
 		
 		<input type="text" class="cajas" id="txtBuscarProducto" onkeyup="obtenerProductosVenta()" style="width:250px" placeholder="Buscar productos / servicios"  />
-		<div id="obtenerProductosVenta" align="right" class="productosPuntoVenta">
+	<div id="obtenerProductosVenta" class="productosPuntoVenta">
 		</div>
 	</div>
 </form>';

@@ -37,7 +37,7 @@ if($productos!=null)
 			}
 		}
 		
-		echo '
+	echo '
 		<div class="puntoVenta" title="Agregar '.$row->nombre.'" >';
 			
 			if(file_exists(carpetaProductos.$row->idProducto.'_'.$row->imagen) and strlen($row->imagen)>4)

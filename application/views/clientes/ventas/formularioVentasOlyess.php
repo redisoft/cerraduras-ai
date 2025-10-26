@@ -169,7 +169,7 @@ echo '
 	
 	
 	
-	<div id="obtenerProductosVenta" align="right" class="productosPuntoVenta">';
+	<div id="obtenerProductosVenta" class="productosPuntoVenta">';
 	
 	foreach($lineas as $row)
 	{

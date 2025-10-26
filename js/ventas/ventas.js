@@ -152,10 +152,7 @@ function renderProductosDesdeCache(lista)
 	var html = '';
 
 	html += '<input type="hidden" id="txtNumeroTotalProductos" value="'+lista.length+'"/>';
-	html += '<div id="example-console"></div>';
-	html += '<div style="width:90%; margin-top:0%;">';
 	html += '<ul id="pagination-digg" class="ajax-pagVen"></ul>';
-	html += '</div>';
 	html += '<table class="admintable display" cellspacing="0" width="100%" id="example">';
 	html += '<thead><tr>';
 	html += '<th>#</th>';

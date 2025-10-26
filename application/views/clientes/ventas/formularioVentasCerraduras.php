@@ -241,7 +241,7 @@ echo '
 	
 	
 	
-	<div id="obtenerProductosVenta" align="right" class="productosPuntoVenta">
+	<div id="obtenerProductosVenta" class="productosPuntoVenta">
 	</div>
 	
 	<div align="right" style="margin-top:0vh">';

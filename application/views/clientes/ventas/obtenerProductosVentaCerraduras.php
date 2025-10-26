@@ -5,8 +5,6 @@ if(window.inicializarTablaProductos)
 }
 </script>
 
-<div id="example-console"></div>
-
 <?php
 $idCliente		= $this->input->post('idCliente');
 $precio			= $this->clientes->obtenerPrecioCliente($idCliente);
@@ -17,9 +15,7 @@ echo '<input type="hidden" id="txtNumeroTotalProductos" 		value="'.count($produc
 if($productos!=null)
 {
 	echo'
-	<div style="width:90%; margin-top:0%;">
-		<ul id="pagination-digg" class="ajax-pagVen">'.$this->pagination->create_links().'</ul>
-	</div>
+	<ul id="pagination-digg" class="ajax-pagVen">'.$this->pagination->create_links().'</ul>
 	<table class="admintable display" cellspacing="0" width="100%" id="example" >
 		<thead>
 			<tr>
