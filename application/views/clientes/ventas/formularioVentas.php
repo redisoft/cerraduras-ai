@@ -62,15 +62,13 @@ $precioCliente      = $cliente!=null ? $cliente->precio : 1;
 	<input type="hidden" id="txtTotalPrevio" value="0" />
 
 	<div class="pos-layout">
-		<section class="pos-panel pos-panel--cart">
-			<header class="pos-panel__header">
-				<div>
-					<h2 class="pos-panel__title">Carrito</h2>
-					<p class="pos-panel__subtitle">Productos agregados a la venta</p>
-				</div>
+		<aside class="pos-cart">
+			<header class="pos-cart__header">
+				<h2>Carrito</h2>
+				<p>Productos agregados a la venta</p>
 			</header>
 
-			<div class="listaVentas pos-cart">
+			<div class="listaVentas pos-cart__list">
 				<div class="Error_validar" id="carritoVacio">Carrito de ventas vacio</div>
 				<table class="admintable" id="tablaVentas">
 					<tbody></tbody>
@@ -93,24 +91,6 @@ $precioCliente      = $cliente!=null ? $cliente->precio : 1;
 				<input type="hidden" id="txtDescuentoPorcentaje0" value="0" />
 				<input type="hidden" id="txtDescuentoProducto0" value="0" />
 			</div>
-
-			<div class="pos-client">
-				<label for="txtBuscarCliente">Cliente</label>
-				<div class="pos-client__field">
-					<input
-						type="text"
-						class="cajas"
-						id="txtBuscarCliente"
-						placeholder="<?=$clientePlaceholder?>"
-					/>
-					<input type="hidden" id="txtIdCliente" name="txtIdCliente" value="<?=$clienteId?>" />
-					<input type="hidden" id="txtCreditoDias" name="txtCreditoDias" value="0" />
-					<button type="button" class="pos-client__new" onclick="formularioClientes('venta')" title="Nuevo cliente">
-						<img src="<?=base_url()?>img/clientes.png" alt="Nuevo cliente" />
-					</button>
-				</div>
-			</div>
-
 			<div class="pos-meta">
 				<div class="pos-meta__item">
 					<label for="txtFechaVenta">Fecha</label>
@@ -121,51 +101,70 @@ $precioCliente      = $cliente!=null ? $cliente->precio : 1;
 					<textarea id="txtObservacionesVenta" name="txtObservacionesVenta" class="TextArea" placeholder="Observaciones"></textarea>
 				</div>
 			</div>
-		</section>
+		</aside>
 
-		<section class="pos-panel pos-panel--catalog">
-			<header class="pos-panel__header pos-panel__header--compact">
-				<div>
-					<h2 class="pos-panel__title">Productos y servicios</h2>
-					<p class="pos-panel__subtitle">Busca y agrega artículos al carrito</p>
-				</div>
-			</header>
+		<section class="pos-search">
+			<h2>Presione Enter para buscar</h2>
 
-			<input type="hidden" id="txtIdLinea" name="txtIdLinea" value="0" />
+			<div class="pos-search__inputs">
+				<label for="txtBuscarCodigo">
+					Código
+					<input type="text" class="cajas" id="txtBuscarCodigo" placeholder="Buscar por código de barras, código" />
+				</label>
+				<label for="txtBuscarProducto">
+					Nombre
+					<input type="text" class="cajas" id="txtBuscarProducto" placeholder="Buscar productos / servicios" />
+				</label>
+			</div>
 
-			<div class="pos-filters">
-				<div class="pos-filters__item">
-					<label for="selectLineas">Línea</label>
+			<div class="pos-search__filters">
+				<label for="selectLineas">
+					Línea
 					<select class="cajas" id="selectLineas" name="selectLineas" onchange="obtenerProductosVenta(); obtenerSubLineasCatalogo()">
 						<option value="0">Seleccione línea</option>
 						<?php foreach($lineas as $row): ?>
 							<option value="<?=$row->idLinea?>"><?=$row->nombre?></option>
 						<?php endforeach; ?>
 					</select>
-				</div>
+				</label>
 
-				<div class="pos-filters__item" id="obtenerSubLineas">
-					<label for="selectSubLineas">Sublinea</label>
+				<label for="selectSubLineas" id="obtenerSubLineas">
+					Sublinea
 					<select class="cajas" id="selectSubLineas" name="selectSubLineas" <?=sistemaActivo=='pinata'?'style="display:none"':''?> onchange="obtenerProductosVenta()">
 						<option value="0">Seleccione sublinea</option>
 						<?php foreach($sublineas as $row): ?>
 							<option value="<?=$row->idSubLinea?>"><?=$row->nombre?></option>
 						<?php endforeach; ?>
 					</select>
-				</div>
-
-				<div class="pos-filters__item pos-filters__item--grow">
-					<label for="txtBuscarProducto">Buscar producto</label>
-					<input type="text" class="cajas" id="txtBuscarProducto" placeholder="Buscar productos / servicios" />
-				</div>
-
-				<div class="pos-filters__item pos-filters__item--grow">
-					<label for="txtBuscarCodigo">Buscar por código</label>
-					<input type="text" class="cajas" id="txtBuscarCodigo" placeholder="Buscar por código de barras, código" />
-				</div>
+				</label>
 			</div>
 
-			<div id="obtenerProductosVenta" class="productosPuntoVenta" align="right"></div>
+			<div class="pos-search__cliente">
+				<label for="txtBuscarCliente">
+					Cliente
+					<input
+						type="text"
+						class="cajas"
+						id="txtBuscarCliente"
+						placeholder="<?=$clientePlaceholder?>"
+					/>
+				</label>
+				<input type="hidden" id="txtIdCliente" name="txtIdCliente" value="<?=$clienteId?>" />
+				<input type="hidden" id="txtCreditoDias" name="txtCreditoDias" value="0" />
+				<button type="button" class="btn-secundario" onclick="formularioClientes('venta')" title="Nuevo cliente">
+					Nuevo cliente
+				</button>
+			</div>
+
+			<input type="hidden" id="txtIdLinea" name="txtIdLinea" value="0" />
+		</section>
+
+		<section class="pos-products">
+			<header class="pos-products__header">
+				<span class="pos-products__title">Listado de productos</span>
+			</header>
+
+			<div id="obtenerProductosVenta" class="pos-products__table productosPuntoVenta"></div>
 
 			<div class="pos-actions">
 				<?php if(sistemaActivo=='olyess'): ?>
