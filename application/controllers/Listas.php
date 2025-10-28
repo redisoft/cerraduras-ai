@@ -207,6 +207,8 @@ class Listas extends CI_Controller
 		$this->mpdf->mirrorMargins = 1;
 		$this->mpdf->WriteHTML($html);
 		$this->mpdf->Output(carpetaFicheros.'ListaPrecios.pdf','F');
+
+		echo 'ListaPrecios';
 	}
 }
 ?>
